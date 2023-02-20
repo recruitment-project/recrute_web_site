@@ -35,15 +35,15 @@ const router = createBrowserRouter([
     },
     {
         path : '/recovery',
-        element : <Recovery></Recovery>
+        element : <AuthorizeUser><Recovery></Recovery></AuthorizeUser>
     },
     {
         path : '/reset',
-        element : <Reset></Reset>
+        element : <AuthorizeUser><Reset></Reset></AuthorizeUser>
     },
     {
         path : '/dashboard',
-        element : <Dashboard></Dashboard>
+        element : <AuthorizeUser><Dashboard></Dashboard></AuthorizeUser>
     },
     {
         path : '*',

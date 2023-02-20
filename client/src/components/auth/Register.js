@@ -37,9 +37,10 @@ export default function Register() {
       // console.log(values.accountType);
       let registerPromise = registerUser(values)
       toast.promise(registerPromise, {
-        loading: 'Creating...',
+        loading: 'please check your email to login...',
         success : <b>Register Successfully...!</b>,
-        error : <b>Could not Register.</b>
+        error : <b>Could not Register.</b>,
+        timeOut: 5
       });
 
       registerPromise.then(function(){ 
