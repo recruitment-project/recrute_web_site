@@ -276,7 +276,3 @@ export async function resetPassword(req,res){
         return res.status(401).send({ error })
     }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> dfbc770a842f4a970776689bb6e67ebe381924aa
