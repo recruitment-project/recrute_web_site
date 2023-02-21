@@ -1,0 +1,161 @@
+.glass{
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px #4747470b;
+    backdrop-filter: blur(7.1px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    @apply border-4 border-gray-50 shrink-0 h-3/4 w-[30%] rounded-3xl py-20 px-7 min-w-max;
+}
+
+.profile_img{
+    @apply border-4 border-gray-100 w-[135px] rounded-full shadow-lg cursor-pointer;
+    @apply hover:border-gray-200;
+}
+
+.textbox{
+    @apply border-0 px-5 py-4 rounded-xl w-3/4 shadow-sm text-lg;
+    @apply focus:outline-none;
+}
+
+.btn{
+    @apply border bg-indigo-500 w-3/4 py-4 rounded-lg text-gray-50 text-xl shadow-sm text-center;
+}
+
+.btn:hover{
+    background-color: #ff6a6a;
+}
+
+input[type='file']{
+    display: none;
+}
+
+
+
+
+
+.card {
+    width: 550px;
+    background-color: #000;
+    height: 700px;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 1rem;
+  }
+  
+  @media only screen and (max-width: 620px) {
+    .card {
+      width: 90vw;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media only screen and (max-height: 670px) {
+    .card {
+      height: 650px;
+    }
+  }
+
+  .title {
+    color: white;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .subtitle {
+    color: rgb(218, 218, 218);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .inputs_container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .inputs_container input {
+    width: 95%;
+    margin: 1.5rem auto;
+    padding: 1rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: 0;
+    border: 0;
+  }
+  
+  .login_button {
+    display: block;
+    margin: 3rem auto 1rem auto;
+    width: 55%;
+    padding: 0.75rem 1rem;
+    border-radius: 25px;
+    outline: 0;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    background-color: #4e65f7;
+    color: white;
+    border: 2px solid transparent;
+  }
+  
+  .login_button:hover {
+    border: 2px solid #4e65f7;
+    background-color: #000;
+  }
+  
+  .link_container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .small {
+    color: rgb(218, 218, 218);
+    text-align: center;
+    font-size: 0.85rem;
+    text-decoration: underline;
+    margin-bottom: 5rem;
+    cursor: pointer;
+  }
+  
+  .icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  .icon {
+    color: white;
+    cursor: pointer;
+  }
+  
+  .error_msg {
+    color: red;
+    padding-left: 1rem;
+    font-size: 0.85rem;
+    margin: 0;
+  }
+  
+  @media only screen and (max-width: 620px) {
+    .inputs_container input {
+      width: 100%;
+    }
+  
+    .login_button {
+      width: 100%;
+    }
+  
+    .error_msg {
+      padding-left: 0.2rem;
+    }
+  }
+  
+  @media only screen and (max-height: 670px) {
+    .subtitle {
+      margin-bottom: 2rem;
+    }
+  
+    .small {
+      margin-bottom: 3rem;
+    }
+  }
