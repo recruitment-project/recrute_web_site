@@ -159,7 +159,7 @@ export default function Contact() {
           <AlternateEmailIcon />
         </IconButton>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        nouhahammami21@gmail.com
+        werecruit277@gmail.com
         </Typography>
         </CardActions>
         <CardActions disableSpacing>
