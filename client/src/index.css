@@ -167,3 +167,17 @@ overflow-y: scroll;
 .imputsearch{
     border: 2px solid white;
 }
+.photoContact{
+    height: 300px;
+    width: 700px; 
+    margin-top: 40px;
+}
+.cardconatct{
+    background-color: hsl(0, 0%, 100%);
+    border-radius:25px;
+    margin-top: 20px;
+    
+   
+    
+
+}
