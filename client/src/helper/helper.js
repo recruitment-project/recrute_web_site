@@ -40,7 +40,11 @@ export async function registerUser(credentials){
         const { data : { msg }, status } = await axios.post(`/api/register`, credentials);
 
         let { username, email } = credentials;
+<<<<<<< HEAD
 
+=======
+        console.log(username, password, profile, email,accountType)
+>>>>>>> 1b80af36ae2277984052fece04ef15b2757a3d67
         /** send email */
         if(status === 201){
             await axios.post('/api/registerMail', { username, userEmail : email, text : msg})
@@ -49,7 +53,13 @@ export async function registerUser(credentials){
 
         return Promise.resolve(msg)
     } catch (error) {
+<<<<<<< HEAD
         return Promise.reject({ error })
+=======
+        //console.log(error)
+        return Promise.reject({ error })
+        
+>>>>>>> 1b80af36ae2277984052fece04ef15b2757a3d67
     }
 }
 
