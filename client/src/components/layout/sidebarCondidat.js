@@ -11,24 +11,24 @@ import { NavLink } from 'react-router-dom';
     const toggle=()=>setIsOpen(!isOpen);
     const menuItem=[
         {
-            path:"/dashbord",
+            path:"/candidat/dashboard",
             name:"Dashbord",
             icon:<AiFillHome/>
         },
         {
-            path:"/offre",
+            path:"/candidat/offre",
             name:"Offre",
             icon:<FaShoppingBag/>
         },
         {
-            path:"formation",
+            path:"/candidat/formation",
             name:"Formation",
             icon:<TbCertificate/>
         }
         ,
       
         {
-            path:"/profile",
+            path:"/candidat/profile",
             name:"Profile",
             icon:<FaUserAlt/>
         }
@@ -51,6 +51,7 @@ import { NavLink } from 'react-router-dom';
                             <div className='icon'>{item.icon}</div>
                             <div style={{display:isOpen? "block" : "none"}} className='link_text'>{item.name}</div>
                         </NavLink>
+                        
                     ))
                 }
                 <div className='Logout'>
@@ -62,7 +63,7 @@ import { NavLink } from 'react-router-dom';
                 </div>
 
             </div>
-            <main>{children}</main> 
+          
          
         </div>
     )

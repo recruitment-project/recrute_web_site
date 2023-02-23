@@ -1,15 +1,15 @@
 import React from 'react'
 import SidebarRecruteur from '../../layout/sidebarRecruteur';
-function MesOffre() {
+function FormationR() {
   return (
     <div className='displ'>
     <div>
    <SidebarRecruteur/>
     </div>
     <div>
-    MesOffre
+    FormationR
     </div></div>
   )
 }
 
-export default MesOffre
+export default FormationR

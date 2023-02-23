@@ -1,15 +1,16 @@
 import React from 'react'
-import SidebarCandidat from '../../../layout/sidebarCondidat'
-function Dashbord() {
+import SidebarRecruteur from '../../layout/sidebarRecruteur';
+function DashbordR() {
   return (
     <div className='displ'>
     <div>
-   <SidebarCandidat/>
+   <SidebarRecruteur/>
     </div>
     <div>
       Dashbord
     </div></div>
+
   )
 }
 
-export default Dashbord
+export default DashbordR
