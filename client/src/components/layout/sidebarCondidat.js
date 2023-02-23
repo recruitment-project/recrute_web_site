@@ -36,18 +36,18 @@ import { NavLink } from 'react-router-dom';
        
     ];
     return (
-        <div className='container'>
+        <div className='container flex'>
              
             <div style={{width:isOpen ? "250px" : "50px"}} className='sidebar'>
                 <div className='top-section'>
                     <h1 style={{display:isOpen? "block" : "none"}} className='logo'>Logo</h1>
-                    <div  style={{marginLeft:isOpen? "50px" :"0px"}} className='bars'>
+                    <div  style={{marginLeft:isOpen? "50px" :"0px"}} className='bars flex'>
                         <FaBars onClick={toggle}/>
                     </div>
                 </div>
                 {
                     menuItem.map((item, index)=>(
-                        <NavLink to={item.path} key={index} className='link' activeclassName="active">
+                        <NavLink to={item.path} key={index} className='link flex' activeclassName="active">
                             <div className='icon'>{item.icon}</div>
                             <div style={{display:isOpen? "block" : "none"}} className='link_text'>{item.name}</div>
                         </NavLink>
@@ -56,7 +56,7 @@ import { NavLink } from 'react-router-dom';
                 }
                 <div className='Logout'>
                    
-                    <NavLink to="/password" className='link ' activeclassName="active" >
+                    <NavLink to="/password" className='link flex ' activeclassName="active" >
                         <div className='icon'><TbLogout/></div>
                         <div style={{display:isOpen? "block" : "none"}} className='link_text'>logout</div>
                     </NavLink>

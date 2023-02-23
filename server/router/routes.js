@@ -14,11 +14,11 @@ router.route('/register').post(controller.register); // register user
 router.route('/registerMail').post(registerMail); // send the email
 router.route('/authenticate').post(controller.verifyUser, (req, res) => res.end()); // authenticate user
 router.route('/login').post(controller.verifyUser,controller.login); // login in app
-<<<<<<< HEAD
+//
 router.route('/resetMail').post(resetMail); //send the email
-=======
+//
 router.route('/contact').post(contactController.contact); //contact
->>>>>>> 7389a5b2ca9e5a3db9eb3dbd6655a65af88714ba
+//
 
 /** GET Methods */
 router.route('/user/:username').get(controller.getUser) // user with username

@@ -35,9 +35,9 @@ export default function Password() {
         let { token } = res.data;
         localStorage.setItem('token', token);
         if (apiData?.accountType === "recruteur") {
-          navigate("/candidat/profile");
+          navigate("/recruteur/dashboard");
         } else if (apiData?.accountType === "candidat") {
-          navigate("/recruteur/profile");
+          navigate("/candidat/dashboard");
         }
       })
       

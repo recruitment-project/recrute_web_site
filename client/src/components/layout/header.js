@@ -13,7 +13,6 @@ import Card from 'react-bootstrap/Card';
 import avatar from '../../assets/avatar.png';
 import { useHistory,useNavigate , NavLink } from 'react-router-dom';
 
-
 export default function Header() {
 return (
 	<Card className='hide shadow'>
