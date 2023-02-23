@@ -24,10 +24,6 @@ export default function Username() {
       navigate('/password')
     }
   })
-
-
-
-
   return (
     <section className=" container mx-auto flex justify-center mt-9">
       <Toaster position='top-center' reverseOrder={false}></Toaster>

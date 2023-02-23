@@ -44,31 +44,47 @@ export default function Reset() {
   if(status && status !== 201) return <Navigate to={'/password'} replace={true}></Navigate>
 
   return (
-    <div className="container mx-auto flex justify-center">
-
+    
+    <section className=" container mx-auto flex justify-center mt-9">
       <Toaster position='top-center' reverseOrder={false}></Toaster>
-
-      <div className='flex justify-center items-center h-screen'>
-        <div className={styles.glass} style={{ width : "50%"}}>
-
-          <div className="title flex flex-col items-center">
-            <h4 className='text-5xl font-bold'>Reset</h4>
-            <span className='py-4 text-xl w-2/3 text-center text-gray-500'>
-              Enter new password.
-            </span>
-          </div>
-
-          <form className='py-20' onSubmit={formik.handleSubmit}>
-              <div className="textbox flex flex-col items-center gap-6">
-                  <input {...formik.getFieldProps('password')} className={styles.textbox} type="text" placeholder='New Password' />
-                  <input {...formik.getFieldProps('confirm_pwd')} className={styles.textbox} type="text" placeholder='Repeat Password' />
-                  <button className={styles.btn} type='submit'>Reset</button>
-              </div>
-
-          </form>
-
-        </div>
+  <div className=" flex justify-center items-center  bg-white rounded-xl ">
+    <div
+      className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6"
+    >
+      <div
+        className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0"
+      >
+        <img
+          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          className="w-full"
+          alt="Sample image"
+        />
       </div>
+      
+
+<Toaster position='top-center' reverseOrder={false}></Toaster>
+
+<div className="xl:ml-20 xl:w-6/12 lg:w-5/6 md:w-9/12 mb-12 md:mb-0">
+      <div className="title flex flex-col items-center mt-12">
+      <h4 className='text-4xl font-bold'>Modifier votre mot de passe</h4>
+      <span className='py-4 text-xl w-2/3 text-center text-gray-500'>
+        Entrer un  nouveau mot de passe.
+      </span>
     </div>
+
+    <form className='py-20' onSubmit={formik.handleSubmit}>
+        <div className="textbox flex flex-col items-center gap-6">
+            <input {...formik.getFieldProps('password')} className={styles.textbox} type="text" placeholder='New Password' />
+            <input {...formik.getFieldProps('confirm_pwd')} className={styles.textbox} type="text" placeholder='Repeat Password' />
+            <button className={styles.btn} type='submit'>Modifier</button>
+        </div>
+
+    </form>
+
+  </div>
+</div>
+</div>
+
+</section>
   )
 }

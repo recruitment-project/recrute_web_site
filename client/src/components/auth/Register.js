@@ -14,14 +14,6 @@ export default function Register() {
 
   const navigate = useNavigate()
   const [file, setFile] = useState()
- 
-    
-  
-
-   
-
-
-
   const formik = useFormik({
     initialValues : {
       email: 'doyol56239@cnogs.com',
@@ -34,22 +26,21 @@ export default function Register() {
     validateOnChange: false,
     onSubmit : async values => {
       values = await Object.assign(values, { profile : file || ''})
-      // console.log(values.accountType);
       let registerPromise = registerUser(values)
       toast.promise(registerPromise, {
         loading: 'please check your email to login...',
         success : <b>Register Successfully...!</b>,
         error : <b>Could not Register.</b>,
-        timeOut: 5
       });
 
       registerPromise.then(function(){ 
         navigate('/')
       });
-  
+      
 
       
     }
+    
   })
 
   /** formik doensn't support file upload so we need to create this handler */
