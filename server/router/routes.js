@@ -5,7 +5,7 @@ const router = Router();
 import * as controller from '../controllers/appController.js';
 import { registerMail } from '../controllers/mailer.js'
 import Auth, { localVariables } from '../middleware/auth.js';
-
+import * as contactController from '../controllers/contactController.js';
 
 
 /** POST Methods */
@@ -13,6 +13,7 @@ router.route('/register').post(controller.register); // register user
 router.route('/registerMail').post(registerMail); // send the email
 router.route('/authenticate').post(controller.verifyUser, (req, res) => res.end()); // authenticate user
 router.route('/login').post(controller.verifyUser,controller.login); // login in app
+router.route('/contact').post(contactController.contact); //contact
 
 /** GET Methods */
 router.route('/user/:username').get(controller.getUser) // user with username
@@ -25,6 +26,14 @@ router.route('/createResetSession').get(controller.createResetSession) // reset 
 router.route('/updateuser').put(Auth, controller.updateUser); // is use to update the user profile
 router.route('/resetPassword').put(controller.verifyUser, controller.resetPassword); // use to reset password
 
-
+/** send email contact */
+router.post("/sendmail", (req, res) => {
+    console.log("request came");
+    let user = req.body;
+    contactController.sendMail(user, info => {
+      console.log(`The mail has beed send and the id is ${info.messageId}`);
+      res.send(info);
+    });
+  });
 
 export default router;

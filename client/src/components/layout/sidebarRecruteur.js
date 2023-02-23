@@ -32,13 +32,13 @@ import {GiPaintBrush} from "react-icons/gi";
         }
         ,
         {
-            path:"/recruteur/profile",
-            name:"Profile",
+            path:"/recruteur/recruter",
+            name:"Recruter",
             icon:<GiPaintBrush/>
         },
         {
-            path:"/recruteur/recruter",
-            name:"Recruter",
+            path:"/recruteur/profile",
+            name:"Profile",
             icon:<FaUserAlt/>
         }
        

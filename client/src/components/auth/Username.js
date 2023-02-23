@@ -20,7 +20,6 @@ export default function Username() {
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit : async values => {
-      
       setUsername(values.username);
       navigate('/password')
     }
