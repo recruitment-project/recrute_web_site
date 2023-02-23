@@ -105,7 +105,14 @@ const router = createBrowserRouter([
     },
 ])
 
+
 export default function App() {
+    const [isLoading, setLoading] = useState(true);
+
+  // timer for spinner
+  setTimeout(() => {
+    setLoading(false);
+  }, 1500);
   return (
     <main>
        <RouterProvider router={router}></RouterProvider>
