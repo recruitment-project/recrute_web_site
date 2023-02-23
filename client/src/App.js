@@ -12,6 +12,15 @@ import Reset from './components/auth/Reset';
 import PageNotFound from './components/PageNotFound';
 import Dashboard from './components/Dashboard/Dashbord';
 
+
+import Home from './components/home/pages/home';
+import Footer from './components/home/pages/Footer/Footer';
+import Header from './components/home/pages/Header/Header';
+import LoadSpinner from './components/home/pages/LoadSpinner/LoadSpinner';
+import MenuModal from './components/home/pages/MenuModal/MenuModal';
+import { useState } from 'react';
+
+
 /** auth middleware */
 import { AuthorizeUser, ProtectRoute } from './middleware/auth'
 
@@ -51,10 +60,25 @@ const router = createBrowserRouter([
     },
 ])
 
+
 export default function App() {
+    const [isLoading, setLoading] = useState(true);
+
+  // timer for spinner
+  setTimeout(() => {
+    setLoading(false);
+  }, 1500);
   return (
-    <main>
-        <RouterProvider router={router}></RouterProvider>
-    </main>
+    <div>
+      {isLoading && <LoadSpinner />}
+      {!isLoading && (
+        <>
+          <Header />
+          <Home />
+          <Footer />
+        </>
+      )}
+      <MenuModal />
+    </div>
   )
 }
