@@ -10,12 +10,12 @@ import {GiPaintBrush} from "react-icons/gi";
     const toggle=()=>setIsOpen(!isOpen);
     const menuItem=[
         {
-            path:"/dashbord",
+            path:'/recruteur/dashboard',
             name:"Dashbord",
             icon:<AiFillHome/>
         },
         {
-            path:"/offre",
+            path:"/recruteur/offre",
             name:"Offre",
             icon:<FaShoppingBag/>
         },
@@ -26,19 +26,19 @@ import {GiPaintBrush} from "react-icons/gi";
         },
       
         {
-            path:"/formation",
+            path:"/recruteur/formation",
             name:"Formation",
             icon:<TbCertificate/>
         }
         ,
         {
             path:"/recruteur/profile",
-            name:"Recruter",
+            name:"Profile",
             icon:<GiPaintBrush/>
         },
         {
             path:"/recruteur/recruter",
-            name:"Profile",
+            name:"Recruter",
             icon:<FaUserAlt/>
         }
        
@@ -71,7 +71,7 @@ import {GiPaintBrush} from "react-icons/gi";
                 </div>
 
             </div>
-            <main>{children}</main> 
+           
          
         </div>
     )

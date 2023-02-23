@@ -72,6 +72,22 @@ main{
     padding-top: 2px;
 overflow-y: scroll;
 }
+.cardprofile{
+    background-color: #fff;
+    border-radius: 25px;
+    margin: 16px;
+    height: 80vh;
+    padding-top: 2px;
+    width: 35%;
+}
+.cardModif{
+    background-color: #fff;
+    border-radius: 25px;
+    margin: 16px;
+    height: 80vh;
+    padding-top: 2px;
+    width: 65%;
+}
 .hide{
     background-color: #fff;
     border-radius: 25px;
@@ -166,4 +182,8 @@ overflow-y: scroll;
 }
 .imputsearch{
     border: 2px solid white;
+}
+.displ{
+    display: flex;
+    flex: auto;
 }

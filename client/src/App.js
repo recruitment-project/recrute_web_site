@@ -14,9 +14,8 @@ import React from 'react'
 
 // /** auth middleware */
 // import { AuthorizeUser, ProtectRoute } from './middleware/auth'
-import CondidatRouting from './components/routing/condidatRouting';
 import PublicRouting from './components/routing/publicRouting';
-import RecruteurRouting from './components/routing/recruteurRouting';
+
 // /** root routes */
 //  const router = createBrowserRouter([
 //      {
@@ -68,24 +67,8 @@ import Profile from './components/auth/Profile';
  //import { AuthorizeUser } from '../components/middleware/auth';
 import Dashbord from '../src/components/private/condidat/Dashboard/Dashbord';
 
-const USER_TYPES={
-  PUBLIC: 'public user',
-  NORMAL_USER:'Normal user',
-  Admin_USER:'Admin user'
-}
-const CURRENT_USER_TYPS =USER_TYPES.PUBLIC
 export default function App() {
-  if(
-
-      CURRENT_USER_TYPS=== USER_TYPES.NORMAL_USER
-  ) {
-  return <CondidatRouting/>;}
-  else if (CURRENT_USER_TYPS === USER_TYPES.Admin_USER){
-      return <RecruteurRouting/>
-  }
-  else {
     return (
       <PublicRouting/>
     )
-  }
 }
