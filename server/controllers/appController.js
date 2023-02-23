@@ -3,8 +3,6 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import ENV from '../config.js'
 import otpGenerator from 'otp-generator';
-
-
 /** middleware for verify user */
 export async function verifyUser(req, res, next){
     try {
@@ -209,8 +207,8 @@ export async function updateUser(req,res){
 
 /** GET: http://localhost:8080/api/generateOTP */
 export async function generateOTP(req,res){
-    req.app.locals.OTP = await otpGenerator.generate(6, { lowerCaseAlphabets: false, upperCaseAlphabets: false, specialChars: false})
-    res.status(201).send({ code: req.app.locals.OTP })
+    req.app.locals.OTP = await otpGenerator.generate(6, { lowerCaseAlphabets: false, upperCaseAlphabets: false, specialChars: false}, {expiresIn: new Date().getTime() + 300*1000});
+    res.status(201).send({ code:req.app.locals.OTP })
 }
 
 
