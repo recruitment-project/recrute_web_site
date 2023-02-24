@@ -71,6 +71,11 @@ main{
     height: 80vh;
     padding-top: 2px;
 overflow-y: scroll;
+
+}
+.layout{
+    width: 100%;
+    height: 96%;
 }
 .cardprofile{
     background-color: #fff;

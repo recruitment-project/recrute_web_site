@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState }from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Password from './components/auth/Password';
 import Profile from './components/auth/Profile';
@@ -20,11 +20,13 @@ import SidebarCandidat from './components/layout/sidebarCondidat';
 import DashbordR from './components/private/recruteur/dashbord';
 import ProfileR from './components/auth/profileR';
 import Contact from './components/contact/contact';
+import Home from './components/home/pages/home';
 const router = createBrowserRouter([
     {
         path : '/',
         element : <Username></Username>
     },
+   
     {
         path : '/register',
         element : <Register></Register>

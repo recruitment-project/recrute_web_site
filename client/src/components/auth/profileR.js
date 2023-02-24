@@ -53,10 +53,10 @@ export default function ProfileR() {
   return(
     <div className='displ'>
     <div>  <SidebarRecruteur/></div>
-    <div>
+    <div className='layout'>
        <Header/>
        <div  className='flex'>
-    <Card className='cardModif cards'>
+    <Card className='cardModif '>
     <div>
     <div className='ml-20 mt-12'>General information</div>
       <form className='py-1 mt-12' onSubmit={formik.handleSubmit}>
@@ -77,7 +77,7 @@ export default function ProfileR() {
 
     </div>
     </Card>
-    <Card className='cardprofile cards '>
+    <Card className='cardprofile  '>
     <div className='flex justify-center items-center'>
         <label htmlFor="profile"  className=''>
           <img src={ apiData?.profile || file ||avatar} alt="avatar" className='img-circle'/>

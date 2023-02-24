@@ -57,7 +57,7 @@ export default function Profile() {
   return(
     <div className='flex '>
     <div>  <SidebarCandidat/></div>
-    <div>
+    <div className='layout'>
        <Header/>
        <div  className='flex'>
     <Card className='cardModif '>
