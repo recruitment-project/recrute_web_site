@@ -27,11 +27,6 @@ const formik = useFormik({
   initialValues : {
 	firstName : apiData?.firstName || '',
 	lastName: apiData?.lastName || '',
-	email: apiData?.email || '',
-	mobile: apiData?.mobile || '',
-	address : apiData?.address || '',
-	EntrepriseName : apiData?.EntrepriseName || '',
-	job : apiData?.job || '',
 	username : apiData?.username || '',
   },
    
