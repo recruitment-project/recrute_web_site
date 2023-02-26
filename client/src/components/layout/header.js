@@ -38,19 +38,11 @@ const formik = useFormik({
 	 values = await Object.assign(values, { profile : file || apiData?.profile || ''})
 	 let updatePromise = updateUser(values);
 
-	 toast.promise(updatePromise, {
-	   loading: 'Updating...',
-	   success : <b>Update Successfully...!</b>,
-	   error: <b>Could not Update!</b>
-	 });
+	
 
    }
  })
- //   /** formik doensn't support file upload so we need to create this handler */
- const onUpload = async e => {
-   const base64 = await convertToBase64(e.target.files[0]);
-   setFile(base64);
- }
+ 
  if(isLoading) return <h1 className='text-2xl font-bold'>isLoading</h1>;
  if(serverError) return <h1 className='text-xl text-red-500'>{serverError.message}</h1>
 

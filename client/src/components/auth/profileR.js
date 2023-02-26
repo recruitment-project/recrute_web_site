@@ -56,6 +56,7 @@ export default function ProfileR() {
   return(
     <div className='displ'>
     <div>  <SidebarRecruteur/></div>
+    <Toaster position='top-center' reverseOrder={false}></Toaster>
     <div className='layout'>
        <Header/>
        <div  className='flex'>
