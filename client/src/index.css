@@ -73,6 +73,12 @@ main{
 overflow-y: scroll;
 
 }
+
+.champProfile{
+    background-color: white;
+    width: 90%;
+}
+
 .layout{
     width: 100%;
     height: 96%;
@@ -83,7 +89,9 @@ overflow-y: scroll;
     margin: 16px;
     height: 80vh;
     padding-top: 2px;
-    width: 35%;
+    width: 40%;
+    overflow: auto;
+    overflow-y: scroll;
 }
 .cardModif{
     background-color: #fff;
@@ -91,7 +99,18 @@ overflow-y: scroll;
     margin: 16px;
     height: 80vh;
     padding-top: 2px;
-    width: 65%;
+    width: 60%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+
+.famly-layout{
+    font-weight: bolder;
+    font-size: 20px;
+}
+.w{
+    width: 40%;
 }
 .hide{
     background-color: #fff;
@@ -106,14 +125,15 @@ overflow-y: scroll;
   margin: 12px;
 }
 .imgHed{
-
-    height: 40px;
-    width: 60px;
-    margin-bottom: 10%;
+margin-bottom: 10%;
+   border-radius: 100%;
+    width: 45%;
+    
 }
 .pro{
     display: flex;
   justify-content: stretch;
+  margin-top: 12px;
 }
 .hid{
    display: flex;
@@ -122,9 +142,10 @@ overflow-y: scroll;
 
 }
 .position{
-    padding-right: 70px;
-    padding-top: 9px;
-    padding-bottom: 16px;
+   padding-left: 16px;
+   padding-bottom: 21px;
+    width: 15%;
+
 }
 .badge{
     background-color: red;
@@ -208,3 +229,26 @@ overflow-y: scroll;
     
 
 }
+.x{
+    flex: auto;
+}
+@media only screen and (max-width: 670px) {
+    
+    .cardprofile{
+           
+            height: 50vh;
+           
+            width: 100%;
+           
+        }
+    .cardModif{
+            
+            height: 50vh;
+    
+            width: 100%;
+        
+        }
+        .x{
+            flex: none;
+        }
+  }

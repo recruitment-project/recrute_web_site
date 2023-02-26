@@ -21,6 +21,9 @@ export const UserSchema = new mongoose.Schema({
     lastName: { type: String},
     mobile : { type : Number},
     address: { type: String},
+    job: { type: String},
+   
+    EntrepriseName: { type: String},
     profile: { type: String}
 });
 
