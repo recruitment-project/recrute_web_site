@@ -9,18 +9,18 @@ import Formation from './components/private/condidat/formation';
 import FormationR from './components/private/recruteur/formation';
 import Recruter from './components/private/recruteur/recruter';
 import Recovery from './components/auth/Recovery';
-import SidebarRecruteur from './components/layout/sidebarRecruteur';
+
 import Register from './components/auth/Register';
 import  { AuthorizeUser, ProtectRoute } from'././middleware/auth';
 import PageNotFound from './components/PageNotFound';
 import Reset from './components/auth/Reset';
 import Username from './components/auth/Username';
 import Dashbord from './components/private/condidat/Dashboard/Dashbord';
-import SidebarCandidat from './components/layout/sidebarCondidat';
+
 import DashbordR from './components/private/recruteur/dashbord';
 import ProfileR from './components/auth/profileR';
 import Contact from './components/contact/contact';
-import Home from './components/home/pages/home';
+
 const router = createBrowserRouter([
     {
         path : '/',
@@ -93,14 +93,7 @@ const router = createBrowserRouter([
         path : '/recruteur/recruter',
         element : <Recruter></Recruter>
     },
-    {
-        path : '/sidbar',
-        element : <SidebarCandidat></SidebarCandidat>
-    },
-    {
-        path : '/sidebar',
-        element : <SidebarRecruteur></SidebarRecruteur>
-    },
+  
     {
         path : '*',
         element : <PageNotFound></PageNotFound>
