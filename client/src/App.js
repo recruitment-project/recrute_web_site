@@ -20,12 +20,17 @@ import Dashbord from './components/private/condidat/Dashboard/Dashbord';
 import DashbordR from './components/private/recruteur/dashbord';
 import ProfileR from './components/auth/profileR';
 import Contact from './components/contact/contact';
-
+import Home from './components/home/home';
 const router = createBrowserRouter([
     {
         path : '/',
         element : <Username></Username>
     },
+    {
+        path : '/home',
+        element : <Home></Home>
+    },
+   
    
     {
         path : '/register',
