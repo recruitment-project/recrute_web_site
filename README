@@ -1,0 +1,3 @@
+pour utiliser ces bibliothéques, on se localise sur le projet client et on tape la commande: 
+react-bootstrap : npm i react-bootstrap --save
+ react-icons/io :  npm install react-icons --save
