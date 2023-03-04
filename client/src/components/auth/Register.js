@@ -10,6 +10,7 @@ import { FaEnvelope, FaLock, FaReact, FaUser } from "react-icons/fa";
 import { SiReactos} from "react-icons"
 import styles from '../../styles/Username.module.css';
 import register from '../../assets/register.jpg'
+
 export default function Register() {
 
   const navigate = useNavigate()
@@ -63,7 +64,6 @@ export default function Register() {
           src={register}
           className="w-full "
           alt="Sample image"
-          
         />
       </div>
       <div className="xl:ml-20 xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
@@ -129,6 +129,7 @@ export default function Register() {
                 Recruteur
               </label>
            &nbsp;&nbsp;&nbsp;
+
              <label>
             <input
               type="radio"

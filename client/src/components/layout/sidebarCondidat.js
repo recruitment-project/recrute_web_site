@@ -36,7 +36,7 @@ import { NavLink } from 'react-router-dom';
        
     ];
     return (
-        <div className='container px-0 flex'>
+        <div className='container flex'>
              
             <div style={{width:isOpen ? "250px" : "50px"}} className='sidebar'>
                 <div className='top-section'>

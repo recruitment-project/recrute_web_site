@@ -11,7 +11,6 @@ import SidebarRecruteur from '../layout/sidebarRecruteur';
 import styles from '../../styles/Username.module.css';
 import extend from '../../styles/Profile.module.css'
 import Header from '../layout/header';
-import Card from 'react-bootstrap/Card';
 
 export default function ProfileR() {
   const [file, setFile] = useState();
@@ -54,7 +53,7 @@ export default function ProfileR() {
    if(serverError) return <h1 className='text-xl text-red-500'>{serverError.message}</h1>
 
   return(
-    <div className='displ'>
+    <div className='displ flex'>
     <div>  <SidebarRecruteur/></div>
     <Toaster position='top-center' reverseOrder={false}></Toaster>
     <div className='layout'>

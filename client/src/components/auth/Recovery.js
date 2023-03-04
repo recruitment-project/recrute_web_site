@@ -33,13 +33,6 @@ console.log(OTP)
 
     let sentPromise = generateOTP(username);
 
-  //  toast.promise(sentPromise ,
-  //     {
-  //       loading: 'Sending...',
-  //       success: <b>OTP has been send to your email!</b>,
-  //       error: <b>Could not Send it!</b>,
-  //     }
-  //   );
 
     sentPromise.then((OTP) => {
       

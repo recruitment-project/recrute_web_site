@@ -56,7 +56,7 @@ import {GiPaintBrush} from "react-icons/gi";
         <div className='container px-0 flex'>
              
             <div style={{width:isOpen ? "250px" : "50px"}} className='sidebar'>
-                <div className='top-section'>
+                <div className='top-section flex'>
                     <h1 style={{display:isOpen? "block" : "none"}} className='logo'>Logo</h1>
                     <div  style={{marginLeft:isOpen? "50px" :"0px"}} className='bars flex'>
                         <FaBars onClick={toggle}/>

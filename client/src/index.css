@@ -12,7 +12,6 @@ body{
     background: #dcdce6;
     background-image: url('./assets/Background.png');
 }
-
 main{
     width: 100%;
     padding: 0px;
@@ -25,7 +24,6 @@ main{
     transition: all 0.5s;
 }
 .top-section{
-    display: flex;
     align-items: center;
     padding: 20px 15px;
 }
@@ -33,18 +31,15 @@ main{
     font-size: 30px;
 }
 .bars{
-    display: flex;
     font-size: 25px;
     margin-left:50px ;
 }
 .link{
-    display: flex;
     color:#fff;
     padding: 10px 15px;
     gap: 15px;
     transition: all 0.5s;
 }
-
 .link:hover{
     background-color: #fff;
     color:#000;
@@ -129,12 +124,10 @@ margin-bottom: 10%;
     
 }
 .pro{
-    display: flex;
   justify-content: stretch;
   margin-top: 12px;
 }
 .hid{
-   display: flex;
   justify-content:  space-between;
  
 
@@ -183,7 +176,6 @@ margin-bottom: 10%;
     margin: 6px;
 }
 .groupbtn{
-    display: flex;
     justify-content: flex-end;
    
 }
@@ -193,7 +185,6 @@ margin-bottom: 10%;
     width: 60px;
 }
 .form-control{
-    display: flex;
     justify-content: flex-end;
     border: 2px solid black;
     border-radius: 20px;
@@ -209,7 +200,6 @@ margin-bottom: 10%;
 }
 
 .displ{
-    display: flex;
     flex: auto;
 }
 
@@ -227,37 +217,26 @@ margin-bottom: 10%;
     
 
 }
-
 .x{
     flex: auto;
-}
-.cardshider{
-    background-color: #fff;
-
-    margin: 16px;
-    height: 9vh;
-    padding-top: 2px;
-
 }
 @media only screen and (max-width: 670px) {
     
     .cardprofile{
-           display: block;
-           position: absolute;
-            height: 140vh;
-           
-            width: 80%;
-           
-        }
-        .cardModif{
-            display: block;
-            position: absolute;
-            height: 130vh;
-    margin-top: 160%;
-            width: 80%;
+        position: absolute;
+        width: 80%;
+        display: block;
+        height: 140vh;
+    }
+    .cardModif{
+        position: absolute;
+        margin-top: 150%;
+        width: 80%;
+        display: block;
+        height: 120vh;
         
         }
-        /* .layout{
-            width: 40vh;
-        } */
+        .x{
+            flex: none;
+        }
   }

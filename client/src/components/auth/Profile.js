@@ -53,7 +53,7 @@ export default function Profile() {
    if(serverError) return <h1 className='text-xl text-red-500'>{serverError.message}</h1>
 
   return(
-    <div className='displ'>
+    <div className='displ flex'>
     <div>  <SidebarCandidat/></div>
     <Toaster position='top-center' reverseOrder={false}></Toaster>
     <div className='layout'>

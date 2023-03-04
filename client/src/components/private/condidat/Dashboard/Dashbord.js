@@ -2,7 +2,7 @@ import React from 'react'
 import SidebarCandidat from '../../../layout/sidebarCondidat'
 function Dashbord() {
   return (
-    <div className='displ'>
+    <div className='displ flex'>
     <div>
    <SidebarCandidat/>
     </div>

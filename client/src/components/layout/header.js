@@ -47,14 +47,14 @@ const formik = useFormik({
  if(serverError) return <h1 className='text-xl text-red-500'>{serverError.message}</h1>
 
 return (
-	<div className='hide shadow cardshider'>
+	<div className='hide flex shadow cardshider'>
 	<Card.Header > 
-	<div className='hid' >
+	<div className='hid flex' >
 
-        <div className='pro'>
+        <div className='pro flex'>
         
            
-           <div className='position'> 
+           <div className='position flex'> 
 		<img src={ apiData?.profile || file ||avatar} alt="avatar" className='imgHed'/>
 	   </div>
 
@@ -63,8 +63,8 @@ return (
 		</div>
          
           
-	  <div className='position'>
-		  <div className='pro'>
+	  <div className='position flex'>
+		  <div className='pro flex'>
 		  <span class="badges badge-pill">1</span><IoMdNotifications /></div>
 		  </div>
 	</div>

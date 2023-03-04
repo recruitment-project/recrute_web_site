@@ -8,7 +8,6 @@ import { useNavigate, Navigate } from 'react-router-dom';
 import useFetch from '../../hooks/fetch.hook'
 import {AiFillEye, AiFillEyeInvisible,AiFillLock,AiFillUnlock} from "react-icons/ai";
 import styles from '../../styles/Username.module.css';
-import { FaUser } from 'react-icons/fa';
 export default function Reset() {
 
   const { username } = useAuthStore(state => state.auth);
@@ -69,15 +68,15 @@ export default function Reset() {
       </div>
       
 
-<Toaster position='top-center' reverseOrder={false}></Toaster>
+    <Toaster position='top-center' reverseOrder={false}></Toaster>
 
-<div className="xl:ml-20 xl:w-6/12 lg:w-5/6 md:w-9/12 mb-12 md:mb-0">
-      <div className="title flex flex-col items-center mt-12">
-      <h4 className='text-4xl font-bold'>Modifier votre mot de passe</h4>
-      <span className='py-4 text-xl w-2/3 text-center text-gray-500'>
-        Entrer un  nouveau mot de passe.
-      </span>
-    </div>
+    <div className="xl:ml-20 xl:w-6/12 lg:w-5/6 md:w-9/12 mb-12 md:mb-0">
+          <div className="title flex flex-col items-center mt-12">
+          <h4 className='text-4xl font-bold'>Modifier votre mot de passe</h4>
+          <span className='py-4 text-xl w-2/3 text-center text-gray-500'>
+            Entrer un  nouveau mot de passe.
+          </span>
+        </div>
 
     <form className='py-20' onSubmit={formik.handleSubmit}>
         <div className="textbox  relative flex flex-col items-center gap-6">

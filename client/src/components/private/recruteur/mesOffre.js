@@ -2,7 +2,7 @@ import React from 'react'
 import SidebarRecruteur from '../../layout/sidebarRecruteur';
 function MesOffre() {
   return (
-    <div className='displ'>
+    <div className='displ flex'>
     <div>
    <SidebarRecruteur/>
     </div>

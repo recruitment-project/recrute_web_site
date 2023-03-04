@@ -11,6 +11,7 @@ export const contact = async (req, res) => {
        res.status(201).json(insertedmessage);
    }else{
          const contact = new Contact(req.body);
+
        const insertedcontact = await contact.save(); 
        res.status(201).json(insertedcontact);
    }} catch (error) {
@@ -25,14 +26,19 @@ export const sendMail = async (user, callback) =>{
       port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
+
         user: ENV.GMAIL_USER,
-        pass: ENV.GMAIL_PASSWORD
+        pass: ENV.GMAIL_PASSWORD,
+        user: "werecruit277@gmail.com",
+        pass: 'psyfnwwapjxgqpux'
       }
     });
   
     let mailOptions = {
       from: user.email, // sender address
+
       to: ENV.GMAIL_PASSWORD, // list of receivers
+      to: "werecruit277@gmail.com", // list of receivers
       subject: "New message from site we-recruit", // Subject line
       html: `From : </strong>${user.name} </strong> <br><br>
       Email : </strong>${user.email} </strong> <br><br>
