@@ -56,7 +56,7 @@ export default function Profile() {
     <div className='displ flex'>
     <div>  <SidebarCandidat/></div>
     <Toaster position='top-center' reverseOrder={false}></Toaster>
-    <div className='layout'>
+    <div className='layout '>
        <Header/>
        <div  className='flex c'>
     <div className='cardModif '>

@@ -36,12 +36,12 @@ import { NavLink } from 'react-router-dom';
        
     ];
     return (
-        <div className='container flex'>
+        <div className='container flex px-0'>
              
             <div style={{width:isOpen ? "250px" : "50px"}} className='sidebar'>
-                <div className='top-section'>
+                <div className='top-section flex'>
                     <h1 style={{display:isOpen? "block" : "none"}} className='logo'>Logo</h1>
-                    <div  style={{marginLeft:isOpen? "50px" :"0px"}} className='bars flex'>
+                    <div  style={{marginLeft:isOpen? "60px" :"0px"}} className='bars flex'>
                         <FaBars onClick={toggle}/>
                     </div>
                 </div>
