@@ -154,9 +154,9 @@ import convertToBase64 from '../../../helper/convert';
 
  <div className='flex'>
     <div className='flex m-3'>
-      <div>{id+1}</div>
-      <div className=''><img src={ apiData?.profile || file ||avatar} alt="avatar" className='imgHed'/></div>
-      <div className='mx-5'><input  disabled {...formik.getFieldProps('username')}  className="champProfile"  type="text" placeholder='username' /></div>
+      
+      <div className=''><img src={ apiData?.profile || file ||avatar} alt="avatar" className='imgprofile'/></div>
+      <div className='mx-3'>{element.fullName}</div>
     </div>
     <div className='mt-3'>
     <Badge bg="secondary mx-2" className='secondary'>{element.ITdomain}</Badge>

@@ -22,7 +22,7 @@ export default function StepperModif(){
         ITdomain:"",
         City:"",
         MiniDescription:"",
-        DescriptionDetail:"",
+        DescriptionDetail:"",fullName:""
     })
 
     const setdata = (e) => {
@@ -72,7 +72,7 @@ export default function StepperModif(){
     const updateoffre = async(e)=>{
         e.preventDefault();
 
-        const { Entreprisname, Offrename,ITdomain,City, MiniDescription, DescriptionDetail} = inpval;
+        const { Entreprisname, Offrename,ITdomain,City, MiniDescription, DescriptionDetail,fullName} = inpval;
 
         const res2 = await fetch(`http://localhost:8080/api/updateoffre/${id}`,{
             method: "PATCH",
@@ -80,7 +80,7 @@ export default function StepperModif(){
                 "Content-Type": "application/json"
             },
             body:JSON.stringify({
-                Entreprisname, Offrename,ITdomain,City, MiniDescription, DescriptionDetail
+                Entreprisname, Offrename,ITdomain,City, MiniDescription, DescriptionDetail,fullName
             })
         });
 
@@ -106,7 +106,10 @@ export default function StepperModif(){
     switch (step){
       case 1:
         return(<div  >
-                
+            <div class="mb-3 mt-12 ">
+          
+          <input type="text" className='formcontrol' value={inpval.fullName} onChange={setdata} placeholder="fullName" name="fullName"/>
+      </div>    
           <div class="mb-3 mt-12 ">
           
               <input type="text" className='formcontrol' value={inpval.Entreprisname} onChange={setdata} placeholder="nom de l'entreprise" name="Entreprisname"/>

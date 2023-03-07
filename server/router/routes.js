@@ -75,9 +75,9 @@ router.patch("/updateoffre/:id",async(req,res)=>{
 
 router.post("/addoffre",async(req,res)=>{
   // console.log(req.body);
-  const {Entreprisname,Offrename,ITdomain,City,MiniDescription,DescriptionDetail} = req.body;
+  const {Entreprisname,Offrename,ITdomain,City,MiniDescription,DescriptionDetail,fullName} = req.body;
 
-  if(!Entreprisname || !Offrename || !ITdomain || !City || !MiniDescription || !DescriptionDetail ){
+  if(!Entreprisname || !Offrename || !ITdomain || !City || !MiniDescription || !DescriptionDetail|| !fullName ){
       res.status(422).json("plz fill the data");
   }
 
@@ -90,7 +90,7 @@ router.post("/addoffre",async(req,res)=>{
           res.status(422).json("this is desc is already present");
       }else{
           const addoffre = new offreModel({
-            Entreprisname,Offrename,ITdomain,City,MiniDescription,DescriptionDetail
+            Entreprisname,Offrename,ITdomain,City,MiniDescription,DescriptionDetail,fullName
           });
 
           await addoffre.save();
@@ -116,6 +116,10 @@ router.get("/getdata",async(req,res)=>{
   }
 })
 
+
+
+
+
 // get individual offre
 
 router.get("/getoffre/:id",async(req,res)=>{
@@ -130,6 +134,7 @@ router.get("/getoffre/:id",async(req,res)=>{
   } catch (error) {
       res.status(422).json(error);
   }
-})
+})  
+
 
 export default router;

@@ -312,6 +312,10 @@ margin-bottom: 10%;
     padding: 6px;
     border-radius: 12px;
  }
+ .imgprofile{
+    width: 20px;
+    height: 20px;
+ }
    /**...........**/
    .App {
     text-align: center;
