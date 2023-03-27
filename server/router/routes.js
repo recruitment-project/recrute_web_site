@@ -9,7 +9,7 @@ import Auth, { localVariables } from '../middleware/auth.js';
 import * as contactController from '../controllers/contactController.js';
 import * as offreController from'../controllers/offre.controller.js';
 import offreModel, { OffreSchema } from "../model/offre.model.js";
-
+import * as FormationController from '../controllers/formationController.js';
 /** POST Methods */
 router.route('/register').post(controller.register); // register user
 router.route('/registerMail').post(registerMail); // send the email
@@ -135,6 +135,14 @@ router.get("/getoffre/:id",async(req,res)=>{
       res.status(422).json(error);
   }
 })  
+
+/**Formation methods */
+router.route('/formations').get(FormationController.getFormations);
+router.route('/formation/:id').get(FormationController.getFormationById);
+router.route('/formationByUser/:userId').get(FormationController.getFormationByUser);
+router.route('/saveFormation').post(FormationController.saveFormation);
+router.route('/formation/:id').put(FormationController.updateFormation);
+router.route('/formation/:id').delete(FormationController.deleteFormation);
 
 
 export default router;

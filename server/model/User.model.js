@@ -24,7 +24,11 @@ export const UserSchema = new mongoose.Schema({
     job: { type: String},
    
     EntrepriseName: { type: String},
-    profile: { type: String}
+    profile: { type: String},
+    formation_cree:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Formation"
+    }],
 });
 
 export default mongoose.model.Users || mongoose.model('User', UserSchema);

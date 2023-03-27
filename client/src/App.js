@@ -23,6 +23,8 @@ import Contact from './components/contact/contact';
 import Home from './components/home/home';
 import Stepper from './components/private/recruteur/stepper';
 import StepperModif from './components/private/recruteur/StepperModif';
+import AjoutFormation from './components/private/recruteur/formation/formulaireFormationAjout';
+import UpdateFormation from './components/private/recruteur/formation/formulaireFormationUpdate';
 const router = createBrowserRouter([
     {
         path : '/',
@@ -110,6 +112,14 @@ const router = createBrowserRouter([
     {
         path : '/recruteur/recruter',
         element : <Recruter></Recruter>
+    },
+    {
+        path : '/recruteur/formation/ajout',
+        element : <AjoutFormation></AjoutFormation>
+    },
+    {
+        path : '/recruteur/formation/update',
+        element : <UpdateFormation></UpdateFormation>
     },
   
     {

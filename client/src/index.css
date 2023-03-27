@@ -446,3 +446,76 @@ margin-bottom: 10%;
             flex: none;
         }
   }
+
+  /*formation */
+.cardformation{
+    background-color: #fff;
+    border-radius: 25px;
+    margin: 16px;
+    height: 80vh;
+    padding-top: 2px;
+    width: auto;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.cardTitle{
+    background-color: #893ca8;
+    border-radius: 25px;
+    margin: 2px;
+   
+    padding-top: 2px;
+    width: auto;
+    overflow: hidden;
+   
+}
+#textF{
+    color: rgb(242, 238, 247);
+    margin-left: 500px;
+}
+.buttonsubmit{
+    background-color: #893ca8;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-top: 85px;
+}
+.buttonsubmit2{
+    background-color: #893ca8;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 1015px;
+    
+}
+.buttonNext{
+    background-color: #893ca8;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 60px;
+    margin-left: 1019px;
+}
+.buttonNext2{
+    background-color: #893ca8;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 60px;
+    margin-left: 955px;
+}
+.buttonback{
+    background-color: rgb(179, 177, 175);
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 60px;
+    margin-left: 10px;
+}
+#divsub{
+    margin-top: 20px;
+}
+#contentFormation{
+    margin-left: 120px;
+}
+/* formation */
