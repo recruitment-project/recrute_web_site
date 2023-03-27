@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 // importing material UI components
-
 import {IoMdNotifications} from "react-icons/io";
 import Card from 'react-bootstrap/Card';
 import avatar from '../../assets/avatar.png';
