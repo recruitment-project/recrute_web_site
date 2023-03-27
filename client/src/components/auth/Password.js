@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import avatar from '../../assets/avatar.png';
 import toast, { Toaster } from 'react-hot-toast';
@@ -8,13 +8,13 @@ import useFetch from '../../hooks/fetch.hook';
 import { useAuthStore } from '../../store/store'
 import { verifyPassword } from '../../helper/helper'
 import styles from '../../styles/Username.module.css';
-
+import {AiFillEye, AiFillEyeInvisible,AiFillLock} from "react-icons/ai";
 export default function Password() {
 
   const navigate = useNavigate()
   const { username } = useAuthStore(state => state.auth)
   const [{ isLoading, apiData, serverError }] = useFetch(`/user/${username}`)
-
+  const [show, setShow] = useState(false)
   const formik = useFormik({
     initialValues : {
       password : 'admin@123'
@@ -41,9 +41,12 @@ export default function Password() {
         }
       })
       
-    }
-  })
+    },
 
+  })
+  const handleShow =()=>{
+    setShow(!show)
+  }
   if(isLoading) return <h1 className='text-2xl text-center font-bold'>isLoading</h1>;
   if(serverError) return <h1 className='text-xl text-red-500'>{serverError.message}</h1>
 
@@ -67,11 +70,28 @@ export default function Password() {
         <form onSubmit={formik.handleSubmit}>
           <div className="flex flex-row items-center justify-center mb-4 mt-5">
             <p className=" text-3xl font-bold">Hello {apiData?.firstName || apiData?.username}</p>
-           
           </div>
-          <div className="textbox flex flex-col items-center gap-6">
-                  <input {...formik.getFieldProps('password')} className="border-4 border-gray-100 px-5 py-4 rounded-xl w-3/4 shadow-sm text-lg hover:border-gray-200 focus:outline-none" type="text" placeholder='Password' />
-                  <button className={styles.btn} type='submit'>Sign In</button>
+          <div className="textbox  relative flex flex-col items-center gap-6 mb-3">
+            Enter your password
+          </div>
+            <div className="  relative  flex justify-center text-center lg:text-left gap-6 mb-3">
+        
+                  <label>
+                  <label  onClick={handleShow}>{show? <AiFillEye className={styles.iconsPassword} size="25" color="gray"/> : <AiFillEyeInvisible className={styles.iconsPassword} size="25" color="gray"/>}</label>
+                  <input {...formik.getFieldProps('password')}
+                  className={styles.inputPassword} type={show?"text" : "password"} placeholder='Password' />
+                 
+                  </label>
+                 
+            </div>
+            <div className=" flex justify-center text-center lg:text-left ml-12">
+            <button
+             type='submit'
+              className={styles.btn}
+            >
+              Sign In
+            </button>
+            
           </div>
           <div className="text-center py-4">
                 <span className='text-gray-500'>Forgot Password? <Link className='text-red-500' to="/recovery">Recover Now</Link></span>

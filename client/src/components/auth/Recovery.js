@@ -11,11 +11,8 @@ export default function Recovery() {
   const navigate = useNavigate()
 console.log(OTP)
   useEffect(() => {
-    generateOTP(username).then((OTP)=>{
-      if(OTP) return toast.success("OTP envoyé à votre email");
-      return toast.error("Problème en génération de OTP")
-     
-     })
+    generateOTP(username);
+       toast.success("OTP envoyé à votre email");
   }, [username]);
 
   async function onSubmit(e){
@@ -36,13 +33,6 @@ console.log(OTP)
 
     let sentPromise = generateOTP(username);
 
-  //  toast.promise(sentPromise ,
-  //     {
-  //       loading: 'Sending...',
-  //       success: <b>OTP has been send to your email!</b>,
-  //       error: <b>Could not Send it!</b>,
-  //     }
-  //   );
 
     sentPromise.then((OTP) => {
       
@@ -79,17 +69,24 @@ console.log(OTP)
                <div className="textbox flex flex-col items-center gap-6">
 
                    <div className="input text-center">
-                     <span className='py-4 text-sm text-left text-gray'>
+                     <span className='py-4 text-sm text-left text-gray gap-6'>
                        Entrer 6 chiffres OTP envoyés à votre addresse email.
                      </span>
-                     <input onChange={(e) => setOTP(e.target.value) } className={styles.textbox} type="text" placeholder='OTP' />
+                     <input onChange={(e) => setOTP(e.target.value) } className="border-4 border-gray-100 px-5 py-4 rounded-xl w-2/2 shadow-sm text-lg hover:border-gray-200 focus:outline-none" type="text" placeholder='OTP' />
                    </div>
 
-                   <button className={styles.btn} type='submit'>Récupérer</button>
-               </div>
-               <div className="text-center py-4 mb-10">
+                   <div className=" flex justify-center text-center lg:text-left ml-12">
+                    <button
+                    type='submit'
+                      className={styles.btn1}
+                    >
+                      Récupérer
+                    </button>
+                   </div>
+               <div className="text-center py-4 ">
                  <span className='text-gray'>OTP pas réçu? <button onClick={resendOTP} className='py-8 text-red-600'>Réenvoyé</button></span>
                </div>
+            </div>
            </form>
       </div>
     </div>

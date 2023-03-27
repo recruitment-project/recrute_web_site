@@ -23,6 +23,8 @@
 	font-weight: normal;
 	color: $body-text-color;
 	line-height: 24px;
+	margin: 0;
+  	padding: 0;
 }
 
 a{
@@ -43,7 +45,7 @@ img{
 	max-width: 100%;
 }
 .po-rel-z1{
-	position: relative;
+	position: fixed;
 	z-index: 1;
 }
 
@@ -638,7 +640,7 @@ p {
 		line-height: 1.09;
 		color: $black-3;
 		font-weight: 800;
-		margin-bottom: 12px;
+		margin-bottom: 0px;
 		@media #{$sm}{
 			font-size: 40px;
 		}
@@ -733,13 +735,18 @@ p {
 
 // container width
 @media(min-width:1000px){
-	.container{
-		max-width: 1200px;
+	.containerr{
+		max-width: 100%;
+		
+		
 	}
 }
 @media #{$xl}{
-	.container{
-		max-width: 1140px;
+	.containerr{
+		max-width: 1200px;
+		margin: 0 auto;
+		
+
 	}
 }
 

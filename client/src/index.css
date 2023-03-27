@@ -12,12 +12,6 @@ body{
     background: #dcdce6;
     background-image: url('./assets/Background.png');
 }
-/*
-.container{
-    display: flex;
-   
-}
-*/
 main{
     width: 100%;
     padding: 0px;
@@ -30,7 +24,6 @@ main{
     transition: all 0.5s;
 }
 .top-section{
-    display: flex;
     align-items: center;
     padding: 20px 15px;
 }
@@ -38,12 +31,10 @@ main{
     font-size: 30px;
 }
 .bars{
-    display: flex;
     font-size: 25px;
     margin-left:50px ;
 }
 .link{
-    display: flex;
     color:#fff;
     padding: 10px 15px;
     gap: 15px;
@@ -84,6 +75,7 @@ overflow-y: scroll;
 .layout{
     width: 100%;
     height: 96%;
+   
 }
 .cardprofile{
     background-color: #fff;
@@ -133,12 +125,10 @@ margin-bottom: 10%;
     
 }
 .pro{
-    display: flex;
   justify-content: stretch;
   margin-top: 12px;
 }
 .hid{
-   display: flex;
   justify-content:  space-between;
  
 
@@ -173,21 +163,20 @@ margin-bottom: 10%;
     border-bottom: 1px solid #fff;
 }
 .btn1{
-    background-color: green;
+    background-color: orange;
     color: #fff;
     border-radius: 20px;
     padding: 10px;
     margin: 6px;
 }
 .btn2{
-    background-color: rgb(225, 0, 255);
+    background-color: rgb(13, 0, 255);
     color: #fff;
     border-radius: 20px;
     padding: 10px;
     margin: 6px;
 }
 .groupbtn{
-    display: flex;
     justify-content: flex-end;
    
 }
@@ -197,7 +186,6 @@ margin-bottom: 10%;
     width: 60px;
 }
 .form-control{
-    display: flex;
     justify-content: flex-end;
     border: 2px solid black;
     border-radius: 20px;
@@ -213,7 +201,6 @@ margin-bottom: 10%;
 }
 
 .displ{
-    display: flex;
     flex: auto;
 }
 
@@ -234,20 +221,225 @@ margin-bottom: 10%;
 .x{
     flex: auto;
 }
+.cardMesoffre{
+    background-color: #fff;
+    border-radius: 25px;
+    margin: 16px;
+    height: 80vh;
+    padding-top: 2px;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.cardoffre{
+    background-color: #fff;
+    border-radius: 25px;
+    margin: 26px;
+    height: 30vh;
+    padding-top: 2px;
+    width: auto;
+    box-shadow: 10px 5px 5px rgb(185, 182, 182);
+    border: 2px solid black;
+}
+.ajou{
+    margin-right: 70px;
+    margin-top: 16px;
+    background-color: green;
+    color: white;
+    border-radius: 20px;
+    padding: 6px;
+   
+}
+.secondary{
+    width: 50px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.flexajou{
+    justify-content:space-between;
+}
+.btnsupprimer{
+    background-color: red;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 6px;
+}
+/** detail**/
+.border-left{
+    margin-top: 50px;
+    border-right: 2px solid black;
+   
+    
+}
+.groupbtn{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 4%;
+   margin-bottom: 4%;
+}
+.marg{
+    margin-right: 180px;
+    margin-left: 150px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.colors{
+    color: blue;
+}
+.colors:hover{
+    color: red;
+}
+.detail{
+    margin-top: 100px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+  /**formulaire**/
+  .borderformul{
+    margin-left: 15%;
+    margin-right: 15%;
+    border: 2px solid rgb(8, 146, 4);
+    height: 50vh;
+    padding-right: 12px;
+    width: 80%;
+  }
+ .formcontrol{
+    
+    box-shadow: none;
+    border: 2px solid black;
+    width: 70%;
+    padding: 6px;
+    border-radius: 12px;
+ }
+ .imgprofile{
+    width: 20px;
+    height: 20px;
+ }
+   /**...........**/
+   .App {
+    text-align: center;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  
+.circle {
+    width: 49px;
+    height: 49px;
+    line-height: 45px;
+    background-color: green;
+    color: white;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    -moz-background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+  }
+  
+  .stepWrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .stepBlock .circleWrapper {
+    padding: 0px 20px;
+    position: relative;
+  }
+  
+  .selected .circle {
+    color: black;
+    background-color: white;
+    border-color: green;
+  }
+  
+  .stepBlock:not(:last-child) > .circleWrapper::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    background-color: rgb(128, 0, 2);
+    margin: auto;
+    z-index: -1;
+  }
+  
+  .stepBlock:not(:last-child) > .circleWrapper::after {
+    height: 3px;
+  }
+  
+  .stepBlock:not(:last-child).selected > .circleWrapper::after, .stepBlock:not(:last-child).selected ~ .stepBlock:not(:last-child) > .circleWrapper::after {
+    height: 2px;
+    opacity: 0.6;
+  }
+  
+
+  
+  .primaryButton:disabled {
+    opacity: 0.5;
+  }
 @media only screen and (max-width: 670px) {
     
     .cardprofile{
-           
-            height: 50vh;
-           
-            width: 100%;
-           
-        }
+        position: absolute;
+        width: 80%;
+        display: block;
+        height: 48vh;
+    }
+    .layout{
+        width: 100%;
+        height: 100vh;
+       margin-left: 50px;
+    }
+    .sidebar{
+        position: fixed;
+      
+    }
+
     .cardModif{
-            
-            height: 50vh;
-    
-            width: 100%;
+        position: absolute;
+        margin-top: 51vh;
+        width: 80%;
+        display: block;
+        height: 50vh;
         
         }
         .x{

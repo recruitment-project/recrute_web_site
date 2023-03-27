@@ -11,7 +11,6 @@ import SidebarRecruteur from '../layout/sidebarRecruteur';
 import styles from '../../styles/Username.module.css';
 import extend from '../../styles/Profile.module.css'
 import Header from '../layout/header';
-import Card from 'react-bootstrap/Card';
 
 export default function ProfileR() {
   const [file, setFile] = useState();
@@ -54,39 +53,39 @@ export default function ProfileR() {
    if(serverError) return <h1 className='text-xl text-red-500'>{serverError.message}</h1>
 
   return(
-    <div className='displ'>
+    <div className='displ flex'>
     <div>  <SidebarRecruteur/></div>
     <Toaster position='top-center' reverseOrder={false}></Toaster>
     <div className='layout'>
        <Header/>
-       <div  className='flex'>
-    <Card className='cardModif '>
-    <div>
-    <div className='ml-20 mt-12 famly-layout'>General information</div>
-      <form className='py-1 mt-12' onSubmit={formik.handleSubmit}>
-        <div className="textbox flex flex-col items-center gap-6">
-            <div className="name flex w-3/4 gap-10">
-            <input   {...formik.getFieldProps('firstName')} className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='FirstName' />
-              <input {...formik.getFieldProps('lastName')}  className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='LastName' />
-            </div>
-            <div className="name flex w-3/4 gap-10">
-            <input   {...formik.getFieldProps('job')} className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='job' />
-              <input {...formik.getFieldProps('username')}  className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='username' />
-            </div>
-            <div className="name flex w-3/4 gap-10">
-              <input {...formik.getFieldProps('mobile')} className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='Mobile No.' />
-              <input {...formik.getFieldProps('email')} className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='Email*' />
-            </div>
-            <input {...formik.getFieldProps('EntrepriseName')} className={`${styles.textbox} ${extend.textbox}`}  type="text" placeholder='EntrepriseName' />
-              <input {...formik.getFieldProps('address')} className={`${styles.textbox} ${extend.textbox}`}  type="text" placeholder='Address' />
-              <button className={styles.btn}  type='submit'>Update</button>   
-          </div> 
-      </form>
+       <div  className='flex '>
+          <div className='cardModif '>
+          <div>
+          <div className='ml-20 mt-12 famly-layout'>General information</div>
+            <form className='py-1 mt-12' onSubmit={formik.handleSubmit}>
+              <div className="textbox flex flex-col items-center gap-6">
+                  <div className="name flex w-3/4 gap-10">
+                  <input   {...formik.getFieldProps('firstName')} className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='FirstName' />
+                    <input {...formik.getFieldProps('lastName')}  className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='LastName' />
+                  </div>
+                  <div className="name flex w-3/4 gap-10">
+                  <input   {...formik.getFieldProps('job')} className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='job' />
+                    <input {...formik.getFieldProps('username')}  className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='username' />
+                  </div>
+                  <div className="name flex w-3/4 gap-10">
+                    <input {...formik.getFieldProps('mobile')} className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='Mobile No.' />
+                    <input {...formik.getFieldProps('email')} className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='Email*' />
+                  </div>
+                  <input {...formik.getFieldProps('EntrepriseName')} className={`${styles.textbox} ${extend.textbox}`}  type="text" placeholder='EntrepriseName' />
+                    <input {...formik.getFieldProps('address')} className={`${styles.textbox} ${extend.textbox}`}  type="text" placeholder='Address' />
+                    <button className={styles.btn}  type='submit'>Update</button>   
+                </div> 
+            </form>
 
+          </div>
     </div>
-    </Card>
 
-    <Card className='cardprofile '  >
+    <div className='cardprofile '  >
         <div className='flex justify-center items-center'>
         <label htmlFor="profile"  className=''>
           <img src={ apiData?.profile || file ||avatar} alt="avatar" className='img-circle'/>
@@ -107,7 +106,7 @@ export default function ProfileR() {
          <div className='mx-17 px-10 mt-6 borb'>
            <label className='mb-2 famly-layout'>E-mail</label><br></br>
            <input  disabled {...formik.getFieldProps('email')}  className="champProfile mb-2"  type="text" placeholder='email' /> </div>
-        </Card>
+        </div>
   </div>
 </div>
 </div>

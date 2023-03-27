@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
 
 // importing material UI components
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
+
 import {IoMdNotifications} from "react-icons/io";
 import Card from 'react-bootstrap/Card';
 import avatar from '../../assets/avatar.png';
@@ -47,14 +41,14 @@ const formik = useFormik({
  if(serverError) return <h1 className='text-xl text-red-500'>{serverError.message}</h1>
 
 return (
-	<Card className='hide shadow'>
+	<div className='hide flex shadow cardshider'>
 	<Card.Header > 
-	<div className='hid' >
+	<div className='hid flex' >
 
-        <div className='pro'>
+        <div className='pro flex'>
         
            
-           <div className='position'> 
+           <div className='position flex'> 
 		<img src={ apiData?.profile || file ||avatar} alt="avatar" className='imgHed'/>
 	   </div>
 
@@ -63,13 +57,13 @@ return (
 		</div>
          
           
-	  <div className='position'>
-		  <div className='pro'>
+	  <div className='position flex'>
+		  <div className='pro flex'>
 		  <span class="badges badge-pill">1</span><IoMdNotifications /></div>
 		  </div>
 	</div>
 	</Card.Header>
-  </Card>
+  </div>
   
 
 );

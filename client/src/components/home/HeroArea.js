@@ -18,7 +18,7 @@ const HeroArea = () => {
                <img className="dot" src={herodot} alt="circle"/>
                <img className="triangle" src={herotriangle} alt="circle"/>
             </div>
-            <div className="container">
+            <div className="containerr">
                <div className="row">
                   <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-8 col-sm-8">
                      <div className="hero__content">
@@ -27,23 +27,13 @@ const HeroArea = () => {
                            The Career You Deserve
                         </h2>
                         <p>{`Find Jobs , Employment & Career Opportunities.`}</p>
-                        <div className="hero__search">
-                           <form action="#">
-                              <div className="hero__search-inner d-xl-flex">
-                                 <div className="hero__search-input">
-                                    <span><i className="far fa-search"></i></span>
-                                    <input type="text" placeholder="Search for job title, keywords"/>
-                                 </div>
-                                 <button type="submit" className="m-bttn ml-20"> <span></span> search</button>
-                              </div>
-                           </form>
-                        </div>
+         
                      </div>
                   </div>
                   <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                      <div className="hero__thumb-wrapper scene ml-70 p-relative">
-                     <span className="vectorWrapper">
-                     <HeroSVG />
+                        <span className="vectorWrapper">
+                        <HeroSVG />
                      </span>
                      </div>
                   </div>

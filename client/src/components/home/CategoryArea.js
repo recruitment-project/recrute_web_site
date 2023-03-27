@@ -43,13 +43,13 @@ const CategoryArea = () => {
                         return <div key={index} className="col-xxl-3 col-xl-3 col-md-6 col-sm-6">
                            <div className="category__item transition-3 text-center white-bg mb-30 wow fadeInUp" data-wow-delay=".3s" >
                               <div className="category__icon mb-25">
-                                 <a href=""><img src={category.img} alt="" /></a>
+                                 <a href="#"><img src={category.img} alt="" /></a>
                               </div>
                               <div className="category__content">
                                  <h3 className="category__title">
-                                    <Link href="">{category.title}</Link>
+                                    <Link href="/product">{category.title}</Link>
                                  </h3>
-                                 <Link href="" legacyBehavior >
+                                 <Link href="/product" legacyBehavior >
                                     <a className="link-bttn">
                                        <i className="far fa-long-arrow-right"></i>
                                        See More
@@ -65,7 +65,7 @@ const CategoryArea = () => {
                <div className="row">
                   <div className="col-xxl-12">
                      <div className="category__more mt-30 text-center">
-                        <Link href="" legacyBehavior>
+                        <Link href="/categories" legacyBehavior>
                            <a className="m-bttn m-bttn-2">  View all categories</a>
                         </Link>
                      </div>

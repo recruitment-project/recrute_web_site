@@ -16,11 +16,13 @@ import PageNotFound from './components/PageNotFound';
 import Reset from './components/auth/Reset';
 import Username from './components/auth/Username';
 import Dashbord from './components/private/condidat/Dashboard/Dashbord';
-
+import Details from './components/private/recruteur/detail';
 import DashbordR from './components/private/recruteur/dashbord';
 import ProfileR from './components/auth/profileR';
 import Contact from './components/contact/contact';
 import Home from './components/home/home';
+import Stepper from './components/private/recruteur/stepper';
+import StepperModif from './components/private/recruteur/StepperModif';
 const router = createBrowserRouter([
     {
         path : '/',
@@ -30,7 +32,6 @@ const router = createBrowserRouter([
         path : '/home',
         element : <Home></Home>
     },
-   
    
     {
         path : '/register',
@@ -53,6 +54,14 @@ const router = createBrowserRouter([
         element : <ProfileR></ProfileR>
     },
     {
+        path : '/recruteur/stepper',
+        element : <Stepper></Stepper>
+    },
+    {
+        path : '/recruteur/stepper/:id',
+        element : <StepperModif></StepperModif>
+    },
+    {
         path : '/candidat/profile',
         element : <Profile></Profile>
     },
@@ -63,6 +72,10 @@ const router = createBrowserRouter([
     {
         path : '/reset',
         element : <Reset></Reset>
+    },
+    {
+        path : '/recruteur/Details/:id',
+        element : <Details></Details>
     },
     {
         path : '/recruteur/dashboard',
