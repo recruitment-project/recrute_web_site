@@ -1,5 +1,4 @@
 
-import CategoryArea from '../../components/home/CategoryArea';
 
 import Footer from '../../components/home/Footer';
 import Header from '../../components/home/Header';
