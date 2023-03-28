@@ -1,35 +1,79 @@
-
-
-import ENV from '../config.js';
-import Offres, { OffreSchema } from '../model/offre.model.js';
-
-
-/** POST: http://localhost:8080/api/stepper 
- * @param: {
-    Entreprisname:"jumia",
-    Offrename:"developpeur",
-    ITdomain:"informatique",
-    City:"tunisi",
-    MiniDescription:"aa a a a a a a a a a a a a a a a a a a",
-    DescriptionDetail:"aaaaaaaa aaaaaa zzzzzz zzzzzzzzzz zzzzee eeeeeee eeeeeee rrrrrrr rrrrrrrr ttttt ttt tt y yyyyyy y y",
+import Offres from "../model/offre.model.js";
+import User from "../model/User.model.js";
+export const getOffre = async (req, res) => {
+    try {
+        const offre = await Offres.find();
+        res.json(offre);
+    } catch (error) {
+        res.status(500).json({message: error.message});
+    }
 }
-*/
-export async function AddOffre(req,res){
-   const {Entreprisname, Offrename,ITdomain,City, MiniDescription, DescriptionDetail }=req.body;
-   if(!Entreprisname|| !Offrename||!ITdomain||!City||   !MiniDescription|| !DescriptionDetail ){
-    res.status(404).send("plz fill the data");
-   }
-   
-    try{
-     const addoffre=new Offres({
-         Entreprisname, Offrename,ITdomain,City, MiniDescription, DescriptionDetail
-     });
-     await addoffre.save();
-     res.status(201).json()
-     console.log(addoffre);
-     }
-    catch(error){
-     res.status(404).send(error)
-     }
-  }
+ 
+export const getOffreById = async (req, res) => {
+    try {
+        const offre = await Offres.findById(req.params.id);
+        res.json(offre);
+    } catch (error) {
+        res.status(404).json({message: error.message});
+    }
+}
+export const getOffreByUser=async(req,res)=>{
+    const Id=req.params.userId
+    const user=await User.findById(Id).populate('offre_cree')
+    res.status(200).json(user.offre_cree,user.firstName, user.lastName, user.profile)
 
+}
+export const saveOffre = async (req, res) => {
+    
+    try { const user=await User.findById(req.body.user_cree)
+        
+      //  const offre=await Offres.findOne({MiniDescription:req.body.MiniDescription})
+    //    if(offre){
+            
+       //     res.status(400).json({error:"offre est existe"})
+     //   }else{
+            
+       //create formation
+        const newoffre=req.body
+        delete newoffre.user_cree
+        const offre = new Offres(newoffre);
+        offre.user_cree=user
+        const insertedoffre = await offre.save();
+        //add formation to user
+        user.offre_cree.push(offre._id)
+        user.save()
+        res.status(201).json(insertedoffre);
+  //  } 
+}catch (error) {
+        res.status(400).json({message: error.message});
+       
+    }
+}
+export const updateOffre = async (req, res) => {
+   
+    try {
+        const updatedoffre = await Offres.updateOne({_id:req.params.id}, {$set: req.body});
+        res.status(200).json(updatedoffre);
+    } catch (error) {
+        res.status(400).json({message: error.message});
+    }
+}
+ 
+export const deleteOffre = async (req, res) => {
+    try {const Id=req.params.id
+        const offre=await Offres.findById(Id)
+        if(!offre){
+            return res.status(400).json({error:"offre don't existe"})
+        }
+        const Iduser_cree=offre.user_cree
+        const user_cree=await User.findById(Iduser_cree)
+        
+        await offre.remove()
+        user_cree.offre_cree.pull(offre)
+        user_cree.save()
+        
+        res.status(200).json({success:true})
+    } catch (error) {
+        res.status(400).json({message: error.message});
+    }
+}

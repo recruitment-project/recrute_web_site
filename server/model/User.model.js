@@ -22,9 +22,14 @@ export const UserSchema = new mongoose.Schema({
     mobile : { type : Number},
     address: { type: String},
     job: { type: String},
-   
     EntrepriseName: { type: String},
-    profile: { type: String}
+    profile: { type: String},
+    offre_cree:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Offres"
+    }],
 });
 
+// const User =  mongoose.model('User', UsersSchema);
+// export default User;
 export default mongoose.model.Users || mongoose.model('User', UserSchema);

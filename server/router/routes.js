@@ -7,7 +7,7 @@ import { registerMail } from '../controllers/mailer.js'
 import {resetMail} from '../controllers/resetmailer.js'
 import Auth, { localVariables } from '../middleware/auth.js';
 import * as contactController from '../controllers/contactController.js';
-import * as offreController from'../controllers/offre.controller.js';
+import * as OffreController from'../controllers/offre.controller.js';
 import offreModel, { OffreSchema } from "../model/offre.model.js";
 
 /** POST Methods */
@@ -20,7 +20,7 @@ router.route('/resetMail').post(resetMail); //send the email
 //
 router.route('/contact').post(contactController.contact); //contact
 //
-router.route('/stepper').post(offreController.AddOffre); //offre
+//router.route('/stepper').post(offreController.AddOffre); //offre
 /** GET Methods */
 router.route('/user/:username').get(controller.getUser) // user with username
 router.route('/generateOTP').get(controller.verifyUser, localVariables, controller.generateOTP) // generate random OTP
@@ -116,6 +116,13 @@ router.get("/getdata",async(req,res)=>{
   }
 })
 
+router.get("/getdata/:userId",async(req,res)=>{
+  const Id=req.params.userId
+  const user=await User.findById(Id).populate('offre_cree')
+  console.log(user);
+  res.status(200).json(user.offre_cree,user.firstName, user.lastName, user.profile)
+
+})
 
 
 
@@ -135,6 +142,14 @@ router.get("/getoffre/:id",async(req,res)=>{
       res.status(422).json(error);
   }
 })  
+/**offre methods */
+router.route('/offre').get(OffreController.getOffre);
+router.route('/offre/:id').get(OffreController.getOffreById);
+router.route('/offreByUser/:userId').get(OffreController.getOffreByUser);
+router.route('/saveoffre').post(OffreController.saveOffre);
+router.route('/offre/:id').put(OffreController.updateOffre);
+router.route('/offre/:id').delete(OffreController.deleteOffre);
+
 
 
 export default router;

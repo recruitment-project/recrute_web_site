@@ -1,7 +1,9 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
-
+import toast from 'react-hot-toast'
 axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
+
+
 
 
 /** Make API Requests */
@@ -115,4 +117,71 @@ export async function resetPassword({ username, password }){
     } catch (error) {
         return Promise.reject({ error })
     }
+}
+
+
+export async function ajoutoffre(credentials){
+    try {
+        const { data  } = await axios.post(`/api/saveOffre`, credentials);
+
+        
+
+        return Promise.resolve(data)
+    } catch (error) {
+        
+        return Promise.reject({ error :"could't ajout offre"})
+        
+        
+    }
+}
+
+export async function updateOffre(data){
+    try {
+        const { res  } = await axios.put(`/api/offre/${data._id}`, data);
+
+        
+
+        return Promise.resolve(res)
+    } catch (error) {
+        
+        return Promise.reject({ error :"could't update offre"})
+        
+        
+    }
+}
+export async function getOffre(id){
+    try {
+        const { data  } = await axios.get(`/api/offre/${id}`);
+        console.log(data)
+
+        
+
+        return (data)
+    } catch (error) {
+        
+        return { error : "offre...!"}
+        
+        
+    }
+}
+
+/** validate formation */
+export async function OffreValidation(values){
+    const error = {}
+    if(!values.Entreprisname){
+        error.title = toast.error('Entreprisname Required...!');
+    }else if(!values.Offrename){
+        error.title = toast.error('Offrename Required...!');
+    }else if(!values.ITdomain){
+        error.title = toast.error('ITdomain to start Required...!');
+    }else if(!values.City){
+        error.title = toast.error('City Required...!');
+    }else if(!values.MiniDescription){
+        error.title = toast.error('MiniDescription Required...!');
+    }else if(!values.DescriptionDetail){
+        error.title = toast.error('DescriptionDetail Required...!');
+    }
+
+
+    return error;
 }

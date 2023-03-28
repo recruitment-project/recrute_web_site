@@ -34,7 +34,7 @@ import convertToBase64 from '../../../helper/convert';
 
   const getdata = async () => {
 
-      const res = await fetch("http://localhost:8080/api/getdata", {
+      const res = await fetch(`http://localhost:8080/api/offreByUser/${userId}`, {
           method: "GET",
           headers: {
               "Content-Type": "application/json"

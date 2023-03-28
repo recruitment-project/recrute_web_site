@@ -5,119 +5,161 @@ import { useNavigate  } from 'react-router-dom';
 import { Quiz } from '@mui/icons-material';
 import { StepperContext } from './formulaire'; 
 import SidebarRecruteur from '../../layout/sidebarRecruteur';
-import { useParams } from 'react-router';
-import { adddata } from './contextProvider'; 
-  import { updatedata } from './contextProvider';
-
+import toast, { Toaster } from 'react-hot-toast';
+  import { useFormik } from 'formik';
+  import useFetch from '../../../hooks/fetch.hook';
+  import convertToBase64 from '../../../helper/convert';
+  import { ajoutoffre } from '../../../helper/helper';
+  import { OffreValidation } from '../../../helper/helper';
 export default function Stepper(){
-  const { udata, setUdata } = useContext(adddata);
-  const {updata, setUPdata} = useContext(updatedata);
-  const { id } = useParams("");
-  console.log(id);
 
-  const [inpval,setINP]=useState({
-    Entreprisname:"",
-    Offrename:"",
-    ITdomain:"",
-    City:"",
-    MiniDescription:"",
-    DescriptionDetail:"",
-  })
-const setdata = (e)=>{
-  console.log(e.target.value);
-  const {name, value}=e.target;
-  setINP((preval)=>{
-    return{
-      ...preval,
-      [name]:value
+  const [file, setFile] = useState();
+  const [{ isLoading, apiData, serverError }] = useFetch();
+ // const navigate = useNavigate()
+  const formik = useFormik({
+    initialValues : {
+      Entreprisname:"",
+      Offrename:"",
+      ITdomain:"",
+      City:"",
+      MiniDescription:"",
+       DescriptionDetail:"",
+      
+    },
+     
+     enableReinitialize: true,
+    validate : OffreValidation,
+     validateOnBlur: false,
+     validateOnChange: false,
+     onSubmit : async values => {
+       values = await Object.assign(values, { image : file || ''},{user_cree:apiData?._id})
+      
+       let AjoutPromise = ajoutoffre(values);
+       
+       toast.promise(AjoutPromise, {
+         loading: 'Loading...',
+         success : <b>add Successfully...!</b>,
+         error: <b>Could not add!</b>
+       });
+       AjoutPromise.then(function(){ 
+        ()=>navigate('/recruteur/mesOffre')
+      });
+     }
+   })
+
+     //   /** formik doensn't support file upload so we need to create this handler */
+     const onUpload = async e => {
+      const base64 = await convertToBase64(e.target.files[0]);
+      setFile(base64);
     }
-  })
-}
-const addinpdata = async (e) => {
-  e.preventDefault();
+//   const { udata, setUdata } = useContext(adddata);
+//   const {updata, setUPdata} = useContext(updatedata);
+//   const { id } = useParams("");
+//   console.log(id);
 
-  const { Entreprisname, Offrename,ITdomain,City, MiniDescription, DescriptionDetail } = inpval;
+//   const [inpval,setINP]=useState({
+//     Entreprisname:"",
+//     Offrename:"",
+//     ITdomain:"",
+//     City:"",
+//     MiniDescription:"",
+//     DescriptionDetail:"",
+//   })
+// const setdata = (e)=>{
+//   console.log(e.target.value);
+//   const {name, value}=e.target;
+//   setINP((preval)=>{
+//     return{
+//       ...preval,
+//       [name]:value
+//     }
+//   })
+// }
+// const addinpdata = async (e) => {
+//   e.preventDefault();
 
-  const res = await fetch("http://localhost:8080/api/addoffre", {
-      method: "POST",
-      headers: {
-          "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        Entreprisname, Offrename,ITdomain,City, MiniDescription, DescriptionDetail
-      })
-  });
-  const data = await res.json();
-  console.log(data);
+//   const { Entreprisname, Offrename,ITdomain,City, MiniDescription, DescriptionDetail } = inpval;
 
-  if (res.status === 422 || !data) {
-      console.log("error ");
-      alert("error");
+//   const res = await fetch("http://localhost:8080/api/addoffre", {
+//       method: "POST",
+//       headers: {
+//           "Content-Type": "application/json"
+//       },
+//       body: JSON.stringify({
+//         Entreprisname, Offrename,ITdomain,City, MiniDescription, DescriptionDetail
+//       })
+//   });
+//   const data = await res.json();
+//   console.log(data);
 
-  } else {
-      navigate("/recruteur/mesOffre")
-      setUdata(data)
-      console.log("data added");
+//   if (res.status === 422 || !data) {
+//       console.log("error ");
+//       alert("error");
 
-  }
-}
+//   } else {
+//       navigate("/recruteur/mesOffre")
+//       setUdata(data)
+//       console.log("data added");
 
-
-
-
-const getdata = async () => {
-
-  const res = await fetch(`http://localhost:8080/api/getuser/${id}`, {
-      method: "GET",
-      headers: {
-          "Content-Type": "application/json"
-      }
-  });
-
-  const data = await res.json();
-  console.log(data);
-
-  if (res.status === 422 || !data) {
-      console.log("error ");
-
-  } else {
-      setINP(data)
-      console.log("get data");
-
-  }
-}
-
-useEffect(() => {
-  getdata();
-}, []);
+//   }
+// }
 
 
-const updateuser = async(e)=>{
-  e.preventDefault();
 
-  const {  Entreprisname, Offrename,ITdomain,City, MiniDescription, DescriptionDetail} = inpval;
 
-  const res2 = await fetch(`http://localhost:8080/api/updateuser/${id}`,{
-      method: "PATCH",
-      headers: {
-          "Content-Type": "application/json"
-      },
-      body:JSON.stringify({
-        Entreprisname, Offrename,ITdomain,City, MiniDescription, DescriptionDetail
-      })
-  });
+// const getdata = async () => {
 
-  const data2 = await res2.json();
-  console.log(data2);
+//   const res = await fetch(`http://localhost:8080/api/getuser/${id}`, {
+//       method: "GET",
+//       headers: {
+//           "Content-Type": "application/json"
+//       }
+//   });
 
-  if(res2.status === 422 || !data2){
-      alert("fill the data");
-  }else{
-    navigate("/recruteur/mesOffre")
-      setUPdata(data2);
-  }
+//   const data = await res.json();
+//   console.log(data);
 
-}
+//   if (res.status === 422 || !data) {
+//       console.log("error ");
+
+//   } else {
+//       setINP(data)
+//       console.log("get data");
+
+//   }
+// }
+
+// useEffect(() => {
+//   getdata();
+// }, []);
+
+
+// const updateuser = async(e)=>{
+//   e.preventDefault();
+
+//   const {  Entreprisname, Offrename,ITdomain,City, MiniDescription, DescriptionDetail} = inpval;
+
+//   const res2 = await fetch(`http://localhost:8080/api/updateuser/${id}`,{
+//       method: "PATCH",
+//       headers: {
+//           "Content-Type": "application/json"
+//       },
+//       body:JSON.stringify({
+//         Entreprisname, Offrename,ITdomain,City, MiniDescription, DescriptionDetail
+//       })
+//   });
+
+//   const data2 = await res2.json();
+//   console.log(data2);
+
+//   if(res2.status === 422 || !data2){
+//       alert("fill the data");
+//   }else{
+//     navigate("/recruteur/mesOffre")
+//       setUPdata(data2);
+//   }
+
+// }
 
 
 
@@ -133,11 +175,11 @@ const updateuser = async(e)=>{
                 
           <div class="mb-3 mt-12 ">
           
-              <input type="text" className='formcontrol' value={inpval.Entreprisname} onChange={setdata} placeholder="nom de l'entreprise" name="Entreprisname"/>
+              <input type="text" className='formcontrol'  required {...formik.getFieldProps('Entreprisname')} placeholder="nom de l'entreprise" name="Entreprisname"/>
           </div>
           <div class="mb-3 mt-12">
 
-              <input type="text" className="formcontrol"  placeholder="nom de l'offre" name="Offrename"  onChange={setdata} value={inpval.Offrename}/>
+              <input type="text" className="formcontrol"  placeholder="nom de l'offre" name="Offrename"   required {...formik.getFieldProps('Offrename')}/>
           </div>
           </div>);
         case 2:
@@ -146,27 +188,27 @@ const updateuser = async(e)=>{
                   <div >
                     <div class="mb-3 mt-12">
                     
-                        <input type="text" className="formcontrol"  placeholder=" domaine de l'offre"  onChange={setdata}
-                                 name="ITdomain" value={inpval.ITdomain} />
+                        <input type="text" className="formcontrol"  placeholder=" domaine de l'offre"   required {...formik.getFieldProps('ITdomain')}
+                                 name="ITdomain" />
                     </div>
                     <div class="mb-3 mt-12">
-                        <input type="text" className="formcontrol" placeholder=" Address"  onChange={setdata}
-                                 name="City" value={inpval.City} />
+                        <input type="text" className="formcontrol" placeholder=" Address"   required {...formik.getFieldProps('City')}
+                                 name="City" />
                     </div>
                     </div>);
             case 3:
               return( <div >
                 <div class="mb-3 mt-12">
         
-                    <input type="text" className="formcontrol" placeholder=" petite d'escription"  onChange={setdata}
-                           name="MiniDescription" value={inpval.MiniDescription} />
+                    <input type="text" className="formcontrol" placeholder=" petite d'escription"   required {...formik.getFieldProps('MiniDescription')}
+                           name="MiniDescription"  />
                 </div>
                 <div class="mb-3 mt-12">
 
                     {/* <input type="text" className="form-control " placeholder="description détaillée" oninput="this.className = ''"
                             name="address"/> */}
-                            <textarea id="story" name="DescriptionDetail" value={inpval.DescriptionDetail} className="formcontrol " placeholder="description détaillée" 
-         onChange={setdata}  rows="5" cols="33"></textarea>
+                            <textarea id="story" name="DescriptionDetail" className="formcontrol " placeholder="description détaillée"  required {...formik.getFieldProps('DescriptionDetail')}
+           rows="5" cols="33"></textarea>
                 </div>
                 </div>);
                 case 4:
@@ -185,16 +227,6 @@ const updateuser = async(e)=>{
     return(
       <>
    
-      {
-          updata ?
-              <>
-                  <div class="alert alert-success alert-dismissible fade show" role="alert">
-                      <strong>{updata.Offrename}</strong>  updated succesfully!
-                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>
-              </> : ""
-      }
-    
  
         <div className='displ flex'>
         <div>
@@ -215,7 +247,7 @@ const updateuser = async(e)=>{
       </div>
       <button className="btn2" disabled={currentStep === 1} onClick={() => updateStep(currentStep - 1)}> Previous Step</button>
       <button className="btn2" disabled={currentStep === labelArray.length} onClick={() => updateStep(currentStep+1)}>Next Step</button>
-      <button className="btn1" disabled={currentStep < 5 }    onClick={addinpdata|| updateuser} >finall</button>
+      <button className="btn1" disabled={currentStep < 5 }    onClick={formik.handleSubmit ||navigate('/recruteur/mesOffre')}  >finall</button>
     </div>
     </div> 
     </div>
