@@ -6,16 +6,8 @@
 .header{
     &__area{
         position: fixed;
-        z-index: 11;
-        @media #{$md}{
-            padding: 20px 0;
-        }
-        @media #{$sm}{
-            padding: 20px 0;
-        }
-        @media #{$xs}{
-            padding: 20px 0;
-        }
+  
+
         &.sticky{
             position: fixed;
             top: 0;
@@ -35,7 +27,7 @@
             color: $black;
             font-weight: 500;
             padding-right: 15px;
-            margin-right: 15px;
+            margin-right: 7px;
             position: relative;
             display: inline-block;
             &::after{
@@ -68,43 +60,27 @@
             }
         }
     }
-    &__cart{
+    &__register{
         & a{
             font-size: 14px;
             color: $black;
             font-weight: 500;
             padding-right: 15px;
-            margin-right: 15px;
+            margin-right: 6px;
             position: relative;
             display: inline-block;
-            & span{
-                position: absolute;
-                top: -5px;
-                right: -6px;
-                display: inline-block;
-                width: 22px;
-                height: 22px;
-                line-height: 19px;
-                text-align: center;
-                font-size: 14px;
-                color: $white;
-                background: $m-blue;
-                @include border-radius(50%);
+            margin-left: 3px;
+            & i{
+                padding-right: 5px;
+                font-size: 18px;
             }
             &:hover{
-                & span{
-                    background: $black;
-                    color: $white;
-                }
+                color: $m-blue;
             }
+            
         }
     }
-    &__shadow{
-        @include box-shadow(0px 10px 20px 0px rgba(8, 0, 42, 0.08));
-        &-2{
-            @include box-shadow(0px 10px 20px 0px rgba(8, 0, 42, 0.08));
-        }
-    }
+    
 }
 
 
@@ -124,20 +100,20 @@
     background: #0E032E;
     margin-top: 0px;
   }
-  .header-transparent .main-menu ul li a {
+  .header-transparent .mainn-menu ul li a {
     color: #fff;
   }
-  .header-transparent .main-menu ul li a::after,
-  .header-transparent .main-menu ul li.active > a::after {
+  .header-transparent .mainn-menu ul li a::after,
+  .header-transparent .mainn-menu ul li.active > a::after {
     color: #fff;
   }
-  .header-transparent .main-menu nav > ul > li.active > a,.header-transparent .main-menu nav > ul > li:hover > a {
+  .header-transparent .mainn-menu nav > ul > li.active > a,.header-transparent .mainn-menu nav > ul > li:hover > a {
     color: #fff;
   }
-  .header-transparent .main-menu > nav > ul > li.menu-item-has-children > a::after {
+  .header-transparent .mainn-menu > nav > ul > li.menu-item-has-children > a::after {
     color: #fff;
   }
-  .header-transparent .main-menu > nav > ul > li.menu-item-has-children.active > a::after {
+  .header-transparent .mainn-menu > nav > ul > li.menu-item-has-children.active > a::after {
     color: #fff;
     opacity: .7;
   }
@@ -151,7 +127,7 @@
 
 /* main menu */
 
-.main-menu{
+.mainn-menu{
     justify-content: center;
     & ul{
         & li{
@@ -159,7 +135,7 @@
             position: relative;
             
             &:not(:last-child){
-                margin-right: 33px;
+                margin-right: 50px;
             }
             & a{
                 font-size: 14px;
@@ -211,7 +187,7 @@
                 position: absolute;
                 top: 120%;
                 left: 0;
-                width: 200px;
+                width: 400px;
                 padding: 17px 0;
                 padding-bottom: 25px;
                 background: $white;
@@ -363,7 +339,6 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            display: flex;
             justify-content: center;
             align-items: center;
             color: $white;
@@ -433,7 +408,7 @@
         & ul{
             & li{
                 margin-bottom: 8px;
-                display: flex;
+            
                 & .icon{
                     & i{
                         line-height: 27px;
@@ -539,31 +514,31 @@
 
 
 /* mean menu customize */
-.mean-container a.meanmenu-reveal {
-	display: flex;
+.mean-containerr a.meanmenu-reveal {
+
     justify-content: center;
     align-items: center;
 }
-.mean-container .mean-nav {
+.mean-containerr .mean-nav {
 	background: none;
 	margin-top: 0;
 }
-.mean-container .mean-bar {
+.mean-containerr .mean-bar {
 	padding: 0;
 	min-height: auto;
 	background: none;
 }
-.mean-container .mean-nav > ul {
+.mean-containerr .mean-nav > ul {
 	padding: 0;
 	margin: 0;
 	width: 100%;
 	list-style-type: none;
 	display: block !important;
 }
-.mean-container a.meanmenu-reveal {
+.mean-containerr a.meanmenu-reveal {
 	display: none !important;
 }
-.mean-container .mean-nav ul li a {
+.mean-containerr .mean-nav ul li a {
 	width: 100%;
 	padding: 10px 0;
 	color: #fff;
@@ -571,7 +546,7 @@
 	font-size: 13px;
 }
 
-.mean-container .mean-nav ul li a.mean-expand {
+.mean-containerr .mean-nav ul li a.mean-expand {
 	margin-top: 0px;
 	height: 15px;
 	line-height: 14px;
@@ -582,22 +557,22 @@
 	height: 44px;
 	line-height: 44px;
 }
-.mean-container .mean-nav ul li a.mean-expand:hover {
+.mean-containerr .mean-nav ul li a.mean-expand:hover {
     background: $white;
     color: $black;
 }
 
-.mean-container .mean-nav > ul > li:first-child > a{
+.mean-containerr .mean-nav > ul > li:first-child > a{
 	border-top: 0;
 }
 
 
 
-.mean-container .mean-nav ul li a.mean-expand.mean-clicked{
+.mean-containerr .mean-nav ul li a.mean-expand.mean-clicked{
     background: $white;
     color: $black;
 }
-.mean-container .mean-nav ul li a.mean-expand.mean-clicked i{
+.mean-containerr .mean-nav ul li a.mean-expand.mean-clicked i{
 	transform: rotate(45deg);
 	-webkit-transform: rotate(45deg);
 	-moz-transform: rotate(45deg);
@@ -619,7 +594,6 @@
     justify-content: space-between;
     z-index: 1045;
     z-index: 99999999;
-    display: flex;
     flex-direction: column;
     max-width: 100%;
     visibility: hidden;
@@ -660,9 +634,15 @@
     border: 1px solid #2a3a57;
     border-radius: 50%;
 }
-.offcanvas-header .logo{
-    margin-top: 0px;
+.offcanvas-header .logoo{
+    max-width: 200px;
+    margin-top: 10px; 
+    margin-left: 5px;
+
 }
+.logoo img {
+    max-width: 100px; 
+  }
 .side-info {
     width: auto;
     height: 100%;
@@ -746,7 +726,7 @@
     font-size: 20px;
     color: white;
     padding: 22px;
-    display: flex;
+  
     align-items: center;
     justify-content: center;
     border-left: 1px solid #2a3a57;

@@ -4,10 +4,9 @@ import CategoryArea from '../../components/home/CategoryArea';
 import Footer from '../../components/home/Footer';
 import Header from '../../components/home/Header';
 import HeroArea from '../../components/home/HeroArea';
-import Subscribe from '../../components/home/Subscribe';
-import FeaturedJobs from  '../../components/home/FeaturedJob/FeaturedJob'
+import About from  '../../components/home/about'
 import SEO from '../../components/home/seo';
-
+import Services from './service/services'
 import '../../components/home/homec.scss';
 import UploadResume from '../../components/home/uploadResume/UploadResume';
 export default function Home() {
@@ -17,10 +16,10 @@ export default function Home() {
       <SEO pageTitle={'Home Default'} />
       <Header />
       <HeroArea />
-      <CategoryArea />
+      <Services />
       <UploadResume />
-      <FeaturedJobs />
-      <Subscribe />
+      <About />
+      
       <Footer />
  </>
   )

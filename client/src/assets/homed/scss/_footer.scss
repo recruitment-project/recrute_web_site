@@ -79,7 +79,7 @@
                     color: $white;
                     @include border-radius(6px);
                     overflow: hidden;
-                    position: relative;
+                    position: fixed;
                     z-index: 1;
                     &.fb{
                         background: #285da1;
@@ -100,7 +100,7 @@
                         }
                     }
                     &::after{
-                        position: absolute;
+                        position: fixed;
                         content: "";
                         z-index: -1;
                         display: block;

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
+import logo from '../../assets/logoBlack.png'
 
 const Header = () => {
    const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -20,34 +21,31 @@ const Header = () => {
                <div >
                   <div className="row align-items-center">
                      <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-6">
-                        <div className="logo">
-                           <Link href="/">
+                        <div className="logoo">
+                           <Link href="/home">
                               
-                                 <img src="assetslogo/logo.png" alt="logo" />
+                                 <img src={logo} alt="logo" />
 
                            </Link>
                         </div>
                      </div>
                      <div className="col-xxl-8 col-xl-8 col-lg-8 d-none d-lg-block">
-                        <div className="main-menu">
+                        <div className="mainn-menu">
                            <nav id="mobile-menu">
                               <ul>
                                  <li >
                                     <Link href="#" legacyBehavior>Home</Link>
                                    
                                  </li>
-                                 <li >
-                                    <Link href="#" > 
-                                       Jobs
-                                    </Link> 
-                                 </li>
-                                 <li><Link href="">About</Link></li>
+                                 
+                                
     
                                  <li >
-                                    <Link href="#" >Services</Link>     
+                                    <Link href="#Services" >Services</Link>     
                                  </li>
                                  <li><Link href="/contact" >Contact</Link></li>
-                                 <li><Link href="" >Conseil</Link></li>
+                                 <li><Link href="" >Tips</Link></li>
+                                 <li><Link href="#About">About</Link></li>
                               </ul>
                            </nav>
                         </div>
@@ -60,18 +58,17 @@ const Header = () => {
           <i className="fal fa-sign-out-alt"></i> Log Out
         </a>
       ) : (
-        <Link href="/register" >
+        <Link href="/" >
           
             <i className="far fa-unlock"></i> Log In 
          </Link>
       )}
     </div>
-                           <div className="header__cart d-none d-sm-block">
-                              <Link href="/" legacyBehavior>
-                                 <a className="cart-toggle-bttn">
-                                    <i className="fa-light fa-envelope"></i> Register
-                                    
-                                 </a>
+                           <div className="header__register d-none d-sm-block">
+                              <Link href="/register" >
+                                 
+                                    <i className="far fa-envelope" aria-hidden="true"></i> Register
+                           
                               </Link>
                            </div>
                           

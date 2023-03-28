@@ -41,11 +41,11 @@ const Footer = () => {
                            <div className="footer__widget-content">
                               <div className="footer__link">
                                  <ul>
-                                    <li><a href="#">Home </a></li>
-                                    <li><a href="#">Jobs</a></li>
-                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Home </a></li>                                    
                                     <li><a href="#">Services</a></li>
                                     <li><a href="#">Contact</a></li>
+                                    <li><a href="#">Tips</a></li>
+                                    <li><a href="#">About</a></li>
                                  </ul>
                               </div>
                            </div>
@@ -79,7 +79,7 @@ const Footer = () => {
                      <div className="row">
                         <div className="col-xxl-6 col-xl-6 col-md-6">
                            <div className="footer__copyright wow fadeInUp" data-wow-delay=".5s">
-                              <p>Copyright © 2022 All Rights Reserved, Design by <a href="#">Theme Pure</a></p>
+                              <p>Copyright © 2023 All Rights Reserved, Design by <a href="#">MPGL</a></p>
                            </div>
                         </div>
                         <div className="col-xxl-6 col-xl-6 col-md-6">

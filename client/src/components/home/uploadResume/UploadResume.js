@@ -2,7 +2,7 @@
 import NoteAddOutlinedIcon from '@mui/icons-material/NoteAddOutlined';
 import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
 import SavedSearchOutlinedIcon from '@mui/icons-material/SavedSearchOutlined';
-import CloudUploadOutlinedIcon from '@mui/icons-material/CloudUploadOutlined';
+
 
 const UploadResume = () => {
   return (
@@ -10,10 +10,7 @@ const UploadResume = () => {
       <div className='container'>
         <span>For Candidates</span>
         <h2>Explore Thousands of Jobs</h2>
-        <p>
-          Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi.
-          Morbi mattis ullamcorper velit.
-        </p>
+        
         <div className="stepsContainer" wrap='nowrap'>
           <div>
             <div className="iconWrapper">
@@ -40,13 +37,7 @@ const UploadResume = () => {
        
           </div>
         </div>
-        <button>
-          <span className="uploadIconWrapper">
-            <CloudUploadOutlinedIcon />
-          </span>
-          Upload Your Resume
-          <span className="styling" />
-        </button>
+        
       </div>
     </section>
   );

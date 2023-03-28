@@ -26,7 +26,10 @@ export const UserSchema = new mongoose.Schema({
     profile: { type: String},
     offre_cree:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Offres"
+        ref: "Offres"}],
+    formation_cree:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Formation"
     }],
 });
 
