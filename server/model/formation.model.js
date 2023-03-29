@@ -22,5 +22,4 @@ export const formationSchema = new mongoose.Schema(
 );
 
 const Formation = mongoose.model('Formation', formationSchema);
-
 export default Formation;

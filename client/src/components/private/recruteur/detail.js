@@ -8,6 +8,8 @@ import SidebarRecruteur from '../../layout/sidebarRecruteur';
 import Header from '../../layout/header';
 import { useState,useEffect } from 'react';
 import { useParams } from 'react-router';
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
 function Details() {
 
     const navigate = useNavigate();
@@ -46,25 +48,18 @@ function Details() {
         getdata();
     }, [])
 
-    const deleteoffre = async (id) => {
 
-        const res2 = await fetch(`http://localhost:8080/api/deleteoffre/${id}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
+    const onDelite= async (id)=>{
+        if( window.confirm("are you sure that you wanted to delete that offre record")){
+          const  res= await axios.delete(`http://localhost:8080/api/offre/${id}`);
+            //const response= await axios.delete(`http://localhost:8080/api/offre/${id}`
+           // );
+            if (res.status===200){
+                toast.success("deleted");
+                getdata();
+                navigate('/recruteur/mesOffre');
             }
-        });
-
-        const deletedata = await res2.json();
-        console.log(deletedata);
-
-        if (res2.status === 422 || !deletedata) {
-            console.log("error");
-        } else {
-            console.log("offre deleted");
-            navigate('/recruteur/mesOffre');
         }
-
     }
   return (
     <div className='displ flex'>
@@ -118,8 +113,8 @@ function Details() {
        
        <Card.Footer> <div className='groupbtn'>
        <Button variant="secondary" className='btn2 px-2' type='submit' onClick={()=>navigate('/recruteur/mesOffre')}>return</Button>
-         <Button  className='btn1' type='submit' onClick={()=>navigate('/recruteur/mesOffre')}>Modifier</Button>
-         <Button  className='btn1' type='submit' onClick={() => deleteoffre(getuserdata._id)}>Supprimer</Button>
+       <NavLink to={`/recruteur/stepper/${getuserdata._id}`}> <button type='submit'className='btn1 '  onClick={()=>navigate('/recruteur/stepper')}>Modifier</button></NavLink>
+         <Button  className='btn1' type='submit' onClick={() => onDelite(getuserdata._id)}>Supprimer</Button>
          </div></Card.Footer>
      </div>
  

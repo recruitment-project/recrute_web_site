@@ -9,7 +9,7 @@ export const OffreSchema = new mongoose.Schema(
         MiniDescription: { type: String, required: true },
        
         DescriptionDetail: { type: String, required: true },
-        user_cree:{
+        user_cre:{
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },

@@ -13,6 +13,7 @@ import toast, { Toaster } from 'react-hot-toast';
   import { OffreValidation } from '../../../helper/helper';
 export default function Stepper(){
 
+  const navigate = useNavigate();
   const [file, setFile] = useState();
   const [{ isLoading, apiData, serverError }] = useFetch();
  // const navigate = useNavigate()
@@ -32,7 +33,7 @@ export default function Stepper(){
      validateOnBlur: false,
      validateOnChange: false,
      onSubmit : async values => {
-       values = await Object.assign(values, { image : file || ''},{user_cree:apiData?._id})
+       values = await Object.assign(values, { image : file || ''},{user_cre:apiData?._id})
       
        let AjoutPromise = ajoutoffre(values);
        
@@ -42,7 +43,7 @@ export default function Stepper(){
          error: <b>Could not add!</b>
        });
        AjoutPromise.then(function(){ 
-        ()=>navigate('/recruteur/mesOffre')
+        setTimeout( ()=>navigate("/recruteur/mesOffre"),100)
       });
      }
    })
@@ -167,7 +168,6 @@ export default function Stepper(){
 
 
 
-  const navigate = useNavigate();
   const displayStep=(step)=>{
     switch (step){
       case 1:
@@ -245,9 +245,10 @@ export default function Stepper(){
               {displayStep(currentStep)}</StepperContext.Provider>       
             </form>
       </div>
+      <Toaster position='top-center' reverseOrder={false}></Toaster>
       <button className="btn2" disabled={currentStep === 1} onClick={() => updateStep(currentStep - 1)}> Previous Step</button>
       <button className="btn2" disabled={currentStep === labelArray.length} onClick={() => updateStep(currentStep+1)}>Next Step</button>
-      <button className="btn1" disabled={currentStep < 5 }    onClick={formik.handleSubmit ||navigate('/recruteur/mesOffre')}  >finall</button>
+      <button type='submit' className="btn1" disabled={currentStep < 5 }    onClick={formik.handleSubmit}  >finall</button>
     </div>
     </div> 
     </div>
