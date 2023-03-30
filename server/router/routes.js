@@ -152,7 +152,7 @@ router.route('/offre/:id').delete(OffreController.deleteOffre);
 
 
 /**Formation methods */
-router.route('/formations').get(FormationController.getFormations);
+router.route('/formations').post(FormationController.getFormations);
 router.route('/formation/:id').get(FormationController.getFormationById);
 router.route('/formationByUser/:userId').get(FormationController.getFormationByUser);
 router.route('/saveFormation').post(FormationController.saveFormation);

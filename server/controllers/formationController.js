@@ -2,8 +2,8 @@ import Formation from "../model/formation.model.js";
 import User from "../model/User.model.js";
 export const getFormations = async (req, res) => {
     try {
-        const formations = await Formation.find();
-        res.json(formations);
+        const formationsList = await Formation.find();
+        res.send(formationsList);
     } catch (error) {
         res.status(500).json({message: error.message});
     }

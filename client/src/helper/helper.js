@@ -50,7 +50,6 @@ export async function registerUser(credentials){
 
         return Promise.resolve(msg)
     } catch (error) {
-        //console.log(error)
         return Promise.reject({ error })
         
     }
@@ -85,11 +84,9 @@ export async function updateUser(response){
 export async function generateOTP(username){
     try {
         const {data : { code }, status } = await axios.get('/api/generateOTP', { params : { username }});
-console.log({data:{code}})
         // send mail with the OTP
         if(status === 201){
             let { data : { email }} = await getUser({ username });
-            console.log(email,username,code)
             let text = `Votre code OTP de récupération de mot de passe  est ${code}.`;
             await axios.post('/api/resetMail', { username, userEmail: email, text, subject : "Password Recovery OTP"})
         }
@@ -185,3 +182,18 @@ export async function OffreValidation(values){
 
     return error;
 }
+
+
+
+export async  function getAllFormations(setFormations) {
+    axios
+      .post(`/api/formations`)
+      .then((res) => {
+        if (res.data === "ERROR") {
+        } else {
+         
+            setFormations(res.data.Formation);
+            console.log(res.data.Formation)
+        }
+      });
+  }

@@ -42,15 +42,15 @@ const formik = useFormik({
 
 return (
 	<div className='hide flex shadow cardshider'>
-	<Card.Header > 
+	{/* <Card.Header >  */}
 	<div className='hid flex' >
 
         <div className='pro flex'>
         
            
            <div className='position flex'> 
-		<img src={ apiData?.profile || file ||avatar} alt="avatar" className='imgHed'/>
-	   </div>
+		     <img src={ apiData?.profile || file ||avatar} alt="avatar" className='imgHed'/>
+	       </div>
 
 	   <div className=''>
 		<input  disabled {...formik.getFieldProps('username')}  className="champProfile"  type="text" placeholder='username' /> </div>
@@ -62,7 +62,7 @@ return (
 		  <span class="badges badge-pill">1</span><IoMdNotifications /></div>
 		  </div>
 	</div>
-	</Card.Header>
+	{/* </Card.Header> */}
   </div>
   
 
