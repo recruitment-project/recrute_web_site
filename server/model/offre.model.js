@@ -14,7 +14,9 @@ export const OffreSchema = new mongoose.Schema(
             ref: "User"
         },
         
-},
+},{
+    timestamps:true
+}
 );
 const Offres = mongoose.model('Offres', OffreSchema);
 export default Offres;

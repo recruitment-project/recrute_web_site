@@ -43,7 +43,8 @@ function Details() {
             console.log("get data");
         }
     }
-
+let date=new Date(getuserdata.updatedAt).toLocaleString();
+let manth=new Date(getuserdata.updatedAt).getDate();
     useEffect(() => {
         getdata();
     }, [])
@@ -76,7 +77,7 @@ function Details() {
   <div className='marg mt-6 colors'>{getuserdata.Entreprisname }</div>
   <div className='marg mt-6'>{getuserdata.Offrename}</div>
   <div className='marg mt-6 '>recrutement actif</div>
-  <div className='marg mt-6 '>il y'a 13 heur </div>
+  <div className='marg mt-6 '>{date}</div>
   </div>
   <div className='f mt-12' >
   <div className='mx-3'> 

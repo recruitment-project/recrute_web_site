@@ -102,6 +102,8 @@ const onDelite= async (id)=>{
       firstName : apiData?.firstName || '',
       lastName: apiData?.lastName || '',
       username : apiData?.username || '',
+     
+
     },
     enableReinitialize: true,
     validate : profileValidation,
@@ -174,7 +176,7 @@ const onDelite= async (id)=>{
     <div className='flex m-3'>
       
       <div className=''><img src={ apiData?.profile || file ||avatar} alt="avatar" className='imgprofile'/></div>
-      <div className='mx-3'>{element.fullName}</div>
+      <div className='mx-3'>{apiData?.firstName}</div>
     </div>
     <div className='mt-3'>
     <Badge bg="secondary mx-2" className='secondary pt-2'>{element.ITdomain}</Badge>
