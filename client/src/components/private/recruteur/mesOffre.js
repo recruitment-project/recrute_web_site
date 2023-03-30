@@ -17,9 +17,12 @@ import convertToBase64 from '../../../helper/convert';
    import { useFormik } from 'formik';
  
    import { profileValidation } from '../../../helper/validate';
-   
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
+axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
  function MesOffre() {
-
+const [search,setSearch]=useState('');
+console.log(search);
     const [file, setFile] = useState();
     const [{ isLoading, apiData, serverError }] = useFetch();
   
@@ -32,55 +35,67 @@ import convertToBase64 from '../../../helper/convert';
 
   const {dltdata, setDLTdata} = useContext(deldata);
 
-  const getdata = async () => {
+   const getdata = async () => {
+//  const res = await axios.get(`http://localhost:8080/api/getdata`);
+//  const data = await res.json();
+//  if (res.status===422){
+//      x=setOffredata(res.getoffredata);
+//      console.log(x);
+//      console.log("error ");
+//  }
+         const res = await fetch(`http://localhost:8080/api/getdata`, {
+             method: "GET",
+             headers: {
+                 "Content-Type": "application/json"
+             }
+         });
+         const data = await res.json();
+         console.log(data);
+         if (res.status === 422 || !data) {
+             console.log("error ");
+        } else {
+           setOffredata(data)
+             console.log("get data");
+         }
+   };
+console.log("data=>",getoffredata)
+   useEffect(() => {
+       getdata();
+   }, [])
 
-      const res = await fetch(`http://localhost:8080/api/offreByUser/${userId}`, {
-          method: "GET",
-          headers: {
-              "Content-Type": "application/json"
-          }
-      });
-
-      const data = await res.json();
-      console.log(data);
-
-      if (res.status === 422 || !data) {
-          console.log("error ");
-
-      } else {
-        setOffredata(data)
-          console.log("get data");
-
-      }
-  }
-
-  useEffect(() => {
-      getdata();
-  }, [])
-
-
-  const deleteoffre = async (id) => {
-
-    const res2 = await fetch(`http://localhost:8080/api/deleteoffre/${id}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json"
+const onDelite= async (id)=>{
+    if( window.confirm("are you sure that you wanted to delete that offre record")){
+      const  res= await axios.delete(`http://localhost:8080/api/offre/${id}`);
+        //const response= await axios.delete(`http://localhost:8080/api/offre/${id}`
+       // );
+        if (res.status===200){
+            toast.success("deleted");
+            getdata();
         }
-    });
-
-    const deletedata = await res2.json();
-    console.log(deletedata);
-
-    if (res2.status === 422 || !deletedata) {
-        console.log("error");
-    } else {
-        console.log("offre deleted");
-        x=setDLTdata(deletedata)
-        console.log(x);
-        getdata();
     }
-
 }
+   const deleteoffre = async (id) => {
+
+     const res2 = await fetch(`http://localhost:8080/api/deleteoffre/${id}`, {
+         method: "DELETE",
+         headers: {
+             "Content-Type": "application/json"
+         }
+     });
+
+     const deletedata = await res2.json();
+     console.log(deletedata);
+
+     if (res2.status === 422 || !deletedata) {
+         console.log("error");
+     } else {
+         console.log("offre deleted");
+         x=setDLTdata(deletedata)
+         console.log(x);
+         getdata();
+     }
+
+ }
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues : {
@@ -143,14 +158,17 @@ import convertToBase64 from '../../../helper/convert';
      <div  className='flex c'>
     <div className='cardMesoffre '>
       <div className='flex flexajou'>
-        <input type="text" placeholder='shearch' className='mx-12 mt-3' />
-        <button type='submit' className=' ajou'  onClick={()=>navigate('/recruteur/stepper')}>Ajouter</button>
+        <input type="text" placeholder='shearch' className='mx-4 mt-3 formcontrolinput' onChange={(e)=>setSearch(e.target.value)} />
+        <button type='submit' className='  ajou'  onClick={()=>navigate('/recruteur/stepper')}>Ajouter</button>
         </div>
-        {
-                                getoffredata.map((element, id) => {
-                                    return (
-                                        <>
-    <div className='cardoffre'>
+    {
+
+        getoffredata.filter((element)=>{
+            return search.toLowerCase()===""?element:element.ITdomain.toLowerCase().includes(search);
+        }).map((element, id) => {
+            return (
+    <>
+    <div className='cardoffre' key={element.id}>
 
  <div className='flex'>
     <div className='flex m-3'>
@@ -159,30 +177,23 @@ import convertToBase64 from '../../../helper/convert';
       <div className='mx-3'>{element.fullName}</div>
     </div>
     <div className='mt-3'>
-    <Badge bg="secondary mx-2" className='secondary'>{element.ITdomain}</Badge>
-    <Badge bg="secondary mx-2"className='secondary'>{element.City}</Badge>
+    <Badge bg="secondary mx-2" className='secondary pt-2'>{element.ITdomain}</Badge>
+    <Badge bg="secondary mx-2"className='secondary pt-2'>{element.City}</Badge>
 </div>
 </div>
-<div className='mx-5'>{element.Entreprisname}</div>
+<div className='mx-3'>{element.Entreprisname}</div>
 <div className='bold mx-3'>{element.Offrename}</div>
 <div className='mx-3'>{element.ITdomain}</div>
 <div className='flex  justify-content-end'>
  <NavLink to={`/recruteur/Details/${element._id}`}>  <button type='submit' className='btn2 ' onClick={()=>navigate('/recruteur/Details')}>Details</button></NavLink>
   <NavLink to={`/recruteur/stepper/${element._id}`}> <button type='submit'className='btn1 '  onClick={()=>navigate('/recruteur/stepper')}>Modifier</button></NavLink>
-  <button type='submit'className='btnsupprimer'onClick={() => deleteoffre(element._id)} >Supprimer</button>
-
-
-
+  <button className='btnsupprimer'onClick={() => onDelite(element._id)} >Supprimer</button>
 </div> 
-
-
-                                        
-
     </div>
     </>
-                                    )
-                                })
-                            }
+ )
+})
+}
       
       </div>
       </div>

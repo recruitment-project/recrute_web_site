@@ -10,6 +10,7 @@ import * as contactController from '../controllers/contactController.js';
 import * as OffreController from'../controllers/offre.controller.js';
 import offreModel, { OffreSchema } from "../model/offre.model.js";
 import * as FormationController from '../controllers/formationController.js';
+import Offres from "../model/offre.model.js";
 /** POST Methods */
 router.route('/register').post(controller.register); // register user
 router.route('/registerMail').post(registerMail); // send the email
@@ -42,13 +43,13 @@ router.post("/sendmail", (req, res) => {
     });
   });
 // delete offre
-router.delete("/deleteoffre/:id",async(req,res)=>{
+router.delete("/deleteuser/:id",async(req,res)=>{
   try {
       const {id} = req.params;
 
-      const deleteoffre = await offreModel.findByIdAndDelete({_id:id})
-      console.log(deleteoffre);
-      res.status(201).json(deleteoffre);
+      const deletuser = await Offres.findByIdAndDelete({_id:id})
+      console.log(deletuser);
+      res.status(201).json(deletuser);
 
   } catch (error) {
       res.status(422).json(error);
@@ -60,8 +61,10 @@ router.patch("/updateoffre/:id",async(req,res)=>{
   try {
       const {id} = req.params;
 
-      const updateoffre = await offreModel.findByIdAndUpdate(_id,req.body,{
-          new:true
+      const updateoffre = await offreModel.findByIdAndUpdate(req.params.id,req.body,{
+          new:true,
+          runValidators: true
+
       });
 
       console.log(updateoffre);
@@ -147,7 +150,7 @@ router.route('/offre').get(OffreController.getOffre);
 router.route('/offre/:id').get(OffreController.getOffreById);
 router.route('/offreByUser/:userId').get(OffreController.getOffreByUser);
 router.route('/saveoffre').post(OffreController.saveOffre);
-router.route('/offre/:id').put(OffreController.updateOffre);
+router.route('/offre/:id').patch(OffreController.updateOffre);
 router.route('/offre/:id').delete(OffreController.deleteOffre);
 
 

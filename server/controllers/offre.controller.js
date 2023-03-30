@@ -19,31 +19,31 @@ export const getOffreById = async (req, res) => {
 }
 export const getOffreByUser=async(req,res)=>{
     const Id=req.params.userId
-    const user=await User.findById(Id).populate('offre_cree')
-    res.status(200).json(user.offre_cree,user.firstName, user.lastName, user.profile)
+    const user = await User.findById(Id).populate('offre_cree')
+    res.status(200).json(user.offre_cree)
 
 }
 export const saveOffre = async (req, res) => {
     
-    try { const user=await User.findById(req.body.user_cree)
+    try { const user=await User.findById(req.body.user_cre)
         
-      //  const offre=await Offres.findOne({MiniDescription:req.body.MiniDescription})
-    //    if(offre){
+        const offre=await Offres.findOne({MiniDescription:req.body.MiniDescription})
+        if(offre){
             
-       //     res.status(400).json({error:"offre est existe"})
-     //   }else{
+            res.status(400).json({error:"offre est existe"})
+        }else{
             
        //create formation
         const newoffre=req.body
-        delete newoffre.user_cree
+        delete newoffre.user_cre
         const offre = new Offres(newoffre);
-        offre.user_cree=user
+        offre.user_cre=user
         const insertedoffre = await offre.save();
         //add formation to user
         user.offre_cree.push(offre._id)
         user.save()
         res.status(201).json(insertedoffre);
-  //  } 
+    } 
 }catch (error) {
         res.status(400).json({message: error.message});
        
@@ -65,12 +65,12 @@ export const deleteOffre = async (req, res) => {
         if(!offre){
             return res.status(400).json({error:"offre don't existe"})
         }
-        const Iduser_cree=offre.user_cree
-        const user_cree=await User.findById(Iduser_cree)
+        const Iduser_cre=offre.user_cre
+        const user_cre=await User.findById(Iduser_cre)
         
         await offre.remove()
-        user_cree.offre_cree.pull(offre)
-        user_cree.save()
+        user_cre.offre_cree.pull(offre)
+        user_cre.save()
         
         res.status(200).json({success:true})
     } catch (error) {

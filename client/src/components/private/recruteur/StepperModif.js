@@ -22,7 +22,8 @@ export default function StepperModif(){
         ITdomain:"",
         City:"",
         MiniDescription:"",
-        DescriptionDetail:"",fullName:""
+        DescriptionDetail:"",Competance:"",
+        Temp:""
     })
 
     const setdata = (e) => {
@@ -72,7 +73,7 @@ export default function StepperModif(){
     const updateoffre = async(e)=>{
         e.preventDefault();
 
-        const { Entreprisname, Offrename,ITdomain,City, MiniDescription, DescriptionDetail,fullName} = inpval;
+        const { Entreprisname, Offrename,ITdomain,City, MiniDescription, DescriptionDetail,Competance,Temp} = inpval;
 
         const res2 = await fetch(`http://localhost:8080/api/updateoffre/${id}`,{
             method: "PATCH",
@@ -80,7 +81,7 @@ export default function StepperModif(){
                 "Content-Type": "application/json"
             },
             body:JSON.stringify({
-                Entreprisname, Offrename,ITdomain,City, MiniDescription, DescriptionDetail,fullName
+                Entreprisname, Offrename,ITdomain,City, MiniDescription, DescriptionDetail,Competance,Temp
             })
         });
 
@@ -106,10 +107,7 @@ export default function StepperModif(){
     switch (step){
       case 1:
         return(<div  >
-            <div class="mb-3 mt-12 ">
-          
-          <input type="text" className='formcontrol' value={inpval.fullName} onChange={setdata} placeholder="fullName" name="fullName"/>
-      </div>    
+             
           <div class="mb-3 mt-12 ">
           
               <input type="text" className='formcontrol' value={inpval.Entreprisname} onChange={setdata} placeholder="nom de l'entreprise" name="Entreprisname"/>
@@ -117,6 +115,10 @@ export default function StepperModif(){
           <div class="mb-3 mt-12">
 
               <input type="text" className="formcontrol"  placeholder="nom de l'offre" name="Offrename"  onChange={setdata} value={inpval.Offrename}/>
+          </div>
+          <div class="mb-3 mt-12">
+
+              <input type="text" className="formcontrol"  placeholder="temp plein" name="Temp"   value={inpval.Temp} onChange={setdata}/>
           </div>
           </div>);
         case 2:
@@ -131,6 +133,9 @@ export default function StepperModif(){
                     <div class="mb-3 mt-12">
                         <input type="text" className="formcontrol" placeholder=" Address"  onChange={setdata}
                                  name="City" value={inpval.City} />
+                    </div>
+                    <div class="mb-3 mt-12">
+                        <input type="text" className="formcontrol" placeholder=" Competance"   value={inpval.Competance} onChange={setdata} name="Competance" />
                     </div>
                     </div>);
             case 3:
