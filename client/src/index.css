@@ -97,6 +97,15 @@ overflow-y: scroll;
     overflow: hidden;
     overflow-y: scroll;
 }
+.cardDetails{
+    background-color: #fff;
+    border-radius: 25px;
+    margin: 16px;
+    height: 80vh;
+    padding-top: 2px;
+    width: 97.6%;
+    
+}
 
 
 .famly-layout{

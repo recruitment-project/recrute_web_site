@@ -68,7 +68,7 @@ function Details() {
      </div>
      <div className='layout'>
      <Header/>
-     <div className='cardMesoffre '>
+     <div className='cardDetails '>
   
 <div className='flex '>
   <div className='border-left'> 
