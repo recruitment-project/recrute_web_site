@@ -25,7 +25,8 @@ export default function Stepper(){
       City:"",
       MiniDescription:"",
        DescriptionDetail:"",
-      
+       Competance:"",
+       Temp:""
     },
      
      enableReinitialize: true,
@@ -181,6 +182,10 @@ export default function Stepper(){
 
               <input type="text" className="formcontrol"  placeholder="nom de l'offre" name="Offrename"   required {...formik.getFieldProps('Offrename')}/>
           </div>
+          <div class="mb-3 mt-12">
+
+              <input type="text" className="formcontrol"  placeholder="temp plein" name="Temp"   required {...formik.getFieldProps('Temp')}/>
+          </div>
           </div>);
         case 2:
           return(           
@@ -194,6 +199,10 @@ export default function Stepper(){
                     <div class="mb-3 mt-12">
                         <input type="text" className="formcontrol" placeholder=" Address"   required {...formik.getFieldProps('City')}
                                  name="City" />
+                    </div>
+                    <div class="mb-3 mt-12">
+                        <input type="text" className="formcontrol" placeholder=" Competance"   required {...formik.getFieldProps('Competance')}
+                                 name="Competance" />
                     </div>
                     </div>);
             case 3:

@@ -21,7 +21,8 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
  function MesOffre() {
-
+const [search,setSearch]=useState('');
+console.log(search);
     const [file, setFile] = useState();
     const [{ isLoading, apiData, serverError }] = useFetch();
   
@@ -157,15 +158,17 @@ const onDelite= async (id)=>{
      <div  className='flex c'>
     <div className='cardMesoffre '>
       <div className='flex flexajou'>
-        <input type="text" placeholder='shearch' className='mx-12 mt-3' />
-        <button type='submit' className=' ajou'  onClick={()=>navigate('/recruteur/stepper')}>Ajouter</button>
+        <input type="text" placeholder='shearch' className='mx-4 mt-3 formcontrolinput' onChange={(e)=>setSearch(e.target.value)} />
+        <button type='submit' className='  ajou'  onClick={()=>navigate('/recruteur/stepper')}>Ajouter</button>
         </div>
     {
 
-        getoffredata.map((element, id) => {
+        getoffredata.filter((element)=>{
+            return search.toLowerCase()===""?element:element.ITdomain.toLowerCase().includes(search);
+        }).map((element, id) => {
             return (
     <>
-    <div className='cardoffre'>
+    <div className='cardoffre' key={element.id}>
 
  <div className='flex'>
     <div className='flex m-3'>
@@ -174,11 +177,11 @@ const onDelite= async (id)=>{
       <div className='mx-3'>{element.fullName}</div>
     </div>
     <div className='mt-3'>
-    <Badge bg="secondary mx-2" className='secondary'>{element.ITdomain}</Badge>
-    <Badge bg="secondary mx-2"className='secondary'>{element.City}</Badge>
+    <Badge bg="secondary mx-2" className='secondary pt-2'>{element.ITdomain}</Badge>
+    <Badge bg="secondary mx-2"className='secondary pt-2'>{element.City}</Badge>
 </div>
 </div>
-<div className='mx-5'>{element.Entreprisname}</div>
+<div className='mx-3'>{element.Entreprisname}</div>
 <div className='bold mx-3'>{element.Offrename}</div>
 <div className='mx-3'>{element.ITdomain}</div>
 <div className='flex  justify-content-end'>

@@ -170,7 +170,14 @@ margin-bottom: 10%;
     margin: 6px;
 }
 .btn2{
-    background-color: rgb(13, 0, 255);
+    background-color: green;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 6px;
+}
+.btn3{
+    background-color: red;
     color: #fff;
     border-radius: 20px;
     padding: 10px;
@@ -251,7 +258,9 @@ margin-bottom: 10%;
    
 }
 .secondary{
-    width: 50px;
+    
+    height: 30px;
+    width: 120px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .flexajou{
@@ -304,11 +313,22 @@ margin-bottom: 10%;
     padding-right: 12px;
     width: 80%;
   }
+  .f{
+    flex-direction: column;
+  }
  .formcontrol{
     
     box-shadow: none;
     border: 2px solid black;
     width: 70%;
+    padding: 6px;
+    border-radius: 12px;
+ }
+ .formcontrolinput{
+    
+    box-shadow: none;
+    border: 2px solid black;
+    width: 30%;
     padding: 6px;
     border-radius: 12px;
  }
