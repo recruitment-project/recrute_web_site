@@ -1,0 +1,42 @@
+img{
+    
+    height: 200px;
+}
+.pag-conseil{
+  font-size: 50px;
+  word-break: break-all;
+  color: #C9CC3F;
+}
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+  .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #D3D3D3;
+  }
+  h5{
+    color: #bc3c21;
+  background-color: transparent;
+  text-decoration: underline;
+  }
+.text-color{
+  color: #C9CC3F !important;
+}
+.img-page1{
+  width: 35%;
+  height: 40%;
+}
+.bg-lightt{
+  background:#f1f1f1;
+} 
+.content{
+  max-width: 80%;
+  margin: auto;
+  background: white;
+  padding: 2%;
+  
+}
+
+.p{
+  font-family: Tahoma, Verdana, sans-serif;
+  line-height: 1.8;
+}
