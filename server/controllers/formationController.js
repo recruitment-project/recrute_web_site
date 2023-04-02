@@ -20,7 +20,7 @@ export const getFormationById = async (req, res) => {
 export const getFormationByUser=async(req,res)=>{
     const Id=req.params.userId
     const user=await User.findById(Id).populate('formation_cree')
-    res.status(200).json(user.formation_cree)
+    res.status(200).json(user.formation_cree, user.firstName,  user.lastName, user.profile)
 
 }
 export const saveFormation = async (req, res) => {

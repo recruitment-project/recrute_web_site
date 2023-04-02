@@ -15,7 +15,7 @@ import convertToBase64 from '../../../helper/convert';
   
    import { updateUser } from '../../../helper/helper';
    import { useFormik } from 'formik';
- 
+   import jwt_decode from 'jwt-decode';
    import { profileValidation } from '../../../helper/validate';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
@@ -43,7 +43,10 @@ console.log(search);
 //      console.log(x);
 //      console.log("error ");
 //  }
-         const res = await fetch(`http://localhost:8080/api/getdata`, {
+ const token = localStorage.getItem('token')
+    if(!token) return Promise.reject("Cannot find Token");
+    let decode = jwt_decode(token)
+         const res = await fetch(`http://localhost:8080/api/offreByUser/${decode?.userId}`, {
              method: "GET",
              headers: {
                  "Content-Type": "application/json"
@@ -175,7 +178,7 @@ const onDelite= async (id)=>{
  <div className='flex'>
     <div className='flex m-3'>
       
-      <div className=''><img src={ apiData?.profile || file ||avatar} alt="avatar" className='imgprofile'/></div>
+      <div className=''><img src={ apiData?.profile || file } alt="avatar" className='imgprofile'/></div>
       <div className='mx-3'>{apiData?.firstName}</div>
     </div>
     <div className='mt-3'>

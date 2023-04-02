@@ -123,7 +123,7 @@ router.get("/getdata/:userId",async(req,res)=>{
   const Id=req.params.userId
   const user=await User.findById(Id).populate('offre_cree')
   console.log(user);
-  res.status(200).json(user.offre_cree,user.firstName, user.lastName, user.profile)
+  res.status(200).json(user.offre_cree)
 
 })
 
