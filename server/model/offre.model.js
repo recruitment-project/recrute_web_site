@@ -13,6 +13,11 @@ export const OffreSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },
+        questions: [{
+            question: String,
+            options: [String],
+            correctAnswer: String
+          }],
         
 },{
     timestamps:true

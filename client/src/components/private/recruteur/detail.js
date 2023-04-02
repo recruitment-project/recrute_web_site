@@ -80,6 +80,7 @@ let manth=new Date(getuserdata.updatedAt).getDate();
   <div className='marg mt-6 '>{date}</div>
   </div>
   <div className='f mt-12' >
+ 
   <div className='mx-3'> 
   {getuserdata.Offrename}
   </div>

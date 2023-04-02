@@ -26,7 +26,12 @@ export default function Stepper(){
       MiniDescription:"",
        DescriptionDetail:"",
        Competance:"",
-       Temp:""
+       Temp:"",
+       questions: [{
+        question: '',
+        options: [''],
+        correctAnswer: ''
+      }] 
     },
      
      enableReinitialize: true,
@@ -221,7 +226,23 @@ export default function Stepper(){
                 </div>
                 </div>);
                 case 4:
-                  return <Quiz/>;           
+                  return( <div >
+                    <div class="mb-3 mt-12">
+            
+                        <input type="text" className="formcontrol" placeholder=" Q1"   required {...formik.getFieldProps('questions.question')}
+                               name="q1"  />
+                    </div>
+                    <div class="mb-3 mt-12">
+                    <input type="text" className="formcontrol" placeholder=" op1"   required {...formik.getFieldProps('questions')}
+                               name="op1"  />
+                      
+                    </div>
+                    <div class="mb-3 mt-12">
+                    <input type="text" className="formcontrol" placeholder=" correct op"   required {...formik.getFieldProps('questions')}
+                               name="op2"  />
+                      
+                    </div>
+                    </div>);          
     }
   }
   const labelArray = ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5']

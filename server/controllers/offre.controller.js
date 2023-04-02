@@ -33,13 +33,13 @@ export const saveOffre = async (req, res) => {
             res.status(400).json({error:"offre est existe"})
         }else{
             
-       //create formation
+       //create offre
         const newoffre=req.body
         delete newoffre.user_cre
         const offre = new Offres(newoffre);
         offre.user_cre=user
         const insertedoffre = await offre.save();
-        //add formation to user
+        //add offre to user
         user.offre_cree.push(offre._id)
         user.save()
         res.status(201).json(insertedoffre);
