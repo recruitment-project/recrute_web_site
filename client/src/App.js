@@ -25,6 +25,7 @@ import Stepper from './components/private/recruteur/stepper';
 import StepperModif from './components/private/recruteur/StepperModif';
 import AjoutFormation from './components/private/recruteur/formation/formulaireFormationAjout';
 import UpdateFormation from './components/private/recruteur/formation/formulaireFormationUpdate';
+import MesFormation from './components/private/recruteur/mesFormation';
 const router = createBrowserRouter([
     {
         path : '/',
@@ -106,6 +107,10 @@ const router = createBrowserRouter([
         element : <FormationR></FormationR>
     },
     {
+        path : '/recruteur/mesformation',
+        element : <MesFormation></MesFormation>
+    },
+    {
         path : '/candidat/formation',
         element : <Formation></Formation>
     },
@@ -118,7 +123,7 @@ const router = createBrowserRouter([
         element : <AjoutFormation></AjoutFormation>
     },
     {
-        path : '/recruteur/formation/update',
+        path : '/recruteur/formation/update/:id',
         element : <UpdateFormation></UpdateFormation>
     },
   

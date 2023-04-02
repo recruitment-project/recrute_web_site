@@ -73,6 +73,18 @@
     height: 50px;
     width: 76rem;
 }
+.searchinputR{
+    width: 100%;
+    height: 3rem;
+    margin: 1rem;
+}
+.searchinputR input {
+    border-radius: 10px;
+    padding-left: 38px;
+    background: white;
+    height: 50px;
+    width: 70rem;
+}
 .iconsearch{
    position: absolute;
    top:5%;
@@ -150,4 +162,23 @@
 .btnMore{
     float: left;
 }
+}
+.btnmodif{
+    background:rgb(220, 190, 20);
+    color:white;
+    padding: 10px;
+    height: 3rem;
+    border-radius: 10px;
+    margin: 1rem;
+    text-transform: uppercase;
+}
+.btnajout{
+    background:crimson;
+    color:white;
+    padding: 10px;
+    height: 3rem;
+    border-radius: 10px;
+    margin: 1rem;
+    margin-right: 90px;
+    text-transform: uppercase;
 }
