@@ -26,6 +26,16 @@ import StepperModif from './components/private/recruteur/StepperModif';
 import AjoutFormation from './components/private/recruteur/formation/formulaireFormationAjout';
 import UpdateFormation from './components/private/recruteur/formation/formulaireFormationUpdate';
 import MesFormation from './components/private/recruteur/mesFormation';
+import Pc1 from './components/pages_conseil/page_conseil';
+import P1 from './components/pages_conseil/page1';
+import P2 from './components/pages_conseil/page2';
+import P3 from './components/pages_conseil/page3';
+import P4 from './components/pages_conseil/page4';
+import P5 from './components/pages_conseil/page5';
+import P6 from './components/pages_conseil/page6';
+import P7 from './components/pages_conseil/page7';
+import P8 from './components/pages_conseil/page8';
+import P9 from './components/pages_conseil/page9';
 const router = createBrowserRouter([
     {
         path : '/',
@@ -130,6 +140,48 @@ const router = createBrowserRouter([
     {
         path : '*',
         element : <PageNotFound></PageNotFound>
+    },
+    {
+        path : '/page_conseil',
+        element : <Pc1></Pc1>
+    },
+
+    {
+        path : '/page1',
+        element : <P1></P1>
+    },
+    
+    {
+        path : '/page2',
+        element : <P2></P2>
+    },
+    {
+        path : '/page3',
+        element : <P3></P3>
+    },
+    {
+        path : '/page4',
+        element : <P4></P4>
+    },
+    {
+        path : '/page5',
+        element : <P5></P5>
+    },
+    {
+        path : '/page6',
+        element : <P6></P6>
+    },
+    {
+        path : '/page7',
+        element : <P7></P7>
+    },
+    {
+        path : '/page8',
+        element : <P8></P8>
+    },
+    {
+        path : '/page9',
+        element : <P9></P9>
     },
 ])
 
