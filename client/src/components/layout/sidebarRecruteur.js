@@ -40,6 +40,12 @@ import {GiPaintBrush} from "react-icons/gi";
         }
         ,
         {
+            path:"/recruteur/mesformation",
+            name:"Mes formation",
+            icon:<FaThList/>
+        }
+        ,
+        {
             path:"/recruteur/recruter",
             name:"Recruter",
             icon:<GiPaintBrush/>

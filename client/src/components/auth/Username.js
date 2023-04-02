@@ -53,7 +53,7 @@ export default function Username() {
             <p className="text-center font-semi mx-5 mb-0"><FaReact/></p>
           </div>
           <div className=" relative  flex justify-center text-center lg:text-left mb-3">
-          <label> <FaUser className='absolute pl-4 pointer-events-none mt-4 ' size="30" color="gray" />
+          <label> <FaUser className='absolute pl-4 pointer-events-none mt-4 ' size="40" color="gray" />
             <input
               type="text"
               className="border-4 border-gray-100 px-5 py-4 rounded-xl w-2/2 shadow-sm text-lg hover:border-gray-200 focus:outline-none"

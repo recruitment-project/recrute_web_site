@@ -16,9 +16,9 @@ import Header from '../../../layout/header.js';
 function FormationFormUpdate() {
 
     const [file, setFile] = useState();
-    //const { id } = useParams("");
+    const { id } = useParams("");
     
-    const [formation, setFormation] = useFetchformation("6420ecacf846163d919941f1");
+    const [formation, setFormation] = useFetchformation(id);
     const [{ isLoading, apiData, serverError }] = useFetch();
   const navigate = useNavigate()
   
@@ -54,7 +54,7 @@ function FormationFormUpdate() {
          error: <b>Could not update!</b>
        });
        updatePromise.then(function(){ 
-        setTimeout(()=>navigate('/recruteur/formation'),500) 
+        setTimeout(()=>navigate('/recruteur/mesformation'),500) 
       });
      }
    })

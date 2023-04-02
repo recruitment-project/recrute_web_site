@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react';
+import { NavLink, useNavigate } from 'react-router-dom'
+import SidebarRecruteur from '../../layout/sidebarRecruteur';
 import {
   MDBCol,
   MDBListGroup,
@@ -13,17 +15,23 @@ import {
   import Modal from 'react-modal';
 // import {Modal, Button} from 'react-bootstrap';
 import {FcSearch} from "react-icons/fc";
-import SidebarCandidat from '../../layout/sidebarCondidat';
 import styles from "../../../styles/formations.module.css";
 import axios from "axios";
+import toast, { Toaster } from 'react-hot-toast';
+import jwt_decode from 'jwt-decode';
 const PAGE_SIZE = 2;
-export default function Formation() {
+
+
+
+
+export default function MesFormation() {
+  const navigate = useNavigate()
   const [formationsList, setFormations] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [formation, setFormation] = useState({});
   const [basicActive, setBasicActive] = useState('formateur');
 
-
+  
 
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(formationsList.length / PAGE_SIZE);
@@ -37,9 +45,13 @@ export default function Formation() {
   };
 
 
+  
   function getAllFormations() {
+    const token = localStorage.getItem('token')
+    if(!token) return Promise.reject("Cannot find Token");
+    let decode = jwt_decode(token)
     axios
-      .get(`http://localhost:8080/api/formations`)
+      .get(`http://localhost:8080/api/formationByUser/${decode?.userId}`)
       .then((res) => {
         if (res.data === "ERROR") {
           console.log("error !");
@@ -48,15 +60,27 @@ export default function Formation() {
         }
       });
   }
+  const onDelite= async (id)=>{
+    if( window.confirm("are you sure that you wanted to delete that formation record")){
+      const  res= await axios.delete(`http://localhost:8080/api/formation/${id}`);
+        //const response= await axios.delete(`http://localhost:8080/api/offre/${id}`
+       // );
+        if (res.status===200){
+            toast.success("deleted");
+            getAllFormations();
+        }
+    }
+}
+
+
   useEffect(() => {
+ 
     getAllFormations();
   }, []);
   const handleSearch = (event) => {
     setSearchQuery(event.target.value);
   };
-  const filteredImages = formationsList.filter((image) =>
-  image.title.toLowerCase().includes(searchQuery.toLowerCase())
-);
+  
 const handleBasicClick = (value) => {
   if (value === basicActive) return;
   setBasicActive(value);
@@ -92,12 +116,13 @@ function closeModal() {
     <>
     <div className='displ flex'>
       <div>
-          <SidebarCandidat/>
+      <SidebarRecruteur/>
       </div>
-      <div className={styles.searchinput}>
+      <Toaster position='top-center' reverseOrder={false}></Toaster>
+      <div className={styles.searchinputR}>
           <label><FcSearch  className={styles.iconsearch} /><input type="text" placeholder='Rechercher votre formation . . . ' onChange={handleSearch} /></label>
       </div>
-      
+      <button className={styles.btnajout} onClick={()=>navigate('/recruteur/formation/ajout')}> Ajout</button>
       <div className="flex" id="card">
       
                 {getDisplayedItems().filter((image) =>
@@ -108,8 +133,12 @@ function closeModal() {
                     <p className={styles.title}>{image.title}</p>
                     <p>{image.description.slice(0,130)} . . . </p>
                     <div className="flex">
-                        <button className={styles.btn}>
-                           Participer
+                    <NavLink to={`/recruteur/formation/update/${image._id}`}> 
+                    <button type='submit'className={styles.btnmodif} >
+                    Edit</button>
+                    </NavLink>
+                        <button className={styles.btn} onClick={() => onDelite(image._id)}>
+                        Delete
                         </button>
                         <button className={styles.btnMore}  onClick={()=>{openModal(),setFormation(image)}}>
                           read more
