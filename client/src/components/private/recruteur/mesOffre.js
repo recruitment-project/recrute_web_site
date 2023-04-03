@@ -189,6 +189,7 @@ const onDelite= async (id)=>{
 <div className='mx-3'>{element.Entreprisname}</div>
 <div className='bold mx-3'>{element.Offrename}</div>
 <div className='mx-3'>{element.ITdomain}</div>
+<div className='mx-3'>{element.MiniDescription}</div>
 <div className='flex  justify-content-end'>
  <NavLink to={`/recruteur/Details/${element._id}`}>  <button type='submit' className='btn2 ' onClick={()=>navigate('/recruteur/Details')}>Details</button></NavLink>
   <NavLink to={`/recruteur/stepper/${element._id}`}> <button type='submit'className='btn1 '  onClick={()=>navigate('/recruteur/stepper')}>Modifier</button></NavLink>

@@ -140,7 +140,7 @@ let manth=new Date(getuserdata.updatedAt).getDate();
  <hr></hr>
        </Card.Body> */}
        
-       <Card.Footer> <div className='groupbtn'>
+       <Card.Footer className='footer'> <div className='groupbtn'>
        <Button  className='btn2 px-2' type='submit' onClick={()=>navigate('/recruteur/mesOffre')}>return</Button>
        <NavLink to={`/recruteur/stepper/${getuserdata._id}`}> <button type='submit'className='btn1 '  onClick={()=>navigate('/recruteur/stepper')}>Modifier</button></NavLink>
          <Button  className='btn3' type='submit' onClick={() => onDelite(getuserdata._id)}>Supprimer</Button>

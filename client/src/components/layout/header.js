@@ -48,11 +48,11 @@ return (
         <div className='pro flex'>
         
            
-           <div className='position flex'> 
+           <div className='position flex mt-3'> 
 		     <img src={ apiData?.profile || file ||avatar} alt="avatar" className='imgHed'/>
 	       </div>
 
-	   <div className=''>
+	   <div className='mt-3'>
 		<input  disabled {...formik.getFieldProps('username')}  className="champProfile"  type="text" placeholder='username' /> </div>
 		</div>
          

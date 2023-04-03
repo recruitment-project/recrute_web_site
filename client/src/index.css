@@ -139,8 +139,11 @@ overflow-y: scroll;
 .imgHed{
     margin-bottom: 10%;
    border-radius: 100%;
-    width: 65%;
-    
+    width: 35%;
+    height: 35%;
+}
+.footer{
+    background-color: white;
 }
 /* .pro{
   justify-content: stretch;
@@ -280,7 +283,8 @@ overflow-y: scroll;
    
 }
 .secondary{
-    
+    color: white;
+    border-radius: 25px;
     height: 30px;
     width: 120px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

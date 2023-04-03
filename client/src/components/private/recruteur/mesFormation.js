@@ -13,6 +13,7 @@ import {
   MDBTabsPane,
   MDBPagination, MDBPaginationItem, MDBPaginationLink } from 'mdb-react-ui-kit';
   import Modal from 'react-modal';
+  import Header from '../../layout/header';
 // import {Modal, Button} from 'react-bootstrap';
 import {FcSearch} from "react-icons/fc";
 import styles from "../../../styles/formations.module.css";
@@ -118,12 +119,15 @@ function closeModal() {
       <div>
       <SidebarRecruteur/>
       </div>
+     
       <Toaster position='top-center' reverseOrder={false}></Toaster>
+    
       <div className={styles.searchinputR}>
-          <label><FcSearch  className={styles.iconsearch} /><input type="text" placeholder='Rechercher votre formation . . . ' onChange={handleSearch} /></label>
+          <label ><FcSearch  className={styles.iconsearch} /><input type="text" placeholder='Rechercher votre formation . . . ' onChange={handleSearch} className='mb-5' /></label>
       </div>
       <button className={styles.btnajout} onClick={()=>navigate('/recruteur/formation/ajout')}> Ajout</button>
-      <div className="flex" id="card">
+      </div>
+      <div className="flex " id="card">
       
                 {getDisplayedItems().filter((image) =>
                     image.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -232,7 +236,7 @@ function closeModal() {
             </nav>
             </div>
            
-        </div> 
+      
 
     </>
   );
