@@ -113,7 +113,8 @@ overflow-y: scroll;
     height: 80vh;
     padding-top: 2px;
     width: 97.6%;
-    
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 
@@ -267,8 +268,10 @@ overflow-y: scroll;
     background-color: #fff;
     border-radius: 25px;
     margin: 26px;
-    height: 30vh;
+    height: 42vh;
     padding-top: 2px;
+    overflow: hidden;
+    
     width: auto;
     box-shadow: 10px 5px 5px rgb(185, 182, 182);
     border: 2px solid black;
