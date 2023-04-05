@@ -10,12 +10,12 @@
 }
 #card{
     position: absolute;
-    top:22%;
-    left:5%;
-    width: 93.5%;
-    height: 65vh;
+    top:24%;
+    left:8%;
+    width: 92%;
+    margin-bottom: 15px;
+    /* height: 100vh; */
     flex-wrap: wrap;
-    padding-left: 55px;
 }
 body{
     background: #dcdce6;

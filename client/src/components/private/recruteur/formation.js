@@ -98,7 +98,6 @@ function closeModal() {
       <div>
       <SidebarRecruteur/>
       </div>
-      
       <div style={{width:"100%", height:"2rem"}}>
         <Header  />
       </div>

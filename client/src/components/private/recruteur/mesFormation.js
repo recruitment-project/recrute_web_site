@@ -14,6 +14,7 @@ import {
   MDBPagination, MDBPaginationItem, MDBPaginationLink } from 'mdb-react-ui-kit';
   import Modal from 'react-modal';
   import Header from '../../layout/header';
+
 import {FcSearch} from "react-icons/fc";
 import styles from "../../../styles/formations.module.css";
 import axios from "axios";
@@ -120,7 +121,6 @@ function closeModal() {
       </div>
      
       <Toaster position='top-center' reverseOrder={false}></Toaster>
-    
       
       <div style={{width:"100%", height:"2rem"}}>
         <Header  />

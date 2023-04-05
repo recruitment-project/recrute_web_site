@@ -1,194 +1,207 @@
 
-.leftSide{
-  background: white;
-  padding: 20px;
-  width: 45%;
-  height: 60vh;
-  border-radius: 10px;
-  margin: 15px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+.glass{
+  background:linear-gradient(#e66465, #9198e5);;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px #4747470b;
+  backdrop-filter: blur(7.1px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  @apply border-4 border-gray-50 shrink-0 h-5/6 w-[30%] rounded-3xl py-20 px-7 min-w-max;
 }
 
-.leftSide:hover{
-  background: rgb(246, 208, 215);
-  color: white;
+.profile_img{
+  @apply border-4 border-gray-100 w-[135px] rounded-full shadow-lg cursor-pointer;
+  @apply hover:border-gray-200;
 }
-.image{
-  border-radius: 15px;
-  margin-bottom: 2rem;
-  width: 100%;
-  height: 20vh;   
+
+.textbox{
+  @apply border-4 border-gray-100 px-5 py-4 rounded-xl w-3/4 shadow-sm text-lg;
+  @apply focus:outline-none;
 }
-.col{
- background: white;
- border-radius: 10px;
- margin: 15px;
- height: 28rem;
- padding: 15px;
- width: 45%;
-}
-.btn{
-  background:crimson;
-  color:white;
-  padding: 10px;
-  height: 3rem;
-  border-radius: 10px;
-  margin: 1rem;
-  text-transform: uppercase;
-}
-.title{
-  font-weight: bold;
-  font-size: 20px;
-  text-align: left;
-  margin-bottom: 1rem;
-  color: crimson;
-}
-.btn:hover,
-.btn:focus {
-color: white;
-background-color: rgb(255, 53, 93);
-}
-.btnMore{
-background: rgb(209, 209, 255);
-text-transform: uppercase;
-font-weight: bold;
-font-size: 13px;
-color:blue;
-padding: 10px;
-border-radius: 10px;
-margin: 1rem;
-height: 3rem;
-}
-.btnMore:hover{
-  background: none;
-}
-.searchinput{
-  width: 40%;
-  position: absolute;
-  top:13%;
-  left: 27%;
-  height: 3rem;
-  margin: 1rem;
-}
-.searchinput input {
-  border-radius: 10px;
-  padding-left: 58px;
-  height: 50px;
-  width: 35rem;
-}
-.searchinputR{
-  width: 100%;
-  height: 3rem;
-  margin: 1rem;
+.inputUsername{
+  margin-left:38px;
+  width: 450px;
+  height: 85px;
+  padding-left: 27px;
+  @apply border-4 border-gray-100 py-4 rounded-xl shadow-sm text-lg hover:border-gray-200 focus:outline-none ;
 }
 .iconsPassword{
   position: absolute;
   gap: 1.5rem;
   justify-content: right;
-  margin-left: 63%;
+  margin-left: 62%;
   margin-top: -2%;
 }
-.searchinputR input {
-  border-radius: 10px;
-  padding-left: 38px;
-  background: white;
-  /* height: 50px;
-  width: 70rem; */
+.iconsRegister{
+ margin-left: 46px;
+  @apply absolute pointer-events-none ;
 }
-.iconsearch{
- position: absolute;
- top:27%;
- left: 6%;
- font-size: 20px;
+.btn:hover{
+  background-color: #ff6a6a;
 }
-.pages{
-  position: absolute;
-  width: 20%;
-  left:37%;
-  top: 99%;
-  padding: 1rem;
-  background: white;
-  text-align: left;
-  border-radius: 5px;
+
+input[type='file']{
+  display: none;
 }
-.items{
-  width: 100%;
-  font-size: 15px;
+
+.btn{
+  
+  justify-content: center;
   text-align: center;
-  height: 50%;
-  cursor: pointer;
+  position: relative;
+  margin-left:-16px;
+  width: 290px;
+  height:74px;
+  @apply border bg-indigo-500   py-4 rounded-lg text-gray-50 text-xl shadow-sm text-center
 }
-.imageBox{
+.btn1{
+  
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  margin-left:-42px;
+  width: 320px;
+  height:74px;
+  @apply border bg-indigo-500   py-4 rounded-lg text-gray-50 text-xl shadow-sm text-center
+}
+
+.inputPassword {
+  /* position: relative; */
+  margin-left:28px;
+  width: 290px;
+@apply border-4 border-gray-100 px-5  py-4 rounded-xl shadow-sm text-lg hover:border-gray-200 focus:outline-none;
+}
+
+.card {
+  width: 550px;
+  background-color: #000;
+  height: 700px;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 1rem;
+}
+
+@media only screen and (max-width: 620px) {
+  .card {
+    width: 90vw;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .iconsPassword{
+  margin-left: 87%;
+}
+.inputUsername{
+  margin-left: -10px;
+  width: 450px;
+}
+.iconsRegister{
+  margin-left: -1px;
+}
+}
+
+@media only screen and (max-height: 670px) {
+  .card {
+    height: 650px;
+  }
+}
+
+.title {
+  color: white;
+  text-align: center;
   margin-bottom: 1rem;
-  align-Content: center;
+}
+
+.subtitle {
+  color: rgb(218, 218, 218);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.inputs_container {
+  flex-direction: column;
+}
+
+.inputs_container input {
+  width: 95%;
+  margin: 1.5rem auto;
+  padding: 1rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: 0;
+  border: 0;
+}
+
+
+.login_button {
+  display: block;
+  margin: 3rem auto 1rem auto;
+  width: 55%;
+  padding: 0.75rem 1rem;
+  border-radius: 25px;
+  outline: 0;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  background-color: #4e65f7;
+  color: white;
+  border: 2px solid transparent;
+}
+
+.login_button:hover {
+  border: 2px solid #4e65f7;
+  background-color: #000;
+}
+
+.link_container {
   justify-content: center;
 }
-.imageBox img {
-  margin-left: 12rem;
+
+.small {
+  color: rgb(218, 218, 218);
+  text-align: center;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  margin-bottom: 5rem;
+  cursor: pointer;
 }
-.items:hover , .items:focus {
-  background: rgb(214, 214, 255);
-  border-radius: 10px;
-  color: orangered; 
+
+.icons {
+  justify-content: center;
+  gap: 1.5rem;
 }
-.number{
-  margin: 1rem;
-  padding: 0.5rem;
-  border-radius: 50%;
+
+.icon {
+  color: white;
+  cursor: pointer;
 }
-.number:hover , .number:focus{
-  color: orangered; 
-  background: rgb(214, 214, 255);
+
+.error_msg {
+  color: red;
+  padding-left: 1rem;
+  font-size: 0.85rem;
+  margin: 0;
 }
-.tabItem{
-  font-size: 15px;
-  margin-bottom: 1rem;
+
+@media only screen and (max-width: 620px) {
+  .inputs_container input {
+    width: 100%;
+  }
+
+  .login_button {
+    width: 100%;
+  }
+
+  .error_msg {
+    padding-left: 0.2rem;
+  }
 }
-.tabItem:hover {
-  color: orangered;
-}
-.tab{
-  width: 200px;
-}
-.modele {
-  width: 50%;
-  background: white;
-  align-items: center;
-}
-@media only screen and (max-width: 1220px) {
-.bloc{
-  height:45rem;
-  width: 100%;
-}
-.col{
-  height: 38rem;
-}
-.image{
-  height: 5rem;
-}
-.btn{
-  float: right;
-}
-.btnMore{
-  float: left;
-}
-}
-.btnmodif{
-  background:rgb(220, 190, 20);
-  color:white;
-  padding: 10px;
-  height: 3rem;
-  border-radius: 10px;
-  margin: 1rem;
-  text-transform: uppercase;
-}
-.btnajout{
-  background:crimson;
-  color:white;
-  padding: 10px;
-  height: 3rem;
-  border-radius: 10px;
-  margin: 1rem;
-  margin-right: 90px;
-  text-transform: uppercase;
-}
+
+@media only screen and (max-height: 670px) {
+  .subtitle {
+    margin-bottom: 2rem;
+  }
+
+  .small {
+    margin-bottom: 3rem;
+  }
+}                                                                                                                                                                                                                                                                                                                                           

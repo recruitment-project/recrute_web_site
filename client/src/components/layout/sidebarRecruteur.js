@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import {AiFillHome} from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 import {GiPaintBrush} from "react-icons/gi";
+import logo from "../../assets/logo.png";
 //import styles from '../styles/Username.module.css';
  function SidebarRecruteur ( {children}){
     const [isOpen, setIsOpen]=useState(false);
@@ -63,7 +64,7 @@ import {GiPaintBrush} from "react-icons/gi";
              
             <div style={{width:isOpen ? "250px" : "50px"}} className='sidebar'>
                 <div className='top-section flex'>
-                    <h1 style={{display:isOpen? "block" : "none"}} className='logo'>Logo</h1>
+                    <h1 style={{display:isOpen? "block" : "none"}} className='logo'><img src={logo} /></h1>
                     <div  style={{marginLeft:isOpen? "50px" :"0px"}} className='bars flex'>
                         <FaBars onClick={toggle}/>
                     </div>
