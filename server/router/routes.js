@@ -111,7 +111,7 @@ router.post("/addoffre",async(req,res)=>{
 
 router.get("/getdata",async(req,res)=>{
   try {
-      const offredata = await offreModel.find();
+      const offredata = await offreModel.find().populate('user_cre');
       res.status(201).json(offredata)
       console.log(offredata);
   } catch (error) {
@@ -155,7 +155,7 @@ router.route('/offre/:id').delete(OffreController.deleteOffre);
 
 
 /**Formation methods */
-router.route('/formations').get(FormationController.getFormations);
+router.route('/formations').post(FormationController.getFormations);
 router.route('/formation/:id').get(FormationController.getFormationById);
 router.route('/formationByUser/:userId').get(FormationController.getFormationByUser);
 router.route('/saveFormation').post(FormationController.saveFormation);

@@ -96,6 +96,7 @@ overflow-y: scroll;
     overflow: auto;
     overflow-y: scroll;
 }
+
 .cardModif{
     background-color: #fff;
     border-radius: 25px;
@@ -270,7 +271,7 @@ overflow-y: scroll;
 .cardoffre{
     background-color: #fff;
     border-radius: 25px;
-    margin: 26px;
+    margin: 40px;
     height: 42vh;
     padding-top: 2px;
     overflow: hidden;

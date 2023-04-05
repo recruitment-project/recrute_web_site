@@ -1,24 +1,19 @@
 
 import SidebarCandidat from '../../layout/sidebarCondidat';
-import React,{useState, useEffect, useContext } from 'react';
+import React,{useState, useEffect } from 'react';
 import Header from '../../layout/header';
 import Badge from 'react-bootstrap/Badge';
 import { useNavigate  } from 'react-router-dom';
  
 import { NavLink } from 'react-router-dom';
 import useFetch from '../../../hooks/fetch.hook';
-import convertToBase64 from '../../../helper/convert';
-//const [search, setSearch] = useState('');
 
-//console.log(search);
-   //const navigate = useNavigate();
   
    import { updateUser } from '../../../helper/helper';
    import { useFormik } from 'formik';
-   import jwt_decode from 'jwt-decode';
+
    import { profileValidation } from '../../../helper/validate';
-import axios from 'axios';
-import { toast } from 'react-hot-toast';
+
 
  function Offre() {
 const [search,setSearch]=useState('');
@@ -29,12 +24,7 @@ console.log(search);
   const [getoffredata, setOffredata] = useState([]);
   console.log(getoffredata);
 
-  const { udata, setUdata } = useContext(adddata);
-
-  const {updata, setUPdata} = useContext(updatedata);
-
-  const {dltdata, setDLTdata} = useContext(deldata);
-
+ 
    const getdata = async () => {
 
          const res = await fetch(`http://localhost:8080/api/getdata`, {
@@ -98,6 +88,7 @@ console.log("data=>",getoffredata)
         <input type="text" placeholder='shearch' className='mx-4 mt-3 formcontrolinput' onChange={(e)=>setSearch(e.target.value)} />
         
         </div>
+        <div className='row'>
     {
 
         getoffredata.filter((element)=>{
@@ -105,7 +96,7 @@ console.log("data=>",getoffredata)
         }).map((element, id) => {
             return (
     <>
-    <div className='cardoffre' key={element.id}>
+    <div className='cardoffre col-5' key={element.id}>
 
  <div className='flex'>
     <div className='flex m-3'>
@@ -121,7 +112,7 @@ console.log("data=>",getoffredata)
 <div className='mx-3'>{element.Entreprisname}</div>
 <div className='bold mx-3'>{element.Offrename}</div>
 <div className='mx-3'>{element.ITdomain}</div>
-<div className='mx-3'>{element.MiniDescription}</div>
+<div className='mx-3'>{element.MiniDescription.slice(0,200)}...</div>
 <div className='flex  justify-content-end'>
  <NavLink to={`/recruteur/Details/${element._id}`}>  <button type='submit' className='btn2 ' onClick={()=>navigate('/recruteur/Details')}>Details</button></NavLink>
   <NavLink to={`/recruteur/postuler/${element._id}`}> <button type='submit'className='btn1 '  onClick={()=>navigate('/recruteur/stepper')}>Modifier</button></NavLink>
@@ -131,7 +122,7 @@ console.log("data=>",getoffredata)
     </>
  )
 })
-}
+}</div>
       
       </div>
       </div>

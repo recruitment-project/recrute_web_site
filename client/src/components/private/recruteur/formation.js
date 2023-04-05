@@ -42,7 +42,7 @@ export default function FormationR() {
 
   function getAllFormations() {
     axios
-      .get(`http://localhost:8080/api/formations`)
+      .post(`http://localhost:8080/api/formations`)
       .then((res) => {
         if (res.data === "ERROR") {
           console.log("error !");

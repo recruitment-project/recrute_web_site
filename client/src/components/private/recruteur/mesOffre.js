@@ -161,19 +161,21 @@ const onDelite= async (id)=>{
      <div className='layout'>
      <Header/>
      <div  className='flex c'>
-    <div className='cardMesoffre '>
+    <div className='cardMesoffre  '>
       <div className='flex flexajou'>
         <input type="text" placeholder='shearch' className='mx-4 mt-3 formcontrolinput' onChange={(e)=>setSearch(e.target.value)} />
         <button type='submit' className='  ajou'  onClick={()=>navigate('/recruteur/stepper')}>Ajouter</button>
         </div>
+        <div className='row'>
     {
-
+       
         getoffredata.filter((element)=>{
             return search.toLowerCase()===""?element:element.ITdomain.toLowerCase().includes(search);
         }).map((element, id) => {
             return (
-    <>
-    <div className='cardoffre' key={element.id}>
+    
+     
+    <div className='cardoffre col-5 ' key={element.id}>
 
  <div className='flex'>
     <div className='flex m-3'>
@@ -189,17 +191,17 @@ const onDelite= async (id)=>{
 <div className='mx-3'>{element.Entreprisname}</div>
 <div className='bold mx-3'>{element.Offrename}</div>
 <div className='mx-3'>{element.ITdomain}</div>
-<div className='mx-3'>{element.MiniDescription}</div>
-<div className='flex  justify-content-end'>
+<div className='mx-3 over'>{element.MiniDescription.slice(0,200)}...</div>
+<div className='flex  justify-content-end mb-3'>
  <NavLink to={`/recruteur/Details/${element._id}`}>  <button type='submit' className='btn2 ' onClick={()=>navigate('/recruteur/Details')}>Details</button></NavLink>
   <NavLink to={`/recruteur/stepper/${element._id}`}> <button type='submit'className='btn1 '  onClick={()=>navigate('/recruteur/stepper')}>Modifier</button></NavLink>
   <button className='btnsupprimer'onClick={() => onDelite(element._id)} >Supprimer</button>
 </div> 
     </div>
-    </>
+    
  )
 })
-}
+}</div>
       
       </div>
       </div>

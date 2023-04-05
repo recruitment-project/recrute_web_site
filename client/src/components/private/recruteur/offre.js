@@ -3,7 +3,7 @@ import Header from '../../layout/header';
 import SidebarRecruteur from '../../layout/sidebarRecruteur';
 import Badge from 'react-bootstrap/Badge';
 import { useNavigate  } from 'react-router-dom';
-import { adddata, deldata } from './contextProvider'; 
+
 import { updatedata } from './contextProvider'; 
 import { NavLink } from 'react-router-dom';
 import useFetch from '../../../hooks/fetch.hook';
@@ -29,12 +29,7 @@ console.log(search);
   const [getoffredata, setOffredata] = useState([]);
   console.log(getoffredata);
 
-  const { udata, setUdata } = useContext(adddata);
-
-  const {updata, setUPdata} = useContext(updatedata);
-
-  const {dltdata, setDLTdata} = useContext(deldata);
-
+  
    const getdata = async () => {
 
          const res = await fetch(`http://localhost:8080/api/getdata`, {
@@ -98,6 +93,7 @@ console.log("data=>",getoffredata)
         <input type="text" placeholder='shearch' className='mx-4 mt-3 formcontrolinput' onChange={(e)=>setSearch(e.target.value)} />
         
         </div>
+        <div className='row'>
     {
 
         getoffredata.filter((element)=>{
@@ -105,13 +101,13 @@ console.log("data=>",getoffredata)
         }).map((element, id) => {
             return (
     <>
-    <div className='cardoffre' key={element.id}>
+    <div className='cardoffre col-5' key={element.id}>
 
  <div className='flex'>
     <div className='flex m-3'>
       
-      <div className=''><img src={ element.profile || file } alt="avatar" className='imgprofile'/></div>
-      <div className='mx-3'>{element.firstName}</div>
+      <div className=''><img src={ element.user_cre.profile || file } alt="avatar" className='imgprofile'/></div>
+      <div className='mx-3'>{element.user_cre.firstName}</div>
     </div>
     <div className='mt-3'>
     <Badge bg="secondary mx-2" className='secondary pt-2'>{element.ITdomain}</Badge>
@@ -121,7 +117,7 @@ console.log("data=>",getoffredata)
 <div className='mx-3'>{element.Entreprisname}</div>
 <div className='bold mx-3'>{element.Offrename}</div>
 <div className='mx-3'>{element.ITdomain}</div>
-<div className='mx-3'>{element.MiniDescription}</div>
+<div className='mx-3'>{element.MiniDescription.slice(0,200)}...</div>
 <div className='flex  justify-content-end'>
  <NavLink to={`/recruteur/Details/${element._id}`}>  <button type='submit' className='btn2 ' onClick={()=>navigate('/recruteur/Details')}>Details</button></NavLink>
   <NavLink to={`/recruteur/postuler/${element._id}`}> <button type='submit'className='btn1 '  onClick={()=>navigate('/recruteur/stepper')}>Modifier</button></NavLink>
@@ -131,7 +127,7 @@ console.log("data=>",getoffredata)
     </>
  )
 })
-}
+}</div>
       
       </div>
       </div>
