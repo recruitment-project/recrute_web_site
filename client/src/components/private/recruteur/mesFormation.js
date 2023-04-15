@@ -14,7 +14,7 @@ import {
   MDBPagination, MDBPaginationItem, MDBPaginationLink } from 'mdb-react-ui-kit';
   import Modal from 'react-modal';
   import Header from '../../layout/header';
-// import {Modal, Button} from 'react-bootstrap';
+
 import {FcSearch} from "react-icons/fc";
 import styles from "../../../styles/formations.module.css";
 import axios from "axios";
@@ -121,9 +121,16 @@ function closeModal() {
       </div>
      
       <Toaster position='top-center' reverseOrder={false}></Toaster>
-    
-      <div className={styles.searchinputR}>
-          <label ><FcSearch  className={styles.iconsearch} /><input type="text" placeholder='Rechercher votre formation . . . ' onChange={handleSearch} className='mb-5' /></label>
+      
+      <div style={{width:"100%", height:"2rem"}}>
+        <Header  />
+      </div>
+
+      <div style={{width: "50%",position: "absolute",left: "27%",height: "3rem",margin: "1rem", top:"10%"}}>
+          <label><FcSearch  style={{position:"absolute", fontSize:"20px", top:"33%", left:"2%"}} /><input type="text" placeholder='Rechercher votre formation . . . ' onChange={handleSearch}
+           style={{borderRadius: "10px",paddingLeft: "58px",height: "50px",width: "47.5rem"}}
+           className={styles.inputSearch}
+          /></label>
       </div>
       <button className={styles.btnajout} onClick={()=>navigate('/recruteur/formation/ajout')}> Ajout</button>
       </div>

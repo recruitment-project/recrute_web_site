@@ -16,6 +16,7 @@ import {FcSearch} from "react-icons/fc";
 import SidebarCandidat from '../../layout/sidebarCondidat';
 import styles from "../../../styles/formations.module.css";
 import axios from "axios";
+import Header from '../../layout/header';
 const PAGE_SIZE = 2;
 export default function Formation() {
   const [formationsList, setFormations] = useState([]);
@@ -94,8 +95,16 @@ function closeModal() {
       <div>
           <SidebarCandidat/>
       </div>
-      <div className={styles.searchinput}>
-          <label><FcSearch  className={styles.iconsearch} /><input type="text" placeholder='Rechercher votre formation . . . ' onChange={handleSearch} /></label>
+
+      <div style={{width:"100%", height:"2rem"}}>
+        <Header  />
+      </div>
+
+      <div style={{width: "50%",position: "absolute",left: "27%",height: "3rem",margin: "1rem", top:"10%"}}>
+          <label><FcSearch  style={{position:"absolute", fontSize:"20px", top:"33%", left:"2%"}} /><input type="text" placeholder='Rechercher votre formation . . . ' onChange={handleSearch}
+           style={{borderRadius: "10px",paddingLeft: "58px",height: "50px",width: "47.5rem"}}
+           className={styles.inputSearch}
+          /></label>
       </div>
       
       <div className="flex" id="card">
@@ -103,8 +112,8 @@ function closeModal() {
                 {getDisplayedItems().filter((image) =>
                     image.title.toLowerCase().includes(searchQuery.toLowerCase())
                   ).map((image, index) => (
-                  <div className={styles.leftSide} key={index} >
-                    <img src={image.image } className={ styles.image}/>
+                  <div className={styles.leftSide} style={{height:"25rem"}} key={index} >
+                    <img src={image.image } style={{height:"9rem", width:"100%", marginBottom:"15px"}}/>
                     <p className={styles.title}>{image.title}</p>
                     <p>{image.description.slice(0,130)} . . . </p>
                     <div className="flex">
