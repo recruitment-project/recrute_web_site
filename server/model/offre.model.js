@@ -14,9 +14,11 @@ export const OffreSchema = new mongoose.Schema(
             ref: "User"
         },
         questions: [{
-            question: String,
-            options: [String],
-            correctAnswer: String
+            question: { type: String, required: true },
+            options0: { type: String, required: true },
+            options1: { type: String, required: true },
+            options2: { type: String, required: true },
+            correctAnswer: { type: String, required: true },
           }],
         
 },{

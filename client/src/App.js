@@ -36,6 +36,8 @@ import P6 from './components/pages_conseil/page6';
 import P7 from './components/pages_conseil/page7';
 import P8 from './components/pages_conseil/page8';
 import P9 from './components/pages_conseil/page9';
+import Detailsc from './components/private/condidat/details';
+import Detailsoffre from './components/private/recruteur/detailsoffre';
 const router = createBrowserRouter([
     {
         path : '/',
@@ -71,6 +73,10 @@ const router = createBrowserRouter([
         element : <Stepper></Stepper>
     },
     {
+        path : '/recruteur/detailsOffre',
+        element : <Detailsoffre></Detailsoffre>
+    },
+    {
         path : '/recruteur/stepper/:id',
         element : <StepperModif></StepperModif>
     },
@@ -89,6 +95,10 @@ const router = createBrowserRouter([
     {
         path : '/recruteur/Details/:id',
         element : <Details></Details>
+    },
+    {
+        path : '/candidat/Details/:id',
+        element : <Detailsc></Detailsc>
     },
     {
         path : '/recruteur/dashboard',
