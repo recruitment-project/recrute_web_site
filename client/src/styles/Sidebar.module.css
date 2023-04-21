@@ -1,0 +1,44 @@
+
+main{
+    width: 100%;
+    padding: 0px;
+}
+.sidebar{
+    background: #000;
+    color: #fff;
+    height:100vh;
+    width: 200px;
+    transition: all 0.5s;
+}
+.top-section{
+    align-items: center;
+    padding: 20px 15px;
+}
+.logo{
+    font-size: 30px;
+}
+.bars{
+    font-size: 25px;
+    margin-left:50px ;
+}
+.link{
+    color:#fff;
+    padding: 10px 15px;
+    gap: 15px;
+    transition: all 0.5s;
+}
+.link:hover{
+    background-color: #fff;
+    color:#000;
+    transition:all 0.5s;
+}
+.active{
+    background-color: #fff;
+    color:#000
+}
+.icon, .link_text{
+    font-size: 20px;
+}
+.logout{
+    margin-top: 200px;
+}
