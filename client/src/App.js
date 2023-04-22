@@ -38,6 +38,8 @@ import P8 from './components/pages_conseil/page8';
 import P9 from './components/pages_conseil/page9';
 import Detailsc from './components/private/condidat/details';
 import Detailsoffre from './components/private/recruteur/detailsoffre';
+import Postuler from './components/private/condidat/postuler/postuler';
+import Quiz from './components/private/condidat/postuler/quiz';
 const router = createBrowserRouter([
     {
         path : '/',
@@ -145,6 +147,14 @@ const router = createBrowserRouter([
     {
         path : '/recruteur/formation/update/:id',
         element : <UpdateFormation></UpdateFormation>
+    },
+    {
+        path : '/candidat/postuler/:id',
+        element : <Postuler></Postuler>
+    },
+    {
+        path : '/candidat/quiz/:id',
+        element : <Quiz></Quiz>
     },
   
     {
