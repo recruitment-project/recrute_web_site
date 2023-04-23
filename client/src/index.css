@@ -125,7 +125,17 @@ overflow-y: scroll;
     overflow-y: scroll;
     
 }
-
+.cardrecut{
+    background-color: #fff;
+    border-radius: 25px;
+    margin: 16px;
+    height: 40vh;
+    padding-top: 2px;
+    width: 97.6%;
+    overflow: hidden;
+    overflow-y: scroll; 
+    border:solid #000 1px;
+}
 
    
 
@@ -266,10 +276,6 @@ overflow-y: scroll;
     background-color: hsl(0, 0%, 100%);
     border-radius:25px;
     margin-top: 20px;
-    
-   
-    
-
 }
 .x{
     flex: auto;
@@ -277,10 +283,11 @@ overflow-y: scroll;
 .cardMesoffre{
     background-color: #fff;
     border-radius: 25px;
-    margin: 16px;
-    height: 80vh;
+    margin-left: 16px;
+    margin-right: 16px;
+    height: 85vh;
     padding-top: 2px;
-    width: 100%;
+    width: 98%;
     overflow: hidden;
     overflow-y: scroll;
 }
@@ -302,6 +309,15 @@ overflow-y: scroll;
     background-color: green;
     color: white;
     border-radius: 20px;
+    padding: 6px;
+   
+}
+.accepter{
+  
+   
+    background-color: green;
+    color: white;
+    border-radius: 100px;
     padding: 6px;
    
 }
