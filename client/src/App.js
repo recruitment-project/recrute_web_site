@@ -9,6 +9,7 @@ import Formation from './components/private/condidat/formation';
 import FormationR from './components/private/recruteur/formation';
 import Recruter from './components/private/recruteur/recruter';
 import Recovery from './components/auth/Recovery';
+
 import Register from './components/auth/Register';
 import  { AuthorizeUser, ProtectRoute } from'././middleware/auth';
 import PageNotFound from './components/PageNotFound';
@@ -19,7 +20,7 @@ import Details from './components/private/recruteur/detail';
 import DashbordR from './components/private/recruteur/dashbord';
 import ProfileR from './components/auth/profileR';
 import Contact from './components/contact/contact';
-// import Home from './components/home/home';
+import Home from './components/home/home';
 import Stepper from './components/private/recruteur/stepper';
 import StepperModif from './components/private/recruteur/StepperModif';
 import AjoutFormation from './components/private/recruteur/formation/formulaireFormationAjout';
@@ -35,16 +36,19 @@ import P6 from './components/pages_conseil/page6';
 import P7 from './components/pages_conseil/page7';
 import P8 from './components/pages_conseil/page8';
 import P9 from './components/pages_conseil/page9';
-
+import Detailsc from './components/private/condidat/details';
+import Detailsoffre from './components/private/recruteur/detailsoffre';
+import Postuler from './components/private/condidat/postuler/postuler';
+import Quiz from './components/private/condidat/postuler/quiz';
 const router = createBrowserRouter([
     {
         path : '/',
         element : <Username></Username>
     },
-    // {
-    //     path : '/home',
-    //     element : <Home></Home>
-    // },
+    {
+        path : '/home',
+        element : <Home></Home>
+    },
    
     {
         path : '/register',
@@ -71,6 +75,10 @@ const router = createBrowserRouter([
         element : <Stepper></Stepper>
     },
     {
+        path : '/recruteur/detailsOffre',
+        element : <Detailsoffre></Detailsoffre>
+    },
+    {
         path : '/recruteur/stepper/:id',
         element : <StepperModif></StepperModif>
     },
@@ -89,6 +97,10 @@ const router = createBrowserRouter([
     {
         path : '/recruteur/Details/:id',
         element : <Details></Details>
+    },
+    {
+        path : '/candidat/Details/:id',
+        element : <Detailsc></Detailsc>
     },
     {
         path : '/recruteur/dashboard',
@@ -137,6 +149,19 @@ const router = createBrowserRouter([
         element : <UpdateFormation></UpdateFormation>
     },
     {
+        path : '/candidat/postuler/:id',
+        element : <Postuler></Postuler>
+    },
+    {
+        path : '/candidat/quiz/:id',
+        element : <Quiz></Quiz>
+    },
+  
+    {
+        path : '*',
+        element : <PageNotFound></PageNotFound>
+    },
+    {
         path : '/page_conseil',
         element : <Pc1></Pc1>
     },
@@ -182,9 +207,15 @@ const router = createBrowserRouter([
 
 
 export default function App() {
-    return (
-        <main>
-           <RouterProvider router={router}></RouterProvider>
-        </main>
-)
+    const [isLoading, setLoading] = useState(true);
+
+  // timer for spinner
+  setTimeout(() => {
+    setLoading(false);
+  }, 1500);
+  return (
+    <main>
+       <RouterProvider router={router}></RouterProvider>
+    </main>
+  )
 }

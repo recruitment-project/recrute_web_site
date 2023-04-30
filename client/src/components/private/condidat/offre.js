@@ -114,8 +114,8 @@ console.log("data=>",getoffredata)
 <div className='mx-3'>{element.ITdomain}</div>
 <div className='mx-3'>{element.MiniDescription.slice(0,200)}...</div>
 <div className='flex  justify-content-end'>
- <NavLink to={`/recruteur/Details/${element._id}`}>  <button type='submit' className='btn2 ' onClick={()=>navigate('/recruteur/Details')}>Details</button></NavLink>
-  <NavLink to={`/recruteur/postuler/${element._id}`}> <button type='submit'className='btn1 '  onClick={()=>navigate('/recruteur/stepper')}>Modifier</button></NavLink>
+ <NavLink to={`/candidat/Details/${element._id}`}>  <button type='submit' className='btn2 ' onClick={()=>navigate('/candidat/Details')}>Details</button></NavLink>
+  <NavLink to={`/candidat/postuler/${element._id}`}> <button type='submit'className='btn1 ' >Postuler</button></NavLink>
   
 </div> 
     </div>

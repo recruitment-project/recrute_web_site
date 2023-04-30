@@ -77,3 +77,11 @@ export const deleteOffre = async (req, res) => {
         res.status(400).json({message: error.message});
     }
 }
+export const getQuestionByOffre = async (req, res) => {
+    try {
+        const offre = await Offres.findById(req.params.id);
+        res.json(offre.questions);
+    } catch (error) {
+        res.status(404).json({message: error.message});
+    }
+}

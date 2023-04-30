@@ -11,6 +11,7 @@ import * as OffreController from'../controllers/offre.controller.js';
 import offreModel, { OffreSchema } from "../model/offre.model.js";
 import * as FormationController from '../controllers/formationController.js';
 import Offres from "../model/offre.model.js";
+import * as PostuleController from '../controllers/postuleController.js';
 /** POST Methods */
 router.route('/register').post(controller.register); // register user
 router.route('/registerMail').post(registerMail); // send the email
@@ -161,6 +162,12 @@ router.route('/formationByUser/:userId').get(FormationController.getFormationByU
 router.route('/saveFormation').post(FormationController.saveFormation);
 router.route('/formation/:id').put(FormationController.updateFormation);
 router.route('/formation/:id').delete(FormationController.deleteFormation);
+/**Postule methods */
+router.route('/postules').post(PostuleController.getPostules);
+router.route('/postule/:id').get(PostuleController.getPostuleById);
+router.route('/addPostule').post(PostuleController.Addpostule);
+router.route('/questionsByOffre/:id').get(OffreController.getQuestionByOffre);
+router.route('/ajoutScore/:id').put(PostuleController.ajoutScore);
 
 
 /***participation formation  ***/

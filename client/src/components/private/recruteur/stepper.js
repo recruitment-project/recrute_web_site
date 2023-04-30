@@ -29,9 +29,11 @@ export default function Stepper(){
        Temp:"",
        questions: [{
         question: '',
-        options: [''],
-        correctAnswer: ''
-      }] 
+        options0: '',
+        options1: '',
+        options2: '',
+        correctAnswer: '',
+      }]
     },
      
      enableReinitialize: true,
@@ -179,73 +181,197 @@ export default function Stepper(){
       case 1:
         return(<div  >
                 
-          <div class="mb-3 mt-12 ">
+          <div class="mb-3 mt-10 ">
           
               <input type="text" className='formcontrol'  required {...formik.getFieldProps('Entreprisname')} placeholder="nom de l'entreprise" name="Entreprisname"/>
           </div>
-          <div class="mb-3 mt-12">
+          <div class="mb-3 mt-10">
 
               <input type="text" className="formcontrol"  placeholder="nom de l'offre" name="Offrename"   required {...formik.getFieldProps('Offrename')}/>
           </div>
-          <div class="mb-3 mt-12">
+          <div class="mb-3 mt-10">
 
               <input type="text" className="formcontrol"  placeholder="temp plein" name="Temp"   required {...formik.getFieldProps('Temp')}/>
           </div>
+          <div class="mb-3 mt-10">
+                    
+                        <input type="text" className="formcontrol"  placeholder=" domaine de l'offre"   required {...formik.getFieldProps('ITdomain')}
+                                 name="ITdomain" />
+                    </div>
+                    <div class="mb-3 mt-10">
+                        <input type="text" className="formcontrol" placeholder=" Address"   required {...formik.getFieldProps('City')}
+                                 name="City" />
+                    </div>
           </div>);
         case 2:
           return(           
             
                   <div >
-                    <div class="mb-3 mt-12">
                     
-                        <input type="text" className="formcontrol"  placeholder=" domaine de l'offre"   required {...formik.getFieldProps('ITdomain')}
-                                 name="ITdomain" />
-                    </div>
-                    <div class="mb-3 mt-12">
-                        <input type="text" className="formcontrol" placeholder=" Address"   required {...formik.getFieldProps('City')}
-                                 name="City" />
-                    </div>
-                    <div class="mb-3 mt-12">
+                    
+                    <div class="mb-3 mt-10">
                         <input type="text" className="formcontrol" placeholder=" Competance"   required {...formik.getFieldProps('Competance')}
                                  name="Competance" />
                     </div>
-                    </div>);
-            case 3:
-              return( <div >
-                <div class="mb-3 mt-12">
+                    <div class="mb-3 mt-10">
         
                     <input type="text" className="formcontrol" placeholder=" petite d'escription"   required {...formik.getFieldProps('MiniDescription')}
                            name="MiniDescription"  />
                 </div>
-                <div class="mb-3 mt-12">
+                <div class="mb-3 mt-10">
 
                     {/* <input type="text" className="form-control " placeholder="description détaillée" oninput="this.className = ''"
                             name="address"/> */}
                             <textarea id="story" name="DescriptionDetail" className="formcontrol " placeholder="description détaillée"  required {...formik.getFieldProps('DescriptionDetail')}
-           rows="5" cols="33"></textarea>
+           rows="7" cols="33"></textarea>
                 </div>
-                </div>);
-                case 4:
+                    </div>);
+           
+                case 3:
                   return( <div >
-                    <div class="mb-3 mt-12">
+                    <div class="mb-3 mt-10">
             
-                        <input type="text" className="formcontrol" placeholder=" Q1"   required {...formik.getFieldProps('questions.question')}
-                               name="q1"  />
+                        <input type="text" className="formcontrol" placeholder=" Q1"   required {...formik.getFieldProps(`questions[${0}].question`)}
+                               name={`questions[${0}].question`}  />
                     </div>
-                    <div class="mb-3 mt-12">
-                    <input type="text" className="formcontrol" placeholder=" op1"   required {...formik.getFieldProps('questions')}
-                               name="op1"  />
+                    <div class="mb-3 mt-10">
+                    <input type="text" className="formcontrol" placeholder=" op1"   required {...formik.getFieldProps(`questions[${0}].options0`)}
+                               name={`questions[${0}].options0`}  />
                       
                     </div>
-                    <div class="mb-3 mt-12">
-                    <input type="text" className="formcontrol" placeholder=" correct op"   required {...formik.getFieldProps('questions')}
-                               name="op2"  />
+                    <div class="mb-3 mt-10">
+                    <input type="text" className="formcontrol" placeholder=" op1"   required {...formik.getFieldProps(`questions[${0}].options1`)}
+                               name={`questions[${0}].options1`}  />
                       
                     </div>
-                    </div>);          
+                    <div class="mb-3 mt-10">
+                    <input type="text" className="formcontrol" placeholder=" op1"   required {...formik.getFieldProps(`questions[${0}].options2`)}
+                               name={`questions[${0}].options2`}  />
+                      
+                    </div>
+                    <div class="mb-3 mt-10">
+                    <input type="text" className="formcontrol" placeholder=" correct op"   required {...formik.getFieldProps(`questions[${0}].correctAnswer`)}
+                               name={`questions[${0}].correctAnswer`}  />
+                      
+                    </div>
+                    </div>);
+                    case 4:
+                      return( <div >
+                        <div class="mb-3 mt-10">
+                
+                            <input type="text" className="formcontrol" placeholder="Q2"   required {...formik.getFieldProps(`questions[${1}].question`)}
+                                   name={`questions[${1}].question`}  />
+                        </div>
+                        <div class="mb-3 mt-10">
+                        <input type="text" className="formcontrol" placeholder=" op1"   required {...formik.getFieldProps(`questions[${1}].options0`)}
+                                   name={`questions[${1}].options0`}  />
+                          
+                        </div>
+                        <div class="mb-3 mt-10">
+                        <input type="text" className="formcontrol" placeholder=" op1"   required {...formik.getFieldProps(`questions[${1}].options1`)}
+                                   name={`questions[${1}].options1`}  />
+                          
+                        </div>
+                        <div class="mb-3 mt-10">
+                        <input type="text" className="formcontrol" placeholder=" op1"   required {...formik.getFieldProps(`questions[${1}].options2`)}
+                                   name={`questions[${1}].options2`}  />
+                          
+                        </div>
+                        <div class="mb-3 mt-10">
+                        <input type="text" className="formcontrol" placeholder=" correct op"   required {...formik.getFieldProps(`questions[${1}].correctAnswer`)}
+                                   name={`questions[${1}].correctAnswer`}  />
+                          
+                        </div>
+                       </div>);
+                       case 5:
+                        return( <div >
+                          <div class="mb-3 mt-10">
+                  
+                              <input type="text" className="formcontrol" placeholder=" Q3"   required {...formik.getFieldProps(`questions[${2}].question`)}
+                                     name={`questions[${2}].question`}  />
+                          </div>
+                          <div class="mb-3 mt-10">
+                          <input type="text" className="formcontrol" placeholder=" op1"   required {...formik.getFieldProps(`questions[${2}].options0`)}
+                                     name={`questions[${2}].options0`}  />
+                            
+                          </div>
+                          <div class="mb-3 mt-10">
+                          <input type="text" className="formcontrol" placeholder=" op1"   required {...formik.getFieldProps(`questions[${2}].options1`)}
+                                     name={`questions[${2}].options1`}  />
+                            
+                          </div>
+                          <div class="mb-3 mt-10">
+                          <input type="text" className="formcontrol" placeholder=" op1"   required {...formik.getFieldProps(`questions[${2}].options2`)}
+                                     name={`questions[${2}].options2`}  />
+                            
+                          </div>
+                          <div class="mb-3 mt-10">
+                          <input type="text" className="formcontrol" placeholder=" correct op"   required {...formik.getFieldProps(`questions[${2}].correctAnswer`)}
+                                     name={`questions[${2}].correctAnswer`}  />
+                            
+                          </div>
+                         </div>);  
+                         case 6:
+                          return( <div >
+                            <div class="mb-3 mt-10">
+                    
+                                <input type="text" className="formcontrol" placeholder=" Q4"   required {...formik.getFieldProps(`questions[${3}].question`)}
+                                       name={`questions[${3}].question`}  />
+                            </div>
+                            <div class="mb-3 mt-10">
+                            <input type="text" className="formcontrol" placeholder=" op1"   required {...formik.getFieldProps(`questions[${3}].options0`)}
+                                       name={`questions[${3}].options0`}  />
+                              
+                            </div>
+                            <div class="mb-3 mt-10">
+                            <input type="text" className="formcontrol" placeholder=" op1"   required {...formik.getFieldProps(`questions[${3}].options1`)}
+                                       name={`questions[${3}].options1`}  />
+                              
+                            </div>
+                            <div class="mb-3 mt-10">
+                            <input type="text" className="formcontrol" placeholder=" op1"   required {...formik.getFieldProps(`questions[${3}].options2`)}
+                                       name={`questions[${3}].options2`}  />
+                              
+                            </div>
+                            
+                            <div class="mb-3 mt-10">
+                            <input type="text" className="formcontrol" placeholder=" correct op"   required {...formik.getFieldProps(`questions[${3}].correctAnswer`)}
+                                       name={`questions[${3}].correctAnswer`}  />
+                              
+                            </div>
+                           </div>); 
+                              case 7:
+                                return( <div >
+                                  <div class="mb-3 mt-10">
+                          
+                                      <input type="text" className="formcontrol" placeholder=" Q4"   required {...formik.getFieldProps(`questions[${4}].question`)}
+                                             name={`questions[${4}].question`}  />
+                                  </div>
+                                  <div class="mb-3 mt-10">
+                                  <input type="text" className="formcontrol" placeholder=" op1"   required {...formik.getFieldProps(`questions[${4}].options0`)}
+                                             name={`questions[${4}].options0`}  />
+                                    
+                                  </div>
+                                  <div class="mb-3 mt-10">
+                                  <input type="text" className="formcontrol" placeholder=" op1"   required {...formik.getFieldProps(`questions[${4}].options1`)}
+                                             name={`questions[${4}].options1`}  />
+                                    
+                                  </div>
+                                  <div class="mb-3 mt-10">
+                                  <input type="text" className="formcontrol" placeholder=" op1"   required {...formik.getFieldProps(`questions[${4}].options2`)}
+                                             name={`questions[${4}].options2`}  />
+                                    
+                                  </div>
+                                  
+                                  <div class="mb-3 mt-10">
+                                  <input type="text" className="formcontrol" placeholder=" correct op"   required {...formik.getFieldProps(`questions[${4}].correctAnswer`)}
+                                             name={`questions[${4}].correctAnswer`}  />
+                                    
+                                  </div>
+                                 </div>); 
     }
   }
-  const labelArray = ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5']
+  const labelArray = ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5', 'Step 6', 'Step 7']
   const [currentStep, updateCurrentStep] = useState(1);
  
   const handleChange = input => e => {

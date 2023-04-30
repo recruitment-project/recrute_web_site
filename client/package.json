@@ -864,6 +864,7 @@
     "yargs": "^16.2.0",
     "yargs-parser": "^20.2.9",
     "yocto-queue": "^0.1.0",
+    "yup": "^1.1.1",
     "zustand": "^4.3.3"
   },
   "scripts": {
