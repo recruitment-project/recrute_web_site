@@ -1,11 +1,11 @@
-img{
-    
+img{ 
     height: 200px;
 }
 .pag-conseil{
   font-size: 50px;
   word-break: break-all;
   color: #C9CC3F;
+  font-weight: bold;
 }
 .selector-for-some-widget {
     box-sizing: content-box;

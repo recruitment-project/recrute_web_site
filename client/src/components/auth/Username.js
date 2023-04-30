@@ -27,7 +27,7 @@ export default function Username() {
   return (
     <section className="container">
       <Toaster position='top-center' reverseOrder={false}></Toaster>
-  <div className=" flex justify-center items-center  bg-white rounded-xl mt-16" style={{width:"70rem", marginLeft:"5%", height:"35rem"}}>
+  <div className=" flex justify-center items-center  bg-white rounded-xl mt-8" style={{width:"70rem", marginLeft:"5%", height:"35rem"}}>
     <div
       className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6 w-full"
       style={{boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 10px"}}

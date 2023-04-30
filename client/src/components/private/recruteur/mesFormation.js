@@ -60,7 +60,7 @@ export default function MesFormation() {
         }
       });
   }
-  
+  console.log(user)
   function getUser(id) {
    
     axios
@@ -147,15 +147,15 @@ function closeModal() {
       </div>
       <button className={styles.btnajout} onClick={()=>navigate('/recruteur/formation/ajout')}> Ajout</button>
       </div>
-      <div className="flex " id="card">
+      <div className="flex " id="card" style={{marginTop:"-1%"}}>
       
                 {getDisplayedItems().filter((image) =>
                     image.title.toLowerCase().includes(searchQuery.toLowerCase())
                   ).map((image, index) => (
-                  <div className={styles.leftSide} key={index} style={{ height:"430px"}}>
+                  <div style={{ height:"390px"}} className={styles.leftSide} key={index}>
                     <img src={image.image } className={ styles.image}/>
                     <p className={styles.title}>{image.title}</p>
-                    <p>{image.description.slice(0,130)} . . . </p>
+                    <p>{image.description.slice(0,65)} . . . </p>
                     <div className="flex">
                     <NavLink to={`/recruteur/formation/update/${image._id}`}> 
                     <button type='submit'className={styles.btnmodif} >
@@ -276,7 +276,7 @@ function closeModal() {
                   </div>
                  
             ))} 
-            <nav className={styles.pages}  >
+            <nav className={styles.pages} >
               <MDBPagination className="flex" >
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                  <MDBPaginationItem className={styles.items}>
@@ -292,4 +292,3 @@ function closeModal() {
     </>
   );
 }
-
