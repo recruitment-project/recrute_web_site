@@ -49,6 +49,28 @@ export const saveFormation = async (req, res) => {
        
     }
 }
+export const SaveparticipationFormation = async (req,res) => {
+    try{
+        const user=await User.findById(req.body.participant);
+        const formation = await Formation.findById(req.body.formation_participee);
+        const exist=await User.findOne({formation_participee:req.body.formation_participee});
+        const existF=await Formation.findOne({participant:req.body.participant})
+        if(exist ){
+            res.status(400).json({error:"formation est existé"})
+        }else if(existF) {
+            res.status(400).json({error:"utilisateur est existé"})
+        }else {
+            formation.participant.push(user._id);
+            formation.save();
+            user.formation_participee.push(formation._id);
+            user.save();
+            res.status(201).json(formation);
+        }
+        
+    }catch(error){
+        res.status(400).json(error);
+    }
+}
 export const updateFormation = async (req, res) => {
    
     try {
@@ -58,7 +80,34 @@ export const updateFormation = async (req, res) => {
         res.status(400).json({message: error.message});
     }
 }
- 
+export const getUser = async (req,res) => {
+//    const names=[];
+//    let comp=0;
+//     for(let i=0; i<table.length; i++ ){
+//          User.findById(table._id, (err, row) => {
+//             if (row) {
+//                 names[comp]= row.username;
+//                 comp++;
+//             } else {
+//               res.send("ERROR");
+//             }
+//           });
+//           res.send(names);
+//     }
+const id = req.params.id;
+let names =[];
+const formations = await Formation.findById(id);
+const participants = formations.participant;
+if(participants != null){
+    for(let i=0; i<participants.length; i++){
+        const user = await User.findById(participants[i]);
+        if(user){
+            names.push(user)
+        }
+    }
+}
+res.send(names)
+}
 export const deleteFormation = async (req, res) => {
     try {const Id=req.params.id
         const formation=await Formation.findById(Id)
@@ -77,3 +126,5 @@ export const deleteFormation = async (req, res) => {
         res.status(400).json({message: error.message});
     }
 }
+
+

@@ -15,7 +15,11 @@ export const formationSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },
-        
+        participant:[{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+            required:true
+        }],
         
 },
 

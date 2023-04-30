@@ -44,7 +44,7 @@ function FormationFormAjout() {
          error: <b>Could not add!</b>
        });
        AjoutPromise.then(function(){ 
-        setTimeout(()=>navigate('/recruteur/mesformation'),500) 
+        setTimeout(()=>navigate('/recruteur/mesformation'),100) 
       });
      }
    })

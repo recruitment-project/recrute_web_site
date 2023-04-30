@@ -9,7 +9,6 @@ import Formation from './components/private/condidat/formation';
 import FormationR from './components/private/recruteur/formation';
 import Recruter from './components/private/recruteur/recruter';
 import Recovery from './components/auth/Recovery';
-
 import Register from './components/auth/Register';
 import  { AuthorizeUser, ProtectRoute } from'././middleware/auth';
 import PageNotFound from './components/PageNotFound';
@@ -20,7 +19,7 @@ import Details from './components/private/recruteur/detail';
 import DashbordR from './components/private/recruteur/dashbord';
 import ProfileR from './components/auth/profileR';
 import Contact from './components/contact/contact';
-import Home from './components/home/home';
+// import Home from './components/home/home';
 import Stepper from './components/private/recruteur/stepper';
 import StepperModif from './components/private/recruteur/StepperModif';
 import AjoutFormation from './components/private/recruteur/formation/formulaireFormationAjout';
@@ -36,15 +35,16 @@ import P6 from './components/pages_conseil/page6';
 import P7 from './components/pages_conseil/page7';
 import P8 from './components/pages_conseil/page8';
 import P9 from './components/pages_conseil/page9';
+
 const router = createBrowserRouter([
     {
         path : '/',
         element : <Username></Username>
     },
-    {
-        path : '/home',
-        element : <Home></Home>
-    },
+    // {
+    //     path : '/home',
+    //     element : <Home></Home>
+    // },
    
     {
         path : '/register',
@@ -136,11 +136,6 @@ const router = createBrowserRouter([
         path : '/recruteur/formation/update/:id',
         element : <UpdateFormation></UpdateFormation>
     },
-  
-    {
-        path : '*',
-        element : <PageNotFound></PageNotFound>
-    },
     {
         path : '/page_conseil',
         element : <Pc1></Pc1>
@@ -187,15 +182,9 @@ const router = createBrowserRouter([
 
 
 export default function App() {
-    const [isLoading, setLoading] = useState(true);
-
-  // timer for spinner
-  setTimeout(() => {
-    setLoading(false);
-  }, 1500);
-  return (
-    <main>
-       <RouterProvider router={router}></RouterProvider>
-    </main>
-  )
+    return (
+        <main>
+           <RouterProvider router={router}></RouterProvider>
+        </main>
+)
 }

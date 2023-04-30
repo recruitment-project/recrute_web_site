@@ -53,42 +53,47 @@ export default function Reset() {
     
     <section className=" container mx-auto flex justify-center mt-9">
       <Toaster position='top-center' reverseOrder={false}></Toaster>
-  <div className=" flex justify-center items-center  bg-white rounded-xl ">
+      <div className=" flex justify-center items-center  bg-white rounded-xl mt-16" style={{width:"70rem", marginLeft:"5%", height:"35rem"}}>
     <div
-      className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6"
+      className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6 w-full"
+      style={{boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 10px"}}
     >
-      <div
+       <div
         className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0"
+        style={{width:"30rem", height:"20rem"}}
       >
         <img
           src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-          className="w-full"
+          className="img"
+          style={{width:"100%", height:"100%"}}
           alt="Sample image"
+          
         />
       </div>
       
 
     <Toaster position='top-center' reverseOrder={false}></Toaster>
 
-    <div className="xl:ml-20 xl:w-6/12 lg:w-5/6 md:w-9/12 mb-12 md:mb-0">
+     <div className=" flex xl:ml-20 xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-8 mt-12 " style={{justifyContent:"center", alignItems:"center"}}>
+    <form  onSubmit={formik.handleSubmit}>
           <div className="title flex flex-col items-center mt-12">
           <h4 className='text-4xl font-bold'>Modifier votre mot de passe</h4>
-          <span className='py-4 text-xl w-2/3 text-center text-gray-500'>
+          <span className='py-4 text-xl w-2/3 text-center text-red-500'>
             Entrer un  nouveau mot de passe.
           </span>
         </div>
 
-    <form className='py-20' onSubmit={formik.handleSubmit}>
+    
         <div className="textbox  relative flex flex-col items-center gap-6">
                   <input {...formik.getFieldProps('password')}
-                  className="border-4 border-gray-100 px-5 py-4 rounded-xl w-3/4 shadow-sm text-lg hover:border-gray-200 focus:outline-none" type={show?"text" : "password"} placeholder='Password' />
-                  <label className='absolute' onClick={handleShow}>{show? <AiFillEye className='absolute  pointer-events ml-140 mt-30' size="30" color="gray"/> : <AiFillEyeInvisible className='absolute  pointer-events  ml-140 mt-30' size="30" color="gray"/>}</label>
+                  className="border-4 border-gray-100 px-5 py-4 rounded-xl w-3/4 shadow-sm text-lg hover:border-gray-200 focus:outline-none mb-6" type={show?"text" : "password"} placeholder='Password' />
+                  <label className='absolute ml-28' onClick={handleShow}>{show? <AiFillEye className='absolute  pointer-events mb-10 mt-4' size="30" color="gray"/> : <AiFillEyeInvisible className='absolute  pointer-events  mb-10 mt-4' size="30" color="gray"/>}</label>
                  
         </div>
         <div className="textbox  relative flex flex-col items-center gap-6">
         <input {...formik.getFieldProps('confirm_pwd')}
-                  className="border-4 border-gray-100 px-5 py-4 rounded-xl w-3/4 shadow-sm text-lg hover:border-gray-200 focus:outline-none mt-15" type={show2?"text" : "password"} placeholder='Repeat Password' />
-                  <label className='absolute' onClick={handleShow2}>{show2? <AiFillEye className='absolute  pointer-events ml-140 mt-30' size="30" color="gray"/> : <AiFillEyeInvisible className='absolute  pointer-events  ml-140 mt-30' size="30" color="gray"/>}</label>
+                  className="border-4 border-gray-100 px-5 py-4 rounded-xl w-3/4 shadow-sm text-lg hover:border-gray-200 focus:outline-none mt-15 mb-6" type={show2?"text" : "password"} placeholder='Repeat Password' />
+                  <label className='absolute ml-28' onClick={handleShow2}>{show2? <AiFillEye className='absolute  pointer-events mb-10 mt-4' size="30" color="gray"/> : <AiFillEyeInvisible className='absolute  pointer-events  mb-10 mt-4' size="30" color="gray"/>}</label>
                       
          </div>
         <div className="textbox  relative flex flex-col items-center gap-6 mt-15">

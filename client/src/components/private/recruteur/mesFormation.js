@@ -31,8 +31,7 @@ export default function MesFormation() {
   const [searchQuery, setSearchQuery] = useState('');
   const [formation, setFormation] = useState({});
   const [basicActive, setBasicActive] = useState('formateur');
-
-  
+  const [user , setUser] = useState([]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(formationsList.length / PAGE_SIZE);
@@ -61,6 +60,20 @@ export default function MesFormation() {
         }
       });
   }
+  
+  function getUser(id) {
+   
+    axios
+      .get(`http://localhost:8080/api/getUser/${id}`)
+      .then((res) => {
+        if (res.data === "ERROR") {
+          console.log(res.data);
+        } else {
+          setUser(res.data);
+          console.log(res.data)
+        }
+      });
+  }
   const onDelite= async (id)=>{
     if( window.confirm("are you sure that you wanted to delete that formation record")){
       const  res= await axios.delete(`http://localhost:8080/api/formation/${id}`);
@@ -77,6 +90,7 @@ export default function MesFormation() {
   useEffect(() => {
  
     getAllFormations();
+    // getUser()
   }, []);
   const handleSearch = (event) => {
     setSearchQuery(event.target.value);
@@ -108,7 +122,6 @@ function openModal() {
   document.body.style.overflow = 'hidden';
 }
 
-
 function closeModal() {
   setIsOpen(false);
   document.body.style.overflow = 'auto';
@@ -139,7 +152,7 @@ function closeModal() {
                 {getDisplayedItems().filter((image) =>
                     image.title.toLowerCase().includes(searchQuery.toLowerCase())
                   ).map((image, index) => (
-                  <div className={styles.leftSide} key={index} >
+                  <div className={styles.leftSide} key={index} style={{ height:"430px"}}>
                     <img src={image.image } className={ styles.image}/>
                     <p className={styles.title}>{image.title}</p>
                     <p>{image.description.slice(0,130)} . . . </p>
@@ -151,7 +164,7 @@ function closeModal() {
                         <button className={styles.btn} onClick={() => onDelite(image._id)}>
                         Delete
                         </button>
-                        <button className={styles.btnMore}  onClick={()=>{openModal(),setFormation(image)}}>
+                        <button className={styles.btnMore}  onClick={()=>{openModal(),setFormation(image), getUser(image._id)}}>
                           read more
                         </button>
                     </div> 
@@ -199,6 +212,11 @@ function closeModal() {
                                       <MDBTabsLink onClick={() => handleBasicClick('description')} style={{color:"brown"}}>Description</MDBTabsLink>
                                     </MDBTabsItem>
                                   </MDBListGroupItem>
+                                  <MDBListGroupItem action active={basicActive === 'participant'} noBorders className='px-3'>
+                                    <MDBTabsItem  className={styles.tabItem}>
+                                      <MDBTabsLink onClick={() => handleBasicClick('participant')} style={{color:"brown"}}>Participants</MDBTabsLink>
+                                    </MDBTabsItem>
+                                  </MDBListGroupItem>
                                 </MDBTabs>
                               </MDBListGroup>
                             </MDBCol>
@@ -211,7 +229,7 @@ function closeModal() {
                                   {formation.date_start}
                                 </MDBTabsPane>
                                 <MDBTabsPane eventKey = "tab-3" show={basicActive === 'durée'} style={{ marginTop:"3rem", fontSize:"18px"}}>
-                                  {formation.duree}
+                                  {formation.duree} mois
                                 </MDBTabsPane>
                                 <MDBTabsPane eventKey = "tab-4" show={basicActive === 'prix'} style={{ marginTop:"3rem", fontSize:"18px"}}>
                                   {formation.price} TND
@@ -221,6 +239,32 @@ function closeModal() {
                                 </MDBTabsPane>
                                 <MDBTabsPane eventKey = "tab-6" show={basicActive === 'description'} style={{ marginTop:"3rem", fontSize:"18px"}}>
                                   {formation.description}
+                                </MDBTabsPane>
+                                <MDBTabsPane eventKey = "tab-6" show={basicActive === 'participant'} style={{ marginTop:"3rem", fontSize:"18px"}}>
+                                  
+                                     <table style={{border:"1px solid gray", width:"100%",borderRadius:"15px"}}>
+                                      <thead style={{border:"1px solid gray"}}>
+                                        <tr>
+                                          <th style={{border:"1px solid gray", width:"30%", padding:"5px"}}>Nom</th>
+                                          <th style={{border:"1px solid gray", width:"30%", padding:"5px"}}>Email</th>
+                                          <th style={{border:"1px solid gray", width:"30%", padding:"5px"}}>Téléphone</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        {user.map((users,index)=>{
+                                          return (
+                                            <>
+                                            <tr style={{border:"1px solid gray"}}>
+                                            <td style={{fontSize:"15px", color:"gray",border:"1px solid gray", padding:"5px"}}>{users.username}</td>
+                                            <td style={{fontSize:"15px", color:"gray",border:"1px solid gray", padding:"5px"}}>{users.email}</td>
+                                            <td style={{fontSize:"15px", color:"gray",border:"1px solid gray", padding:"5px"}}>{users.mobile}</td>
+                                            </tr>
+                                          
+                                            </>
+                                          )
+                                        })}
+                                  </tbody>
+                                  </table>
                                 </MDBTabsPane>
                               </MDBTabsContent>
                             </MDBCol>

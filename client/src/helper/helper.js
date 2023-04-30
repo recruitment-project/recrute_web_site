@@ -120,9 +120,6 @@ export async function resetPassword({ username, password }){
 export async function ajoutoffre(credentials){
     try {
         const { data  } = await axios.post(`/api/saveOffre`, credentials);
-
-        
-
         return Promise.resolve(data)
     } catch (error) {
         
@@ -182,6 +179,8 @@ export async function OffreValidation(values){
 
     return error;
 }
+
+
 
 
 

@@ -36,8 +36,6 @@ export async function register(req,res){
 
     try {
         const { username, password, profile, email,accountType } = req.body;  
-              
-
         // check the existing user
         const existUsername = new Promise((resolve, reject) => {
             UserModel.findOne({ username }, function(err, user){

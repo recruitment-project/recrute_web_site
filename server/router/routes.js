@@ -163,4 +163,7 @@ router.route('/formation/:id').put(FormationController.updateFormation);
 router.route('/formation/:id').delete(FormationController.deleteFormation);
 
 
+/***participation formation  ***/
+router.route('/saveFormationParticipant').post(FormationController.SaveparticipationFormation);
+router.route('/getUser/:id').get(FormationController.getUser);
 export default router;

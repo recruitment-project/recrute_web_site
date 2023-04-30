@@ -20,7 +20,7 @@ function FormationFormUpdate() {
     
     const [formation, setFormation] = useFetchformation(id);
     const [{ isLoading, apiData, serverError }] = useFetch();
-  const navigate = useNavigate()
+    const navigate = useNavigate()
   
 
 
@@ -34,28 +34,26 @@ function FormationFormUpdate() {
       address : formation?.address ||'',
       domaine :formation?.domaine || '',
       duree : formation?.duree || '',
-      formator:formation?.formator ||'',
-      
-      
+      formator:formation?.formator ||'',    
     },
      
      enableReinitialize: true,
-    validate : FormationValidation,
-     validateOnBlur: false,
-     validateOnChange: false,
-     onSubmit : async values => {
-       values = await Object.assign(values,{ _id : formation?._id},{ image : file || formation?.image},{user_cree:apiData?._id})
-      
-       let updatePromise = updateFormation(values);
-       
-       toast.promise(updatePromise, {
-         loading: 'Loading...',
-         success : <b>Upadeta Successfully...!</b>,
-         error: <b>Could not update!</b>
-       });
-       updatePromise.then(function(){ 
-        setTimeout(()=>navigate('/recruteur/mesformation'),500) 
-      });
+      validate : FormationValidation,
+      validateOnBlur: false,
+      validateOnChange: false,
+      onSubmit : async values => {
+        values = await Object.assign(values,{ _id : formation?._id},{ image : file || formation?.image},{user_cree:apiData?._id})
+        
+        let updatePromise = updateFormation(values);
+        
+        toast.promise(updatePromise, {
+          loading: 'Loading...',
+          success : <b>Upadeta Successfully...!</b>,
+          error: <b>Could not update!</b>
+        });
+        updatePromise.then(function(){ 
+          setTimeout(()=>navigate('/recruteur/mesformation'),100) 
+        });
      }
    })
 
@@ -84,24 +82,24 @@ function FormationFormUpdate() {
             
               <input required {...formik.getFieldProps('date_start')}  className={`${styles.textbox} ${extend.textbox}`} type="date" placeholder='Date to start' />
               <select required {...formik.getFieldProps('domaine')} className={`${styles.textbox} ${extend.textbox}`}>
-            <option selected disabled  value="" >Domaine</option>
-            <option value="INFORMATIQUE">INFORMATIQUE</option>
-            <option value="SCIENCES">SCIENCES</option>
-            <option value=" ÉLECTRONIQUE"> ÉLECTRONIQUE</option>
-            <option value="SANTÉ">SANTÉ</option>
-            <option value=" AGRICULTURE"> AGRICULTURE</option>
-            <option value="ARTS">ARTS</option>
-            <option value="COMMUNICATION">COMMUNICATION</option>
-            <option value=" LETTRES"> LETTRES</option>
-            <option value="BANQUE">BANQUE</option>
-            <option value="ASSURANCES ET RH">ASSURANCES ET RH</option>
-            <option value="COMMERCEET GESTION">COMMERCEET GESTION</option>
-            <option value="ENSEIGNEMENT ET RECHERCHE">ENSEIGNEMENT ET RECHERCHE</option>
-            <option value="TOURISMEET "> TOURISMEET</option>
-            <option value="MODEET BEAUTÉ">MODEET BEAUTÉ</option>
-            <option value="BTP">BTP</option>
-            <option value=" AUTRES DOMAINES"> AUTRE DOMAINES</option>
-          </select>
+                <option selected disabled  value="" >Domaine</option>
+                <option value="INFORMATIQUE">INFORMATIQUE</option>
+                <option value="SCIENCES">SCIENCES</option>
+                <option value=" ÉLECTRONIQUE"> ÉLECTRONIQUE</option>
+                <option value="SANTÉ">SANTÉ</option>
+                <option value=" AGRICULTURE"> AGRICULTURE</option>
+                <option value="ARTS">ARTS</option>
+                <option value="COMMUNICATION">COMMUNICATION</option>
+                <option value=" LETTRES"> LETTRES</option>
+                <option value="BANQUE">BANQUE</option>
+                <option value="ASSURANCES ET RH">ASSURANCES ET RH</option>
+                <option value="COMMERCEET GESTION">COMMERCEET GESTION</option>
+                <option value="ENSEIGNEMENT ET RECHERCHE">ENSEIGNEMENT ET RECHERCHE</option>
+                <option value="TOURISMEET "> TOURISMEET</option>
+                <option value="MODEET BEAUTÉ">MODEET BEAUTÉ</option>
+                <option value="BTP">BTP</option>
+                <option value=" AUTRES DOMAINES"> AUTRE DOMAINES</option>
+              </select>
             </div>
 
       </div>
