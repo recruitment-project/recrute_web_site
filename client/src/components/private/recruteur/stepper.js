@@ -180,7 +180,7 @@ export default function Stepper(){
     switch (step){
       case 1:
         return(<div  >
-                
+             <div  className='nb'>Note well: It is not possible to change the content of the quiz  </div>   
           <div class="mb-3 mt-10 ">
           
               <input type="text" className='formcontrol'  required {...formik.getFieldProps('Entreprisname')} placeholder="nom de l'entreprise" name="Entreprisname"/>
@@ -208,7 +208,7 @@ export default function Stepper(){
             
                   <div >
                     
-                    
+                    <div  className='nb'>Note well: It is not possible to change the content of the quiz  </div>
                     <div class="mb-3 mt-10">
                         <input type="text" className="formcontrol" placeholder=" Competance"   required {...formik.getFieldProps('Competance')}
                                  name="Competance" />
@@ -229,6 +229,7 @@ export default function Stepper(){
            
                 case 3:
                   return( <div >
+                     <div  className='nb'>Note well: It is not possible to change the content of the quiz  </div>
                     <div class="mb-3 mt-10">
             
                         <input type="text" className="formcontrol" placeholder=" Q1"   required {...formik.getFieldProps(`questions[${0}].question`)}
@@ -257,6 +258,7 @@ export default function Stepper(){
                     </div>);
                     case 4:
                       return( <div >
+                         <div  className='nb'>Note well: It is not possible to change the content of the quiz  </div>
                         <div class="mb-3 mt-10">
                 
                             <input type="text" className="formcontrol" placeholder="Q2"   required {...formik.getFieldProps(`questions[${1}].question`)}
@@ -285,6 +287,7 @@ export default function Stepper(){
                        </div>);
                        case 5:
                         return( <div >
+                           <div  className='nb'>Note well: It is not possible to change the content of the quiz  </div>
                           <div class="mb-3 mt-10">
                   
                               <input type="text" className="formcontrol" placeholder=" Q3"   required {...formik.getFieldProps(`questions[${2}].question`)}
@@ -313,6 +316,7 @@ export default function Stepper(){
                          </div>);  
                          case 6:
                           return( <div >
+                             <div  className='nb'>Note well: It is not possible to change the content of the quiz  </div>
                             <div class="mb-3 mt-10">
                     
                                 <input type="text" className="formcontrol" placeholder=" Q4"   required {...formik.getFieldProps(`questions[${3}].question`)}
@@ -342,6 +346,7 @@ export default function Stepper(){
                            </div>); 
                               case 7:
                                 return( <div >
+                                   <div className='nb'>Note well: It is not possible to change the content of the quiz  </div>
                                   <div class="mb-3 mt-10">
                           
                                       <input type="text" className="formcontrol" placeholder=" Q4"   required {...formik.getFieldProps(`questions[${4}].question`)}
