@@ -5,10 +5,8 @@ import { useFormik } from 'formik';
 import { usernameValidate } from '../../helper/validate';
 import {useAuthStore} from '../../store/store'
 import { FaReact, FaUser } from 'react-icons/fa';
-import "../../styles/Username.module.css"
-
+import "../../styles/Username.module.css";
 export default function Username() {
-
   const navigate = useNavigate();
   const setUsername = useAuthStore(state => state.setUsername);
 
@@ -29,10 +27,10 @@ export default function Username() {
   return (
     <section className="container">
       <Toaster position='top-center' reverseOrder={false}></Toaster>
-  <div className=" flex justify-center items-center  bg-white rounded-xl mt-16" style={{width:"70rem", marginLeft:"5%", height:"35rem"}}>
+  <div className=" flex justify-center items-center  bg-white rounded-xl mt-8" style={{width:"70rem", marginLeft:"5%", height:"35rem"}}>
     <div
       className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6 w-full"
-      style={{boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"}}
+      style={{boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 10px"}}
     >
       <div
         className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0"
@@ -71,14 +69,14 @@ export default function Username() {
           <div className=" flex justify-center text-center lg:text-left ml-12">
             <button
              type='submit'
-              className=" border bg-indigo-500 w-2/3 py-4 rounded-lg text-gray-50 text-xl shadow-sm text-center mr-40"
+              className=" border bg-indigo-500 w-2/3 py-4 rounded-lg text-gray-50 text-xl shadow-sm text-center mr-10"
               style={{width:"25rem"}}
             >
               Login
             </button>
             
           </div>
-          <div className="flex justify-center py-4 mr-40">
+          <div className="flex justify-center py-4 mr-10">
                 <span className='text-gray-500'>Not a member? <Link className='text-red-500' to="/register">Register Now</Link></span>
           </div>
         </form>

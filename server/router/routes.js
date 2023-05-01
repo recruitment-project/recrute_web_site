@@ -170,4 +170,7 @@ router.route('/questionsByOffre/:id').get(OffreController.getQuestionByOffre);
 router.route('/ajoutScore/:id').put(PostuleController.ajoutScore);
 
 
+/***participation formation  ***/
+router.route('/saveFormationParticipant').post(FormationController.SaveparticipationFormation);
+router.route('/getUser/:id').get(FormationController.getUser);
 export default router;

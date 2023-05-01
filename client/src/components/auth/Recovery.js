@@ -47,29 +47,35 @@ console.log(OTP)
     <div
       className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6"
     >
-      <div
+     <div
         className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0"
+        style={{width:"30rem", height:"20rem"}}
       >
         <img
           src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-          className="w-full"
+          className="img"
+          style={{width:"100%", height:"100%"}}
           alt="Sample image"
+          
         />
       </div>
-      <div className="xl:ml-20 xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
-      <div className="title flex flex-col items-center mt-12">
+      <div className=" flex xl:ml-20 xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-8  " style={{justifyContent:"center", alignItems:"center"}}>
+      <form onSubmit={onSubmit}>
+
+      <div className="flex flex-row items-center justify-center  mb-24 mt-9">
+            <p className="text-3xl font-bold">Récupérer mot de passe</p>
+      </div>
+      {/* <div className="title flex flex-col items-center">
             <h4 className='text-4xl font-bold text-black '>Récupérer mot de passe</h4>
             <span className='py-4 text-xl w-2/3 text-center text-white'>
                 Entrer OTP pour récupérer votre mot de passe.
             </span>
-          </div>
+          </div> */}
           
-           <form className='pt-20' onSubmit={onSubmit}>
-
+         
                <div className="textbox flex flex-col items-center gap-6">
-
                    <div className="input text-center">
-                     <span className='py-4 text-sm text-left text-gray gap-6'>
+                     <span className='py-4 text-sm text-left text-red-600 mb-8 '>
                        Entrer 6 chiffres OTP envoyés à votre addresse email.
                      </span>
                      <input onChange={(e) => setOTP(e.target.value) } className="border-4 border-gray-100 px-5 py-4 rounded-xl w-2/2 shadow-sm text-lg hover:border-gray-200 focus:outline-none" type="text" placeholder='OTP' />

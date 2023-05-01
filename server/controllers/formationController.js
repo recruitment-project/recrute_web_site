@@ -49,6 +49,26 @@ export const saveFormation = async (req, res) => {
        
     }
 }
+export const SaveparticipationFormation = async (req,res) => {
+    try{
+        const user=await User.findById(req.body.participant);
+        const formation = await Formation.findById(req.body.formation_participee);   
+        const postuleFormation=await User.findOne({formation_participee:req.body.formation_participee}) ;
+        const postuleUser=await Formation.findOne({participant:req.body.participant}) ;
+        if(postuleFormation==formation && postuleUser == user){ 
+        res.status(201).json("repeated")
+        }else{
+            formation.participant.push(user._id);
+            user.formation_participee.push(formation._id);
+            formation.save();
+            user.save();
+            res.status(201).json("success"); 
+        }
+        
+    }catch(error){
+        res.status(400).json(error);
+    }
+}
 export const updateFormation = async (req, res) => {
    
     try {
@@ -58,7 +78,21 @@ export const updateFormation = async (req, res) => {
         res.status(400).json({message: error.message});
     }
 }
- 
+export const getUser = async (req,res) => {
+const id = req.params.id;
+let names =[];
+const formations = await Formation.findById(id);
+const participants = formations.participant;
+if(participants != null){
+    for(let i=0; i<participants.length; i++){
+        const user = await User.findById(participants[i]);
+        if(user){
+            names.push(user)
+        }
+    }
+}
+res.send(names)
+}
 export const deleteFormation = async (req, res) => {
     try {const Id=req.params.id
         const formation=await Formation.findById(Id)
@@ -77,3 +111,5 @@ export const deleteFormation = async (req, res) => {
         res.status(400).json({message: error.message});
     }
 }
+
+

@@ -93,7 +93,7 @@ export default function Password() {
             <div className=" flex justify-center text-center lg:text-left ml-12">
             <button
              type='submit'
-             className=" border bg-indigo-500 w-2/3 py-4 rounded-lg text-gray-50 text-xl shadow-sm text-center mr-40"
+             className=" border bg-indigo-500 w-2/3 py-4 rounded-lg text-gray-50 text-xl shadow-sm text-center mr-10"
              style={{width:"25rem"}}
             >
               Sign In

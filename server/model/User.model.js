@@ -27,10 +27,15 @@ export const UserSchema = new mongoose.Schema({
     offre_cree:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Offres"}],
+    formation_participee:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"Formation"
+    }],
     formation_cree:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Formation"
     }],
+    
 });
 
 // const User =  mongoose.model('User', UsersSchema);

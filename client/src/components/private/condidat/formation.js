@@ -10,34 +10,30 @@ import {
   MDBTabsLink,
   MDBTabsPane,
   MDBPagination, MDBPaginationItem, MDBPaginationLink } from 'mdb-react-ui-kit';
-  import Modal from 'react-modal';
-// import {Modal, Button} from 'react-bootstrap';
+import Modal from 'react-modal';
+import Box from '@mui/material/Box';
 import {FcSearch} from "react-icons/fc";
 import SidebarCandidat from '../../layout/sidebarCondidat';
 import styles from "../../../styles/formations.module.css";
 import axios from "axios";
 import Header from '../../layout/header';
+import swal from 'sweetalert';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+import useFetch from '../../../hooks/fetch.hook';
 const PAGE_SIZE = 2;
 export default function Formation() {
+  const [{apiData}] = useFetch();
   const [formationsList, setFormations] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [formation, setFormation] = useState({});
   const [basicActive, setBasicActive] = useState('formateur');
-
-
-
+  const [participer, setParticiper] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [modalIsOpen, setIsOpen] =useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [chaima, setChaima] = useState("");
   const totalPages = Math.ceil(formationsList.length / PAGE_SIZE);
-  const handleClick = (page) => {
-    setCurrentPage(page);
-  };
-  const getDisplayedItems = () => {
-    const start = (currentPage - 1) * PAGE_SIZE;
-    const end = start + PAGE_SIZE;
-    return formationsList.slice(start, end);
-  };
-
-
   function getAllFormations() {
     axios
       .post(`http://localhost:8080/api/formations`)
@@ -46,6 +42,18 @@ export default function Formation() {
           console.log("error !");
         } else {
           setFormations(res.data); 
+        }
+      });
+    }
+  function postuler(id) {
+    axios
+      .post(`http://localhost:8080/api/saveFormationParticipant`, { formation_participee:id,participant: apiData?._id})
+     
+      .then((res) => {
+        if (res.data === "ERROR") {
+          console.log("error !");
+        } else {
+          setChaima(res.data);
         }
       });
   }
@@ -58,11 +66,29 @@ export default function Formation() {
   const filteredImages = formationsList.filter((image) =>
   image.title.toLowerCase().includes(searchQuery.toLowerCase())
 );
+const handleClick = (page) => {
+  setCurrentPage(page);
+};
+const getDisplayedItems = () => {
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const end = start + PAGE_SIZE;
+  return formationsList.slice(start, end);
+};
+
+const handleClose = () => {
+  setOpen(false);
+};
+const handleOpen = () => {
+  setOpen(true);
+  setTimeout(() => {
+    setOpen(false);
+  }, 1000);
+};
 const handleBasicClick = (value) => {
   if (value === basicActive) return;
   setBasicActive(value);
 }
-const [modalIsOpen, setIsOpen] = React.useState(false);
+
 const customStyles = {
   content: {
     top: '50%',
@@ -84,6 +110,36 @@ function openModal() {
   document.body.style.overflow = 'hidden';
 }
 
+console.log(chaima)
+function openParticiper(id){
+  setParticiper(false);
+  postuler(id);
+  setTimeout(() => {
+    setParticiper(true);
+    swal({
+      title: "Voulez-vous vraiment participer à cette formation ? ",
+      icon: "warning",
+      buttons: {
+        cancel: 'Non',
+        confirm: 'Oui',
+      },
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete){
+      if ( chaima === "repeated" ){
+        swal("vous avez postulé à cette formation", {
+          icon: "warning",
+       })}
+      else  {
+        swal("Excellent! vous êtes enregistré à participer dans cette formation, nous allons vous appeler plus tart", {
+          icon: "success",
+        });
+      } 
+      }})
+      
+ }, 1000);
+}
 
 function closeModal() {
   setIsOpen(false);
@@ -110,20 +166,32 @@ function closeModal() {
       <div className="flex" id="card">
       
                 {getDisplayedItems().filter((image) =>
-                    image.title.toLowerCase().includes(searchQuery.toLowerCase())
+                    image.title.toLowerCase().includes(searchQuery.toLowerCase()),
+                   
                   ).map((image, index) => (
-                  <div className={styles.leftSide} style={{height:"25rem"}} key={index} >
+                  <div className={styles.leftSide} style={{height:"380px"}} key={index} >
                     <img src={image.image } style={{height:"9rem", width:"100%", marginBottom:"15px"}}/>
                     <p className={styles.title}>{image.title}</p>
                     <p>{image.description.slice(0,130)} . . . </p>
-                    <div className="flex">
-                        <button className={styles.btn}>
-                           Participer
+                   
+                    <div className="flex" >
+                        <button type="submit" className={styles.btn} onClick={()=>{handleOpen(),openParticiper(image._id),setFormation(image)}}>
+                              Participer
                         </button>
+                       
+                        <Backdrop
+                          sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                          open={open}
+                          onClick={handleClose}
+                        >
+                          <CircularProgress color="inherit" />
+                        
+                        </Backdrop>
                         <button className={styles.btnMore}  onClick={()=>{openModal(),setFormation(image)}}>
                           read more
                         </button>
                     </div> 
+                    
                         <Modal
                           isOpen={modalIsOpen}
                           onRequestClose={closeModal}

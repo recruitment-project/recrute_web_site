@@ -5,15 +5,9 @@ axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
 export async function ajoutFormation(credentials){
     try {
         const { data  } = await axios.post(`/api/saveFormation`, credentials);
-
-        
-
         return Promise.resolve(data)
-    } catch (error) {
-        
-        return Promise.reject({ error :"could't ajout formation"})
-        
-        
+    } catch (error) { 
+        return Promise.reject({ error :"could't ajout formation"})      
     }
 }
 export async function updateFormation(data){
@@ -59,4 +53,12 @@ export async function FormationValidation(values){
     }
 
     return error;
+}
+export async function SaveparticipationFormation(credentials){
+    try{
+        const {data} = await axios.post(`/api/SaveparticipationFormation`, credentials );
+        return Promise.resolve(data)
+    }catch (error){
+        return Promise.reject({error: "couldn't add your informations"})
+    }
 }
