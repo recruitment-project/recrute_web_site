@@ -292,7 +292,7 @@ overflow-y: scroll;
     overflow-y: scroll;
 }
 .cardoffre{
-    background-color: #fff;
+    background-color: #eeeeee40;
     border-radius: 25px;
     margin: 40px;
     height: 42vh;
@@ -301,7 +301,10 @@ overflow-y: scroll;
     
     width: auto;
     box-shadow: 10px 5px 5px rgb(185, 182, 182);
-    border: 2px solid black;
+    border: 2px solid rgb(185, 182, 182);
+}
+.cardoffre:hover{
+    background-color: rgb(243, 205, 227);
 }
 .ajou{
     margin-right: 70px;
@@ -384,7 +387,7 @@ overflow-y: scroll;
     margin-left: 15%;
     margin-right: 15%;
     border: 2px solid rgb(8, 146, 4);
-    height: 50vh;
+    height: 65vh;
     padding-right: 12px;
     width: 80%;
   }
@@ -672,3 +675,4 @@ margin-left: 80px;
     margin-left: 60px;
     font-family:'Times New Roman', Times, serif;
 }
+

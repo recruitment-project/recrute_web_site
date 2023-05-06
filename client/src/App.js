@@ -46,9 +46,9 @@ const router = createBrowserRouter([
         element : <Username></Username>
     },
     // {
-    //     path : '/home',
-    //     element : <Home></Home>
-    // },
+    //    path : '/home',
+     //   element : <Home></Home>
+     //},
    
     {
         path : '/register',
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
         element : <Stepper></Stepper>
     },
     {
-        path : '/recruteur/detailsOffre',
+        path : '/recruteur/detailsOffre/:id',
         element : <Detailsoffre></Detailsoffre>
     },
     {
