@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700&display=swap');
 .leftSide{
     background: white;
     padding: 20px;
@@ -41,6 +41,13 @@
     text-align: left;
     margin-bottom: 1rem;
     color: crimson;
+}
+.title1{
+    font-family: 'Dosis', sans-serif;
+
+    font-weight:700;
+    color:red;
+    font-size:30px;
 }
 .btn:hover,
 .btn:focus {
