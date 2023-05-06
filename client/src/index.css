@@ -321,6 +321,16 @@ overflow-y: scroll;
     padding: 6px;
    
 }
+.name{
+    color: #000;
+
+    font-weight: bold;
+    font-size: large ;
+}
+.nb{
+    color: red;
+    font-weight: bold;
+}
 .secondary{
     color: white;
     border-radius: 25px;
