@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 export const postuleSchema = new mongoose.Schema(
     {
-        cv:{type:String, required: true },
+        lettreMotivation:{type:String, required: true },
         user:{
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"

@@ -169,22 +169,22 @@ function FormationFormUpdate() {
       )}
       {currentStep===1 &&(
        
-       <button className="buttonNext" disabled={currentStep === 3} onClick={() => updateStep(currentStep + 1)}>Next</button>
+       <button className="buttonNextup" disabled={currentStep === 3} onClick={() => updateStep(currentStep + 1)}>Next</button>
      
        )}
       {currentStep===2 &&(
        
-      <button className="buttonNext2" disabled={currentStep === 3} onClick={() => updateStep(currentStep + 1)}>Next</button>
+      <button className="buttonNextup2" disabled={currentStep === 3} onClick={() => updateStep(currentStep + 1)}>Next</button>
     
       )}
       {currentStep!==3 &&(
         
-        <button className="buttonsubmit" onClick={formik.handleSubmit} type='submit' >Update Formation</button>
+        <button className="buttonupdate1" onClick={formik.handleSubmit} type='submit' >Update Formation</button>
       
         )}
       {currentStep===3 &&(
         
-      <button className="buttonsubmit2" onClick={formik.handleSubmit} type='submit' >Update Formation</button>
+      <button className="buttonupdate2" onClick={formik.handleSubmit} type='submit' >Update Formation</button>
     
       )}
     </div>

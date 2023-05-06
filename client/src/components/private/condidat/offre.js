@@ -96,17 +96,21 @@ console.log("data=>",getoffredata)
         }).map((element, id) => {
             return (
     <>
-    <div className='cardoffre col-5' key={element.id}>
+    <div className='cardoffre col-lg-5 col-md-10 col-sm-12' key={element.id}>
 
- <div className='flex'>
-    <div className='flex m-3'>
-      
-      <div className=''><img src={ element.profile || file } alt="avatar" className='imgprofile'/></div>
-      <div className='mx-3'>{element.firstName}</div>
+
+    <div className=' row'>
+    <div className='col-5 m-3'>
+      <div className='row'>
+      <div className='col-4'><img src={ element.user_cre.profile || file } alt="avatar" className='imgprofile'/></div>
+      <div className='mx-3 col-5'>{element.user_cre.firstName}</div>
     </div>
-    <div className='mt-3'>
-    <Badge bg="secondary mx-2" className='secondary pt-2'>{element.ITdomain}</Badge>
-    <Badge bg="secondary mx-2"className='secondary pt-2'>{element.City}</Badge>
+    </div>
+    <div className='col-6 mt-3'>
+      <div className='row'>
+    <Badge bg="secondary mx-2" className='secondary pt-2 col-4'>{element.ITdomain}</Badge>
+    <Badge bg="secondary mx-2"className='secondary pt-2 col-6'>{element.City}</Badge>
+    </div>
 </div>
 </div>
 <div className='mx-3'>{element.Entreprisname}</div>

@@ -37,11 +37,11 @@ export default function Register() {
       registerPromise.then(function(){ 
         navigate('/')
       });
-      
 
-      
+
+
     }
-    
+
   })
 
   /** formik doensn't support file upload so we need to create this handler */
@@ -51,26 +51,28 @@ export default function Register() {
   }
 
   return (
-    <section className=" container mx-auto flex justify-center mt-2  mb-2">
+    <section className=" container mx-auto flex justify-center mt-2  mb-2"  >
       <Toaster position='top-center' reverseOrder={false}></Toaster>
-  <div className=" flex justify-center items-center  bg-white rounded-xl ">
+    <div className=" flex justify-center items-center  bg-white rounded-xl ">
     <div
       className="flex bg-blue  xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6"
     >
       <div
-        className="grow-0  shrink-1 md:shrink-0 basis-auto xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0 "
+        className="flex grow-0  shrink-1 md:shrink-0 basis-auto xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0 " 
+        
       >
         <img
           src={register}
+          style={{height:"50%",marginTop: "-5%"}}
           className="w-full "
           alt="Sample image"
         />
       </div>
-      <div className="xl:ml-20 xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
+      <div className="xl:ml-20 xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0" style={{height:"100%", marginTop:"1%"}}>
         <form onSubmit={formik.handleSubmit}>
           <div className="flex flex-row items-center justify-center mb-4 mt-9">
             <p className=" text-3xl font-bold">Sign up with</p>
-           
+
           </div>
           <div
             className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5"
@@ -90,6 +92,7 @@ export default function Register() {
             <input
               type="text"
               className={styles.inputUsername}
+              style={{height:"10%"}}
               placeholder="Email address"
               {...formik.getFieldProps('email')}
               required
@@ -100,18 +103,20 @@ export default function Register() {
             <input
               type="text"
               className={styles.inputUsername}
+              style={{height:"10%"}}
               placeholder="Username"
               {...formik.getFieldProps('username')}
               required
             /> 
           </div>
 
-         
+
           <div className=" relative flex  items-center ml-20 mb-6">
              <FaLock className={styles.iconsRegister} size="15" color="gray" />
             <input
               type="password"
               className={styles.inputUsername}
+              style={{height:"10%"}}
               placeholder="Password"
               {...formik.getFieldProps('password')}
               required
@@ -119,14 +124,14 @@ export default function Register() {
           </div>
           <div className="flex justify-center mb-6">
             <div className='mr-5' >Vous êtes un(e): &nbsp;&nbsp;</div>
-            
+
             <label>
                 <input
                   type="radio"
                   {...formik.getFieldProps('accountType')}
                   value="recruteur"
                 />
-                Recruteur
+                &nbsp; Recruteur
               </label>
            &nbsp;&nbsp;&nbsp;
 
@@ -136,17 +141,18 @@ export default function Register() {
               {...formik.getFieldProps('accountType')}
               value="candidat"
             />
-            Candidat
+            &nbsp; Candidat
           </label>
         </div>
           <div className=" flex justify-center text-center lg:text-left">
             <button
              type='submit'
-              className=" border bg-indigo-500 w-3/4 py-4 rounded-lg text-gray-50 text-xl shadow-sm text-center ml-2"
+              className=" border bg-indigo-500 py-4 rounded-lg text-gray-50 text-xl shadow-sm text-center ml-16"
+              style={{outline:"none", width:"72%", height:"5%"}}
             >
               Register
             </button>
-            
+
           </div>
           <div className="flex justify-center py-4">
                 <span className='text-gray-500'>Already Register? <Link className='text-red-500' to="/">Login Now</Link></span>
