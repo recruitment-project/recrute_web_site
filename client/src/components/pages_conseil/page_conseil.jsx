@@ -1,6 +1,7 @@
 import React from 'react';
 import './page_conseil.css';
 import { Link } from 'react-router-dom';
+import img1 from '../../assets/images_conseil/rec-distance.jpeg';
 function Pc1() {
  return (
     <div>
@@ -13,7 +14,7 @@ function Pc1() {
   <div class="col">
     <div class="card h-100"> 
     <Link to={'/page1'} >
-    <img src="assets/images_conseil/rec-distance.jpeg" className="card-img-top" alt="postuler" /></Link>
+    <img src={img1} className="card-img-top" alt="postuler" /></Link>
       <div class="card-body">
       <Link to={'/page1'} class='des-link' >
         <h5 class="card-title">Comment récruter à distance ?</h5></Link>
@@ -24,7 +25,7 @@ function Pc1() {
   <div class="col">
     <div class="card h-100">
     <Link to={'/page2'} >
-    <img src="assets/images_conseil/competence2.png" className="card-img-top" alt="preparer" />      
+    <img src={img1} className="card-img-top" alt="preparer" />      
     </Link>
       <div class="card-body">
       <Link to={'/page2'} >
@@ -38,7 +39,7 @@ function Pc1() {
   <div class="col">
     <div class="card h-100">
     <Link to={'/page3'} >
-    <img src="assets/images_conseil/re-entretien.jpg" className="card-img-top" alt="preparer" /> </Link>
+    <img src={img1} className="card-img-top" alt="preparer" /> </Link>
       <div class="card-body">
       <Link to={'/page3'} >
         <h5 class="card-title">Réussir votre entretien</h5></Link>
@@ -51,7 +52,7 @@ function Pc1() {
     <div class="card h-100">
       
     <Link to={'/page4'} >
-    <img src="assets/images_conseil/postuler.jpg" className="card-img-top" alt="preparer" /> 
+    <img src={img1} className="card-img-top" alt="preparer" /> 
     </Link>
       <div class="card-body">
       <Link to={'/page4'} >
@@ -64,7 +65,7 @@ function Pc1() {
   <div class="col">
     <div class="card h-100">
     <Link to={'/page5'} >
-    <img src="assets/images_conseil/stress.jpg" className="card-img-top" alt="preparer" /> 
+    <img src={img1} className="card-img-top" alt="preparer" /> 
 </Link>
       <div class="card-body">
       <Link to={'/page5'} > 
@@ -80,7 +81,7 @@ function Pc1() {
   <div class="col">
     <div class="card h-100">
     <Link to={'/page6'} >
-    <img src="assets/images_conseil/preparer.jpg" className="card-img-top" alt="preparer" /> 
+    <img src={img1} className="card-img-top" alt="preparer" /> 
 </Link>
       <div class="card-body">
       <Link to={'/page6'} >
@@ -94,7 +95,7 @@ function Pc1() {
   <div class="col">
     <div class="card h-100">
     <Link to={'/page7'} >
-    <img src="assets/images_conseil/salaire.jpg" className="card-img-top" alt="preparer" />     
+    <img src={img1} className="card-img-top" alt="preparer" />     
 
 </Link>
       <div class="card-body">
@@ -109,7 +110,7 @@ function Pc1() {
   <div class="col">
     <div class="card h-100">
     <Link to={'/page8'} >
-    <img src="assets/images_conseil/q-r.png" className="card-img-top" alt="preparer" /> 
+    <img src={img1} className="card-img-top" alt="preparer" /> 
 </Link>
       <div class="card-body">
       <Link to={'/page8'} >
@@ -125,7 +126,7 @@ function Pc1() {
     <div class="card h-100">
       
     <Link to={'/page9'} >
-    <img src="assets/images_conseil/critere.jpe" className="card-img-top" alt="preparer" /> 
+    <img src={img1} className="card-img-top" alt="preparer" /> 
     </Link>
       <div class="card-body">
       <Link to={'/page9'} >
