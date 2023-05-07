@@ -38,9 +38,7 @@ function Service ()  {
                                 <p className="p service__text p__color">
                                 We provide end-to-end recruitment and staffing solutions to help you find the right talent for your organization. 
                                 </p>
-                                <p className="p service__text p__color">
-                                Our services include sourcing, screening, and onboarding candidates, as well as managing payroll and benefits.
-                                </p>
+                               
                                 
                             </div>
                          </div>
@@ -70,9 +68,7 @@ function Service ()  {
                                 <p className="p service__text p__color">
                                 Our job placement services are designed to help job seekers find their dream job while providing employers with the best possible candidates. 
                                 </p>
-                                <p className="p service__text p__color">
-                                We work with job seekers to understand their skills and career aspirations, matching them with opportunities that align with their goals.
-                                </p>
+                                
                             </div>
                          </div>
                     </div>
@@ -105,9 +101,7 @@ function Service ()  {
                                 <p className="p service__text p__color">
                                 This helps to streamline the recruitment process, saving time and effort for both job seekers and employers.
                                 </p>
-                                <p className="p service__text p__color">
-                                Our technology is constantly updated to ensure the highest accuracy and efficiency in identifying the best candidates for your job openings.
-                                </p>
+                                
                             </div>
                          </div>
                     </div>
@@ -139,9 +133,7 @@ function Service ()  {
                                 <p className="p service__text p__color">
                                 With customizable questions, you can quickly and efficiently determine their strengths and weaknesses, making better hiring decisions for your organization. 
                                 </p>
-                                <p className="p service__text p__color">
-                                Improve your recruitment process and build a stronger team with our Candidate Quiz Evaluation.
-                                </p>
+                                
                             </div>
                          </div>
                     </div>
@@ -171,12 +163,8 @@ function Service ()  {
                                 <p className="p service__text p__color">
                                 Our website offers expert guidance and training to help you advance your career. From resume writing to job search strategies, we provide personalized advice to help you achieve your goals. 
                                 </p>
-                                <p className="p service__text p__color">
-                                Our training courses cover a range of in-demand skills and are designed to prepare you for today's job market.
-                                </p>
-                                <p className="p service__text p__color">
-                                Take the first step towards career success with our Career Advancement Services.
-                                </p>
+                                
+                                
                             </div>
                          </div>
                     </div>
@@ -205,9 +193,7 @@ function Service ()  {
                                 <p className="p service__text p__color">
                                 Our website provides an easy way for candidates to find their interview location and transportation options. 
                                 </p>
-                                <p className="p service__text p__color">
-                                With our technology, candidates can quickly get directions to the interview site, including public transportation routes and travel time. This service helps reduce stress and increase efficiency for both candidates and hiring companies.
-                                </p>
+                               
                                 <p className="p service__text p__color">
                                 Simplify your hiring process with our Interview Location and Transport Services.
                                 </p>

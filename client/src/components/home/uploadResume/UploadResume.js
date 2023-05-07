@@ -17,7 +17,7 @@ const UploadResume = () => {
               <NoteAddOutlinedIcon />
             </div>
             <span>STEP 1</span>
-            <h5>Create an account</h5>
+            <h5 style={{color: "#5f3afc"}} >Create an account</h5>
             
           </div>
           <div>
@@ -25,7 +25,7 @@ const UploadResume = () => {
               <AccountBoxOutlinedIcon />
             </div>
             <span>STEP 2</span>
-            <h5>Complete your profile</h5>
+            <h5 style={{color: "#5f3afc"}}>Complete your profile</h5>
             
           </div>
           <div>
@@ -33,7 +33,7 @@ const UploadResume = () => {
               <SavedSearchOutlinedIcon />
             </div>
             <span>STEP 3</span>
-            <h5>Search your job</h5>
+            <h5 style={{color: "#5f3afc"}}>Search your job</h5>
        
           </div>
         </div>

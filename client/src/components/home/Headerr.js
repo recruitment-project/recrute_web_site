@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
-import logo from '../../assets/logoBlack.png'
-
-const Header = () => {
+import logo from '../../assets/logoon.png';
+import '../../components/home/_headerr.scss';
+const Headerr = () => {
    const [isLoggedIn, setIsLoggedIn] = useState(false);
    // handle sidebar show
    const [show, setShow] = useState(false);
@@ -16,10 +16,10 @@ const Header = () => {
     };
    return (
       <>
-         <header>
-            <div  id="header-sticky">
-               <div >
-                  <div className="row align-items-center">
+         <header className="h">
+            <div  style={{height: "10px"}}>
+               <div id="headerr-sticky">
+                  <div className="row align-items-center" >
                      <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-6">
                         <div className="logoo">
                            <Link href="/home">
@@ -33,26 +33,26 @@ const Header = () => {
                         <div className="mainn-menu">
                            <nav id="mobile-menu">
                               <ul>
-                                 <li >
-                                    <Link href="#" legacyBehavior>Home</Link>
+                                 <li className="hea">
+                                    <Link href="#" legacyBehavior >Home</Link>
                                    
                                  </li>
                                  
                                 
     
-                                 <li >
-                                    <Link href="#Services" >Services</Link>     
+                                 <li className="hea">
+                                    <Link href="#Services"  >Services</Link>     
                                  </li>
-                                 <li><Link href="/contact" >Contact</Link></li>
-                                 <li><Link href="" >Tips</Link></li>
-                                 <li><Link href="#About">About</Link></li>
+                                 <li className="hea"><Link href="/contact" >Contact</Link></li>
+                                 <li className="hea"><Link href="" >Tips</Link></li>
+                                 <li className="hea"><Link href="#About">About</Link></li>
                               </ul>
                            </nav>
                         </div>
                      </div>
                      <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-8 col-6">
-                        <div className="header__action d-flex align-items-center justify-content-end">
-                        <div className="header__login d-none d-sm-block">
+                        <div className="headerr__action d-flex align-items-center justify-content-end">
+                        <div className="headerr__login d-none d-sm-block">
       {isLoggedIn ? (
         <a style={{ cursor: 'pointer' }} className='d-flex align-items-center' onClick={handleLogout}>
           <i className="fal fa-sign-out-alt"></i> Log Out
@@ -64,7 +64,7 @@ const Header = () => {
          </Link>
       )}
     </div>
-                           <div className="header__register d-none d-sm-block">
+                           <div className="headerr__register d-none d-sm-block">
                               <Link href="/register" >
                                  
                                     <i className="far fa-envelope" aria-hidden="true"></i> Register
@@ -85,4 +85,4 @@ const Header = () => {
    );
 };
 
-export default Header;
+export default Headerr;
