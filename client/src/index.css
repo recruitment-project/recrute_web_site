@@ -575,7 +575,7 @@ overflow-y: scroll;
     color: #fff;
     border-radius: 10px;
     padding: 10px;
-    margin-left: 10px;
+    margin-left: 5px;
     margin-top: 85px;
 }
 .buttonsubmit2{
@@ -583,16 +583,48 @@ overflow-y: scroll;
     color: #fff;
     border-radius: 10px;
     padding: 10px;
-    margin-left: 1015px;
+    margin-left: 1000px;
     
+}
+.buttonupdate1{
+    background-color: #893ca8;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 5px;
+    margin-top: 85px;
+}
+.buttonupdate2{
+    background-color: #893ca8;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 900px;
+    
+}
+.buttonNextup{
+    background-color: #893ca8;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 40px;
+    margin-left: 950px;
+}
+.buttonNextup2{
+    background-color: #893ca8;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 60px;
+    margin-left: 900px;
 }
 .buttonNext{
     background-color: #893ca8;
     color: #fff;
     border-radius: 10px;
     padding: 10px;
-    margin-top: 60px;
-    margin-left: 1019px;
+    margin-top: 40px;
+    margin-left: 1000px;
 }
 .buttonNext2{
     background-color: #893ca8;
@@ -600,7 +632,7 @@ overflow-y: scroll;
     border-radius: 10px;
     padding: 10px;
     margin-top: 60px;
-    margin-left: 955px;
+    margin-left: 920px;
 }
 .buttonback{
     background-color: rgb(179, 177, 175);
@@ -672,7 +704,39 @@ margin-left: 80px;
    
 }
 .labelcv{
-    margin-left: 60px;
-    font-family:'Times New Roman', Times, serif;
+    /* margin-left: 350px; */
+    margin-top: 30px;
+    /* font-family:'Times New Roman', Times, serif; */
 }
+#titlePostule{
+    color: green;
+    margin-left: 470px;
+    margin-top: 20px;
+}
+.champpostule{
+    background-color: white;
+    width: 90%;
 
+}
+.testara{
+    margin-left: 350px;
+}
+.cv{
+    margin-left: 540px;
+}
+.cardpostule{
+    background-color: #fff;
+    border-radius: 25px;
+    margin: 16px;
+    
+    padding-top: 2px;
+    width: auto;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+#textareap{
+    resize : both;
+ min-width : 300px;
+ min-height : 300px;
+ 
+}

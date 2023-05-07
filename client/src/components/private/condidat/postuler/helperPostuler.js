@@ -23,10 +23,8 @@ export async function ajoutPostule(credentials){
 /** validate postule */
 export async function PostuleValidation(values){
     const error = {}
-    if(!values.username){
-        error.title = toast.error('username Required...!');
-    }else if(!values.email){
-        error.title = toast.error('email Required...!');
+    if(!values.lettreMotivation){
+        error.title = toast.error('Lettre de motivation Required...!');
     }
 
     return error;

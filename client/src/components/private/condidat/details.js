@@ -4,7 +4,7 @@ import {IoMdNotifications} from "react-icons/io";
 import{FaSearch} from "react-icons/fa";
 import Button from 'react-bootstrap/Button';
 import { useHistory,useNavigate , NavLink } from 'react-router-dom';
-import SidebarRecruteur from '../../layout/sidebarRecruteur';
+import SidebarCandidat from '../../layout/sidebarCondidat';
 import Header from '../../layout/header';
 import { useState,useEffect } from 'react';
 import { useParams } from 'react-router';
@@ -65,7 +65,7 @@ let manth=new Date(getuserdata.updatedAt).getDate();
   return (
     <div className='displ flex'>
      <div>
-    <SidebarRecruteur/>
+    <SidebarCandidat/>
      </div>
      <div className='layout'>
      <Header/>
@@ -149,8 +149,8 @@ let manth=new Date(getuserdata.updatedAt).getDate();
        
        <footer className='footer'> <div className='groupbtn'>
        <Button  className='btn2 px-2' type='submit' onClick={()=>navigate('/candidat/offre')}>return</Button>
-
-         <Button  className='btn3' type='submit' >postuler</Button>
+  
+         <Button  className='btn3' type='submit' onClick={()=>navigate(`/candidat/postuler/${id}`)}>postuler</Button>
          </div></footer>
      </div>
  

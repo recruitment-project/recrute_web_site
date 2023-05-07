@@ -1,7 +1,6 @@
 
-
 import Footer from '../../components/home/Footer';
-import Header from '../../components/home/Header';
+import Headerr from '../../components/home/Headerr';
 import HeroArea from '../../components/home/HeroArea';
 import About from  '../../components/home/about'
 import SEO from '../../components/home/seo';
@@ -13,7 +12,7 @@ export default function Home() {
   return (
    <>
       <SEO pageTitle={'Home Default'} />
-      <Header />
+      <Headerr /> 
       <HeroArea />
       <Services />
       <UploadResume />

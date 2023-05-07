@@ -50,8 +50,15 @@ export async function FormationValidation(values){
         error.title = toast.error('Date to start Required...!');
     }else if(!values.domaine){
         error.title = toast.error('Domaine Required...!');
+    }else if(!values.price){
+        error.title = toast.error('Price Required...!');
+    }else if(!values.formator){
+        error.title = toast.error('Formator to start Required...!');
+    }else if(!values.address){
+        error.title = toast.error('Address Required...!');
+    }else if(!values.description){
+        error.title = toast.error('Description Required...!');
     }
-
     return error;
 }
 export async function SaveparticipationFormation(credentials){

@@ -168,108 +168,35 @@ function closeModal() {
                           read more
                         </button>
                     </div> 
-                        <Modal
+                    <Modal
                           isOpen={modalIsOpen}
                           onRequestClose={closeModal}
                           style={customStyles}
                         >
-                          <h2 style={{textAlign:"left", fontWeight:"700", color:"red"}}>{formation.title}</h2><br/>
+                          <h2 className={styles.title1}>{formation.title}</h2><br/><br/>
                           <div className={styles.imageBox}>
                           <img src={formation.image} style={{width:"500px", height: "200px"}}/>
+                          </div>    
+                          <hr /><br/>
+                         <div className="flex">
+                         <h3 style={{color:"rgb(95,158,160)", fontWeight:"bold" }}>Formateur:</h3> &nbsp;&nbsp;   
+                          <span style={{color:"black"}}>{formation.formator}</span>
+                          <h3 style={{color:"rgb(95,158,160)", fontWeight:"bold", marginLeft:"28.5%"}}>Date de début: </h3> &nbsp;&nbsp;
+                          <span>{formation.date_start}</span> 
+                         </div>
+                         <br/>
+                         <div className='flex'>
+                            <h3 style={{color:"rgb(95,158,160)", fontWeight:"bold"}}>Durée: </h3> &nbsp;&nbsp;    
+                            <span>{formation.duree}</span>
+                            <h3 style={{color:"rgb(95,158,160)", fontWeight:"bold", marginLeft:"30%"}}>Price: </h3> &nbsp;&nbsp;
+                            <span>{formation.price}</span>
                           </div>
-                          
-                          <MDBRow >
-                            <MDBCol size={4}>
-                              <MDBListGroup >
-                                <MDBTabs className={styles.tab}>
-                                  <MDBListGroupItem action active={basicActive === 'formateur'} noBorders className='px-3'>
-                                    <MDBTabsItem className={styles.tabItem} >
-                                      <MDBTabsLink onClick={() => handleBasicClick('formateur')} style={{color:"purple"}}>Formateur</MDBTabsLink>
-                                    </MDBTabsItem>
-                                  </MDBListGroupItem>
-                                  <MDBListGroupItem action active={basicActive === 'date de départ'} noBorders className='px-3'>
-                                    <MDBTabsItem className={styles.tabItem}>
-                                      <MDBTabsLink onClick={() => handleBasicClick('date de départ')} style={{color:"red"}}>Date de départ</MDBTabsLink>
-                                    </MDBTabsItem>
-                                  </MDBListGroupItem>
-                                  <MDBListGroupItem action active={basicActive === 'durée'} noBorders className='px-3'>
-                                    <MDBTabsItem className={styles.tabItem}>
-                                      <MDBTabsLink onClick={() => handleBasicClick('durée')} style={{color:"blue"}}>Durée</MDBTabsLink>
-                                    </MDBTabsItem>
-                                  </MDBListGroupItem>
-                                  <MDBListGroupItem action active={basicActive === 'prix'} noBorders className='px-3'>
-                                    <MDBTabsItem  className={styles.tabItem}>
-                                      <MDBTabsLink onClick={() => handleBasicClick('prix')} style={{color:"green"}}>Prix</MDBTabsLink>
-                                    </MDBTabsItem>
-                                  </MDBListGroupItem>
-                                  <MDBListGroupItem action active={basicActive === 'addresse'} noBorders className='px-3'>
-                                    <MDBTabsItem  className={styles.tabItem}>
-                                      <MDBTabsLink onClick={() => handleBasicClick('addresse')} style={{color:"black"}}>Addresse</MDBTabsLink>
-                                    </MDBTabsItem>
-                                  </MDBListGroupItem>
-                                  <MDBListGroupItem action active={basicActive === 'description'} noBorders className='px-3'>
-                                    <MDBTabsItem  className={styles.tabItem}>
-                                      <MDBTabsLink onClick={() => handleBasicClick('description')} style={{color:"brown"}}>Description</MDBTabsLink>
-                                    </MDBTabsItem>
-                                  </MDBListGroupItem>
-                                  <MDBListGroupItem action active={basicActive === 'participant'} noBorders className='px-3'>
-                                    <MDBTabsItem  className={styles.tabItem}>
-                                      <MDBTabsLink onClick={() => handleBasicClick('participant')} style={{color:"brown"}}>Participants</MDBTabsLink>
-                                    </MDBTabsItem>
-                                  </MDBListGroupItem>
-                                </MDBTabs>
-                              </MDBListGroup>
-                            </MDBCol>
-                            <MDBCol size={8}>
-                              <MDBTabsContent defaultActiveKey="tab-2">
-                                <MDBTabsPane eventKey = "tab-1" show={basicActive === 'formateur'} style={{ marginTop:"3rem" , fontSize:"18px"}}>
-                                  {formation.formator}
-                                </MDBTabsPane>
-                                <MDBTabsPane eventKey = "tab-2" show={basicActive === 'date de départ'} style={{ marginTop:"3rem", fontSize:"18px"}}>
-                                  {formation.date_start}
-                                </MDBTabsPane>
-                                <MDBTabsPane eventKey = "tab-3" show={basicActive === 'durée'} style={{ marginTop:"3rem", fontSize:"18px"}}>
-                                  {formation.duree} mois
-                                </MDBTabsPane>
-                                <MDBTabsPane eventKey = "tab-4" show={basicActive === 'prix'} style={{ marginTop:"3rem", fontSize:"18px"}}>
-                                  {formation.price} TND
-                                </MDBTabsPane>
-                                <MDBTabsPane eventKey = "tab-5" show={basicActive === 'addresse'} style={{ marginTop:"3rem", fontSize:"18px"}}>
-                                  {formation.address}
-                                </MDBTabsPane>
-                                <MDBTabsPane eventKey = "tab-6" show={basicActive === 'description'} style={{ marginTop:"3rem", fontSize:"18px"}}>
-                                  {formation.description}
-                                </MDBTabsPane>
-                                <MDBTabsPane eventKey = "tab-6" show={basicActive === 'participant'} style={{ marginTop:"3rem", fontSize:"18px"}}>
-                                  
-                                     <table style={{border:"1px solid gray", width:"100%",borderRadius:"15px"}}>
-                                      <thead style={{border:"1px solid gray"}}>
-                                        <tr>
-                                          <th style={{border:"1px solid gray", width:"30%", padding:"5px"}}>Nom</th>
-                                          <th style={{border:"1px solid gray", width:"30%", padding:"5px"}}>Email</th>
-                                          <th style={{border:"1px solid gray", width:"30%", padding:"5px"}}>Téléphone</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        {user.map((users,index)=>{
-                                          return (
-                                            <>
-                                            <tr style={{border:"1px solid gray"}}>
-                                            <td style={{fontSize:"15px", color:"gray",border:"1px solid gray", padding:"5px"}}>{users.username}</td>
-                                            <td style={{fontSize:"15px", color:"gray",border:"1px solid gray", padding:"5px"}}>{users.email}</td>
-                                            <td style={{fontSize:"15px", color:"gray",border:"1px solid gray", padding:"5px"}}>{users.mobile}</td>
-                                            </tr>
-                                          
-                                            </>
-                                          )
-                                        })}
-                                  </tbody>
-                                  </table>
-                                </MDBTabsPane>
-                              </MDBTabsContent>
-                            </MDBCol>
-                            
-                          </MDBRow>
+                          <br/>
+                          <h3 style={{color:"rgb(95,158,160)", fontWeight:"bold"}}>Addresse: &nbsp;&nbsp; <span style={{color:"black", fontWeight:"normal"}}>{formation.address}</span></h3>  
+                                  <br/>
+                                  <hr style={{marginBottom:"3%"}} />
+                          <h3 style={{color:"rgb(95,158,160)", fontWeight:"bold"}}>Description: </h3>   <br/>       
+                          <span>{formation.description}</span> <br/><br/>
                           <button onClick={closeModal} style={{background:"orangered", padding: "15px" , color:"white", borderRadius:"8px", float:"right", width:"150px"}}>close</button>
                         </Modal>
         

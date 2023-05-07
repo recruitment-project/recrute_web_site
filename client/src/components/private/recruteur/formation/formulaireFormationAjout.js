@@ -35,7 +35,9 @@ function FormationFormAjout() {
      validateOnChange: false,
      onSubmit : async values => {
        values = await Object.assign(values, { image : file || ''},{user_cree:apiData?._id})
-      
+       if(!file)
+       {toast.error('Upload Image Required...!');}
+       else{
        let AjoutPromise = ajoutFormation(values);
        
        toast.promise(AjoutPromise, {
@@ -46,6 +48,7 @@ function FormationFormAjout() {
        AjoutPromise.then(function(){ 
         setTimeout(()=>navigate('/recruteur/mesformation'),100) 
       });
+    }
      }
    })
 
@@ -101,11 +104,11 @@ function FormationFormAjout() {
       <div id="contentFormation" className="name w-3/4 gap-10">
         
         <div className="name flex w-3/4 gap-10">
-              <input {...formik.getFieldProps('price')} className={`${styles.textbox} ${extend.textbox}`} type="number" placeholder='Price' />
-              <input {...formik.getFieldProps('formator')} className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='Formator' />
+              <input required {...formik.getFieldProps('price')} className={`${styles.textbox} ${extend.textbox}`} type="number" placeholder='Price' />
+              <input required {...formik.getFieldProps('formator')} className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='Formator' />
             </div>
             <div className="name flex w-3/4 gap-10" id='divsub'>
-            <input {...formik.getFieldProps('address')} className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='Address' />
+            <input required {...formik.getFieldProps('address')} className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='Address' />
              
       </div>
       </div>
@@ -117,7 +120,7 @@ function FormationFormAjout() {
           <img src={file || image} alt="avatar" className='img-circle'/>
           <input onChange={onUpload} type="file" id='image' name='image' />
         </label> 
-        <textarea {...formik.getFieldProps('description')} className={`${styles.textbox} ${extend.textbox}`}  type="text" placeholder='Description' />
+        <textarea required {...formik.getFieldProps('description')} className={`${styles.textbox} ${extend.textbox}`}  type="text" placeholder='Description' />
       </div>
     );
     

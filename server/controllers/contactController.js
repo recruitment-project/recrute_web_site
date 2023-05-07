@@ -30,7 +30,7 @@ export const sendMail = async (user, callback) =>{
         user: ENV.GMAIL_USER,
         pass: ENV.GMAIL_PASSWORD,
         user: "werecruit277@gmail.com",
-        pass: 'psyfnwwapjxgqpux'
+        pass: 'sycxjwlyngappohf'
       }
     });
   
