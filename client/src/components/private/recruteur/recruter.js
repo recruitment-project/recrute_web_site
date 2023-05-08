@@ -23,16 +23,7 @@ function Recruter(props) {
     
     
   
-        const [offres, setOffres] = useState([]);
-      
-        useEffect(() => {
-          const fetchData = async () => {
-            const result = await axios.get(`/o/${props.userId}`);
-            setOffres(result.data);
-          };
-          fetchData();
-        }, [props.userId]);
-      
+     
       
  
         const getdata = async () => {
@@ -40,7 +31,7 @@ function Recruter(props) {
       const token = localStorage.getItem('token')
          if(!token) return Promise.reject("Cannot find Token");
         let decode = jwt_decode(token)
-              const res = await fetch(`http://localhost:8080/api/o/${decode?.userId}`, {
+              const res = await fetch(`http://localhost:8080/api/osd/${decode?.userId}`, {
                   method: "GET",
                  headers: {
                                         "Content-Type": "application/json"
@@ -144,16 +135,21 @@ function Recruter(props) {
     {
     getoffredata.map((offre, key) => {
             return (
-    <div className='cardrecut mt-10 col-5'>
-      <div className='mt-2 mb-2  mt-2  font' >{offre.Offrename}</div>
-      <div className='row border'>
+    <div className='cardrecut mt-10 col-5' key={offre._id}>
+      <div className='mt-2 mb-2  mt-2  font' >{offre._id}</div>
+      {
+    offre.user_participee.map((user, key) => {
+            return (
+      <div className='row border' key={user.username}>
+      
         <div className='col-2  mt-2'>
-        <img src={ offre.profile|| file } alt="avatar" className='imgprofile'/>
+        <img src={ user.profile|| file } alt="avatar" className='imgprofile'/>
         </div>
         <div className="col-3  mt-2">
-        <div className='mx-3 col-5'>{offre.username}</div>
+        <div className='mx-3 col-5'>{user.username}</div>
+
         </div>
-        <div className='col-2  mt-2'>{offre.score}
+        <div className='col-2  mt-2'>{user.score}
         </div>
         <div className='col-4'>
           <div className='row'>
@@ -169,9 +165,8 @@ function Recruter(props) {
 
 
 
-    </div>
-    
-    
+    </div>)})
+    }
     
     
     

@@ -151,75 +151,164 @@ router.get("/getalldata/:offreId",async(req,res)=>{
   res.status(200).json(offre.user_participee)
 
 })
-router.get('/offresoffre', async (req, res) => {
+
+
+
+
+
+
+router.get('/offres/:user_id', async (req, res) => {
   try {
-    Offres.find().populate('user_cre').populate('user_participee.user').populate('user_participee.offre').exec((err, offres) => {
-      if (err) {
-        console.log(err);
-      } else {
-        offres.forEach(offre => {
-          console.log(`Offre : ${offre.Offrename}`);
-          offre.user_participee.forEach(postulation => {
-            console.log(`-User : ${postulation.user.username}, Score : ${postulation.score}`);
-          });
-        });
-      }
-    })}catch (err) {
-  res.status(500).json({ message: err.message })
-}})
-
-
-
-router.get('/off', async (req, res) => {
-  try {
-    const off = await 
-    Offres.aggregate([
+    const offres = await Offres.aggregate([
       {
-        // Faire un lookup pour joindre les documents "Postule" correspondants à chaque offre
-        $lookup: {
-          from: "postules",
-          localField: "user_participee",
-          foreignField: "_id",
-          as: "postules"
+        $match: {
+          user_cre: mongoose.Types.ObjectId(req.params.user_id)
         }
       },
       {
-        // Unwind pour dérouler les documents "postules" correspondants à chaque offre
-        $unwind: "$postules"
+        $lookup: {
+          from: 'postules',
+          localField: '_id',
+          foreignField: 'offre',
+          as: 'postules'
+        }
       },
       {
-        // Faire un lookup pour joindre les documents "User" correspondants à chaque postule
+        $unwind: '$postules'
+      },
+      {
+        $lookup: {
+          from: 'users',
+          localField: 'postules.user',
+          foreignField: '_id',
+          as: 'user_participee'
+        }
+      },
+      {
+        $group: {
+          _id: '$_id',
+          Offrename: {
+            $first: '$Offrename'
+          },
+          users: {
+            $push: {
+              username: {
+                $arrayElemAt: ['$user_participee.username', 0]
+              },
+              profile: {
+                $arrayElemAt: ['$user_participee.profile', 0]
+              }
+            }
+          }
+        }
+      },
+      {
+        $project: {
+          _id: 0,
+          Offrename: 1,
+          users: 1
+        }
+      }
+    ]);
+    res.json(offres);
+  } catch (err) {
+    res.status(500).json({
+      message: err.message
+    });
+  }
+});
+
+router.get('/os/:user_id', async (req, res) => {
+  try {
+    const o = await Offres.aggregate([
+      {
+        $match: { user_cre: mongoose.Types.ObjectId(req.params.user_id) }
+      },
+      {
+        $lookup: {
+          from: "postules",
+          localField: "_id",
+          foreignField: "offre",
+          as: "postules"
+        }
+      },
+      { $unwind: "$postules" },
+      {
         $lookup: {
           from: "users",
           localField: "postules.user",
           foreignField: "_id",
-          as: "user"
+          as: "user_participee"
         }
       },
+      { $sort: { "postules.score": -1 } },
       {
-        // Unwind pour dérouler les documents "user" correspondants à chaque postule
-        $unwind: "$user"
-      },
-      {
-        // Trier les documents par score décroissant
-        $sort: { "postules.score": -1 }
-      },
-      {
-        // Projeter les champs nécessaires (Offrename, username et score)
-        $project: {
-          _id: "$postules._id",
-          Offrename: 1,
-          username: "$user.username",
-          score: "$postules.score"
+        $group: {
+          _id: "$Offrename",
+          user_participee: { $push: "$user_participee" }
         }
       }
     ]);
-    res.json(off)} catch (err) {
-  res.status(500).json({ message: err.message })
-}
-})
+    res.json(o);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
+router.get('/osd/:user_id', async (req, res) => {
+  try {
+    const o = await Offres.aggregate([
+      {
+        $match: { user_cre: mongoose.Types.ObjectId(req.params.user_id) }
+      },
+      {
+        $lookup: {
+          from: "postules",
+          localField: "_id",
+          foreignField: "offre",
+          as: "postules"
+        }
+      },
+      { $unwind: "$postules" },
+      {
+        $lookup: {
+          from: "users",
+          localField: "postules.user",
+          foreignField: "_id",
+          as: "user_participee"
+        }
+      },
+      { $sort: { "postules.score": -1 } },
+      {
+        $group: {
+          _id: "$Offrename",
+          user_participee: {
+            $push: {
+              profile: { $arrayElemAt: ["$user_participee.profile", 0] },
+              username: { $arrayElemAt: ["$user_participee.username", 0] },
+              score: "$postules.score",
+            
+            }
+          },
 
+        }
+      },
+      {
+        $project: {
+          _id: 1,
+          user_participee: {
+            profile: 1,
+            username: 1,score:1
+          },
+          
+        }
+      }
+    ]);
+    res.json(o);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
 router.get('/o/:user_id', async (req, res) => {
   try {
@@ -317,6 +406,52 @@ router.route('/addPostule').post(PostuleController.Addpostule);
 router.route('/questionsByOffre/:id').get(OffreController.getQuestionByOffre);
 router.route('/ajoutScore/:id').put(PostuleController.ajoutScore);
 
+router.get('/oss/:user_id', async (req, res) => {
+  try {
+    const o = await Offres.aggregate([
+      {
+        $match: { user_cre: mongoose.Types.ObjectId(req.params.user_id) }
+      },
+      {
+        $lookup: {
+          from: "postules",
+          localField: "_id",
+          foreignField: "offre",
+          as: "postules"
+        }
+      },
+      { $unwind: "$postules" },
+      {
+        $lookup: {
+          from: "users",
+          localField: "postules.user",
+          foreignField: "_id",
+          as: "user_participee"
+        }
+      },
+      { $sort: { "postules.score": -1 } },
+      {
+        $group: {
+          _id: "$Offrename",
+          user_participee: { $push: "$user_participee" }
+        }
+      },
+      {
+        $project: {
+          Offrename: "$_id",
+          "user_participee.username": 1,
+          "user_participee.profile": 1,
+          "user_participee.postules.score": 1,
+           "postules.score": 1,
+          _id: 0
+        }
+      }
+    ]);
+    res.json(o);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
 /***participation formation  ***/
 router.route('/saveFormationParticipant').post(FormationController.SaveparticipationFormation);
