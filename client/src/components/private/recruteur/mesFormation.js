@@ -60,7 +60,6 @@ export default function MesFormation() {
         }
       });
   }
-  console.log(user)
   function getUser(id) {
    
     axios

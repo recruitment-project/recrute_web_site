@@ -1,6 +1,6 @@
 import React, { children , useState } from 'react';
-import {FaTh,FaBars,FaUserAlt,FaShoppingBag,FaThList,} from "react-icons/fa";
-import {AiFillHome} from "react-icons/ai";
+import {FaTh,FaBars,FaUserAlt,FaShoppingBag,FaThList} from "react-icons/fa";
+import {AiFillHome,AiFillFileText} from "react-icons/ai";
 import {TbLogout,TbCertificate} from "react-icons/tb";
 import { NavLink } from 'react-router-dom';
 import logo from "../../assets/logo.png";
@@ -30,6 +30,12 @@ import { useNavigate } from 'react-router-dom';
             path:"/candidat/formation",
             name:"Formation",
             icon:<TbCertificate/>
+        }
+        ,
+        {
+            path:"/candidat/cv",
+            name:"Mon CV",
+            icon:<AiFillFileText/>
         }
         ,
       

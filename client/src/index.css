@@ -658,6 +658,11 @@ overflow-y: scroll;
 #divsub{
     margin-top: 20px;
 }
+#divformation{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
 #contentFormation{
     margin-left: 120px;
 }
@@ -678,7 +683,7 @@ overflow-y: scroll;
   
 
 .AnswerButton{
-margin-left: 80px;
+margin-left: 20px;
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -752,4 +757,75 @@ margin-left: 80px;
  min-width : 300px;
  min-height : 300px;
  
+}
+.cardExperience{
+    background-color: #eeeeee40;
+    border-radius: 25px;
+    margin: 20px;
+    height: auto;
+    padding-top: 2px;
+    overflow: hidden;
+    
+    width: auto;
+    box-shadow: 10px 5px 5px rgb(185, 182, 182);
+    border: 2px solid rgb(185, 182, 182);
+}
+.divdate{
+    margin-left: 50px;
+    margin-top: 5px;
+}
+.divprofile{
+    margin-left: 50px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+#textare{
+    resize : both;
+ min-width : 300px;
+ min-height : 150px;
+}
+.cardcv{
+    background-color: #fff;
+    border-radius: 25px;
+    margin: 16px;
+    height: 83vh;
+    padding-top: 2px;
+    width: auto;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.buttoncv{
+    background-color: #a83c3c;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 500px;
+    margin-top: 10px;
+}
+.buttonajoutexp{
+    background-color: #8b8b8f;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    
+    margin-left: 1000px;
+}
+.divcompetence{
+    background-color: #96ca1b40;
+    border-radius: 25px;
+    margin: 20px;
+    height: auto;
+    padding-top: 2px;
+    overflow: hidden;
+    
+    width: auto;
+    
+    border: 2px solid rgb(185, 182, 182);
+}
+.titrecv{
+    color: rgb(163, 55, 22);
+    margin-left: 50px;
+    font-weight: bold;
+    font-size: 30px;
+    
 }

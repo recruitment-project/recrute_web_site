@@ -24,9 +24,9 @@ export const Addpostule = async (req, res) => {
     try { 
         const user=await User.findById(req.body.user)
         const offre=await Offre.findById(req.body.offre)
-        const Postuleuser=await Postule.findOne({user:req.body.user})
-        const Postuleoffre=await Postule.findOne({offre:req.body.offre})
-        if(Postuleuser && Postuleoffre){
+        const Postuleuser=await Postule.findOne({user:req.body.user,offre:req.body.offre})
+        
+        if(Postuleuser){
             
             res.status(400).json({error:"Vous avez déjà postulé à ce poste"})
         }else{
@@ -56,8 +56,8 @@ export const ajoutScore = async (req, res) => {
         
         
         const Id=req.params.id
-        
-        const postule=await Postule.findOne({offre:Id})
+        const IDuser=req.body.idUser
+        const postule=await Postule.findOne({offre:Id,user:IDuser})
         
         postule.score=req.body.score+"/"+req.body.questions.length
         

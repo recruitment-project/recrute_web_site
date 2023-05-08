@@ -20,7 +20,9 @@ import Details from './components/private/recruteur/detail';
 import DashbordR from './components/private/recruteur/dashbord';
 import ProfileR from './components/auth/profileR';
 import Contact from './components/contact/contact';
-import Home from './components/home/home';
+import Conversion from "../src/components/conversion/Conversion";
+
+// import Home from './components/home/home';
 import Stepper from './components/private/recruteur/stepper';
 import StepperModif from './components/private/recruteur/StepperModif';
 import AjoutFormation from './components/private/recruteur/formation/formulaireFormationAjout';
@@ -40,16 +42,22 @@ import Detailsc from './components/private/condidat/details';
 import Detailsoffre from './components/private/recruteur/detailsoffre';
 import Postuler from './components/private/condidat/postuler/postuler';
 import Quiz from './components/private/condidat/postuler/quiz';
+import CV from './components/private/condidat/cv/cv';
 const router = createBrowserRouter([
     {
         path : '/',
         element : <Username></Username>
     },
-   
+    
     {
-        path : 'home',
-        element : <Home></Home>
+        path :'/conversion',
+        element : <Conversion></Conversion>
     },
+   
+    // {
+    //     path : 'home',
+    //     element : <Home></Home>
+    // },
     {
         path : '/register',
         element : <Register></Register>
@@ -155,6 +163,10 @@ const router = createBrowserRouter([
     {
         path : '/candidat/quiz/:id',
         element : <Quiz></Quiz>
+    },
+    {
+        path : '/candidat/cv',
+        element : <CV></CV>
     },
   
     {

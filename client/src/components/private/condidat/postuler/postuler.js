@@ -168,7 +168,7 @@ export default function Postuler() {
      
       
        <p className=' font-bold'>View your CV:</p>
-            <img src={CV }  alt="CV" onClick={()=>navigate(`/candidat/quiz/${id}`)}/>
+            <img src={CV }  alt="CV" onClick={()=>navigate("/candidat/cv")}/>
            
         </div>
       </div>

@@ -110,7 +110,7 @@ function openModal() {
   document.body.style.overflow = 'hidden';
 }
 
-console.log(chaima)
+
 function openParticiper(id){
   setParticiper(false);
   postuler(id);
@@ -127,14 +127,18 @@ function openParticiper(id){
     })
     .then((willDelete) => {
       if (willDelete){
-      if ( chaima === "repeated" ){
+        console.log(chaima)
+      if ( chaima){
         swal("vous avez postulé à cette formation", {
           icon: "warning",
-       })}
-      else  {
-        swal("Excellent! vous êtes enregistré à participer dans cette formation, nous allons vous appeler plus tôt", {
+       })
+      }
+      else if (!chaima) {
+        swal("Excellent! vous êtes enregistré à participer dans cette formation, nous allons vous appeler plus tôt possible", {
           icon: "success",
         });
+      }else {
+        console.log("error")
       } 
       }})
       
