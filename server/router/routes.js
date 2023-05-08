@@ -12,6 +12,7 @@ import offreModel, { OffreSchema } from "../model/offre.model.js";
 import * as FormationController from '../controllers/formationController.js';
 import Offres from "../model/offre.model.js";
 import * as PostuleController from '../controllers/postuleController.js';
+import * as CVController from '../controllers/cvController.js';
 /** POST Methods */
 router.route('/register').post(controller.register); // register user
 router.route('/registerMail').post(registerMail); // send the email
@@ -173,4 +174,9 @@ router.route('/ajoutScore/:id').put(PostuleController.ajoutScore);
 /***participation formation  ***/
 router.route('/saveFormationParticipant').post(FormationController.SaveparticipationFormation);
 router.route('/getUser/:id').get(FormationController.getUser);
+
+/**CV methods */
+router.route('/saveCV').post(CVController.saveCV);
+router.route('/CV/:id').get(CVController.getCVById);
+router.route('/updateCV/:id').put(CVController.updateCV);
 export default router;

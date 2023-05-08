@@ -40,6 +40,7 @@ import Detailsc from './components/private/condidat/details';
 import Detailsoffre from './components/private/recruteur/detailsoffre';
 import Postuler from './components/private/condidat/postuler/postuler';
 import Quiz from './components/private/condidat/postuler/quiz';
+import CV from './components/private/condidat/cv/cv';
 const router = createBrowserRouter([
     {
         path : '/',
@@ -155,6 +156,10 @@ const router = createBrowserRouter([
     {
         path : '/candidat/quiz/:id',
         element : <Quiz></Quiz>
+    },
+    {
+        path : '/candidat/cv',
+        element : <CV></CV>
     },
   
     {

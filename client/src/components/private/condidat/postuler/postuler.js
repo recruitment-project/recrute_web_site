@@ -35,7 +35,7 @@ export default function Postuler() {
     validateOnBlur: false,
     validateOnChange: true,
     onSubmit : async values => {
-      values = await Object.assign(values,{user:apiData?._id},{offre:offre?._id})
+      values = await Object.assign(values,{user:apiData?._id},{offre:offre?._id},{score:''})
       
         let registerPromise = ajoutPostule(values)
       
@@ -168,7 +168,7 @@ export default function Postuler() {
      
       
        <p className=' font-bold'>View your CV:</p>
-            <img src={CV }  alt="CV" onClick={()=>navigate(`/candidat/quiz/${id}`)}/>
+            <img src={CV }  alt="CV" onClick={()=>navigate("/candidat/cv")}/>
            
         </div>
       </div>
