@@ -4,11 +4,13 @@ import axios from 'axios';
 import SidebarCandidat from '../../../layout/sidebarCondidat';
 import Header from '../../../layout/header.js';
 import toast, { Toaster } from 'react-hot-toast';
+import useFetch from '../../../../hooks/fetch.hook';
 function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [questions, setQuestions] = useState([]);
+  const [{ isLoading, apiData, serverError }] = useFetch();
   const { id } = useParams("");
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -33,10 +35,11 @@ function Quiz() {
   const ajoutScore = async (e) => {
     e.preventDefault();
     try {
-      
+      const idUser=apiData?._id
       await axios.put(`http://localhost:8080/api/ajoutScore/${id}`, {
         score,
         questions,
+        idUser,
       });
       
      

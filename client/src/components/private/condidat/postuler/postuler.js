@@ -35,7 +35,7 @@ export default function Postuler() {
     validateOnBlur: false,
     validateOnChange: true,
     onSubmit : async values => {
-      values = await Object.assign(values,{user:apiData?._id},{offre:offre?._id},{score:''})
+      values = await Object.assign(values,{user:apiData?._id},{offre:offre?._id})
       
         let registerPromise = ajoutPostule(values)
       
