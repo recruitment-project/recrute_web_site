@@ -19,7 +19,7 @@ const Headerr = () => {
          <header className="h">
             <div  style={{height: "10px"}}>
                <div id="headerr-sticky">
-                  <div className="row align-items-center" >
+                  <div className="row align-items-center w-100" >
                      <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-6">
                         <div className="logoo">
                            <Link href="/home">

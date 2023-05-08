@@ -268,49 +268,7 @@ router.get('/o/:user_id', async (req, res) => {
 
 
 
-router.get('/of', async (req, res) => {
-  try {
-    const o = await Postule.aggregate([
-  // Recherche de tous les postules avec leurs offres correspondantes
-  {
-    $lookup: {
-      from: "offres",
-      localField: "offre",
-      foreignField: "_id",
-      as: "offre_participee"
-    }
-  },
-  // Déplier les résultats pour avoir un postule par ligne
-  {
-    $unwind: "$offre_participee"
-  },
-  // Ajouter les informations de l'utilisateur correspondant à chaque postule
-  {
-    $lookup: {
-      from: "users",
-      localField: "user",
-      foreignField: "_id",
-      as: "user"
-    }
-  },
-  // Déplier les résultats pour avoir un postule par ligne
-  {
-    $unwind: "$user"
-  },
-  // Projet pour ne garder que les informations souhaitées
-  {
-    $project: {
-      _id: 0,
-      "offre_participee.Offrename": 1,
-      "offre_participee.user_participee": 1,
-      "utilisateur.username": 1,
-      score: 1
-    }
-  }
-]);res.json(o)} catch (err) {
-  res.status(500).json({ message: err.message })
-}
-})
+
 router.get('/offres', async (req, res) => {
   try {
     const offres = await Offres.find().populate('user_cre').populate('user_participee')

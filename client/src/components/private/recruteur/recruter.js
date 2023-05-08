@@ -153,7 +153,7 @@ function Recruter(props) {
         <div className="col-3  mt-2">
         <div className='mx-3 col-5'>{offre.username}</div>
         </div>
-        <div className='col-2  mt-2'>score
+        <div className='col-2  mt-2'>{offre.score}
         </div>
         <div className='col-4'>
           <div className='row'>
