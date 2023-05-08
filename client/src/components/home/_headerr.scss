@@ -1,9 +1,18 @@
 /*----------------------------------------*/
 /*  02. HEADER CSS START
 /*----------------------------------------*/
+.h{
+    background-color: transparent;
+    height: 70px;
+}
+.hea{
+    color: #292151;
+}
+#mobile-menu ul li:hover{
+    color: rgba(8, 0, 42, 0.08);
+}
 
-
-.header{
+.headerr{
     &__area{
         position: fixed;
   
@@ -13,18 +22,17 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: $white;
-            z-index: 99;
+            z-index: 500;
             animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;
             -webkit-animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;
             display: block;
-            @include box-shadow(0px 10px 20px 0px rgba(8, 0, 42, 0.08));
+            
         }
     }
     &__login{
         & a{
             font-size: 14px;
-            color: $black;
+            color: black;
             font-weight: 500;
             padding-right: 15px;
             margin-right: 7px;
@@ -35,18 +43,16 @@
                 content: '';
                 right: 0;
                 top: 50%;
-                @include transform(translateY(-50%));
+                transition: transform(translateY(-50%));
                 width: 2px;
                 height: 18px;
-                background: $border;
+                background: border;
             }
             & i{
                 padding-right: 5px;
                 font-size: 18px;
             }
-            &:hover{
-                color: $m-blue;
-            }
+            
         }
         &-2{
             & a{
@@ -63,7 +69,7 @@
     &__register{
         & a{
             font-size: 14px;
-            color: $black;
+            color: black;
             font-weight: 500;
             padding-right: 15px;
             margin-right: 6px;
@@ -74,9 +80,7 @@
                 padding-right: 5px;
                 font-size: 18px;
             }
-            &:hover{
-                color: $m-blue;
-            }
+           
             
         }
     }
@@ -84,7 +88,7 @@
 }
 
 
-.header-transparent {
+.headerr-transparent {
     position: absolute;
     z-index: 11;
     left: 0;
@@ -93,34 +97,34 @@
     margin-top: 18px;
     box-shadow: none;
   }
-  .header-transparent .sidebar-toggle-bttn .line {
+  .headerr-transparent .sidebar-toggle-bttn .line {
     background-color: #fff;
   }
-  .header-transparent.sticky {
+  .headerr-transparent.sticky {
     background: #0E032E;
     margin-top: 0px;
   }
-  .header-transparent .mainn-menu ul li a {
-    color: #fff;
+  .headerr-transparent .mainn-menu ul li a {
+    color: #292151;
   }
-  .header-transparent .mainn-menu ul li a::after,
-  .header-transparent .mainn-menu ul li.active > a::after {
-    color: #fff;
+  .headerr-transparent .mainn-menu ul li a::after,
+  .headerr-transparent .mainn-menu ul li.active > a::after {
+    color: grey;
   }
-  .header-transparent .mainn-menu nav > ul > li.active > a,.header-transparent .mainn-menu nav > ul > li:hover > a {
-    color: #fff;
+  .headerr-transparent .mainn-menu nav > ul > li.active > a,.headerr-transparent .mainn-menu nav > ul > li:hover > a {
+    color: grey;
   }
-  .header-transparent .mainn-menu > nav > ul > li.menu-item-has-children > a::after {
-    color: #fff;
+  .headerr-transparent .mainn-menu > nav > ul > li.menu-item-has-children > a::after {
+    color: grey;
   }
-  .header-transparent .mainn-menu > nav > ul > li.menu-item-has-children.active > a::after {
-    color: #fff;
+  .headerr-transparent .mainn-menu > nav > ul > li.menu-item-has-children.active > a::after {
+    color: grey;
     opacity: .7;
   }
-  .header-transparent .header__login a {
+  .headerr-transparent .headerr__login a {
     color: #fff;
   }
-  .header-transparent .header__cart a {
+  .headerr-transparent .headerr__cart a {
     color: #fff;
   }
 
@@ -140,7 +144,7 @@
             & a{
                 font-size: 14px;
                 text-transform: capitalize;
-                color: $body-text-color;
+                color: blue;
                 font-weight: 500;
                 display: inline-block;
                 padding: 20px 0;
@@ -155,26 +159,26 @@
                         content: '\f107';
                         right: 0;
                         top: 50%;
-                        @include transform(translateY(-50%));
-                        font-family: $fontawesome;
+                        transition: transform(translateY(-50%));
+                        
                         font-size: 14px;
-                        color: $black;
+                        color: black;
                     }
                 }
             }
             &.active{
                 & > a{
-                    color: $m-blue;
+                    color: grey;
                     &::after{
-                        color: $m-blue;
+                        color: grey;
                     }
                 }
             }
             &:hover{
                 & > a{
-                    color: $m-blue;
+                    color: grey;
                     &::after{
-                        color: $m-blue;
+                        color: grey;
                     }
                 }
                 & .submenu{
@@ -190,10 +194,10 @@
                 width: 400px;
                 padding: 17px 0;
                 padding-bottom: 25px;
-                background: $white;
-                @include box-shadow(0px 10px 20px 0px rgba(8, 0, 42, 0.08));
-                @include transition(.3s);
-                @include border-radius(6px);
+                background: white;
+                box-shadow:0px 10px 20px 0px rgba(8, 0, 42, 0.08);
+                transition:.3s;
+                border-radius:6px;
                 visibility: hidden;
                 opacity: 0;
                 z-index: 1;
@@ -205,17 +209,17 @@
                         display: block;
                         padding: 3px 30px;
                         text-transform: capitalize;
-                        color: $body-text-color;
+                        color: body-text-color;
                         font-weight: 500;
                         position: relative;
                         &::after{
                             right: 30px;
-                            @include transform(translateY(-50%) rotate(-90deg));
+                            transition: transform(translateY(-50%) rotate(-90deg));
                         }
                     }
                     &:hover{
                         & > a{
-                            color: $m-blue;
+                            color: white;
                             &::before{
                                 height: 100%;
                                 bottom: auto;
@@ -247,7 +251,7 @@
     & .line{
         width: 30px;
         height: 3px;
-        background-color: $m-blue;
+        background-color: white;
         display: block;
         margin: 6px auto;
         -webkit-transition: all 0.3s ease-in-out;
@@ -282,7 +286,7 @@
         height: 100%;
         background: #1b133f  none repeat scroll 0 0;
         overflow-y: scroll;
-        @include box-shadow(-5px 0 20px -5px rgba(0, 0, 0, 0.5));
+        box-shadow:-5px 0 20px -5px rgba(0, 0, 0, 0.5);
         -webkit-transition: all .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
         -moz-transition: all .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
         transition: all .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
@@ -307,20 +311,20 @@
                 text-align: center;
                 width: 50%;
                 & .nav-link{
-                    color: $white;
+                    color: white;
                     background-color: transparent;
                     border: none;
                     font-size: 16px;
                     font-weight: 700;
                     text-transform: uppercase;
-                    @include border-radius(0);
+                    border-radius:0;
                     border-bottom: 2px solid transparent;
                     &.active{
                         background: #1b133f;
                     }
                     &:hover{
-                        background: $white;
-                        color: $black;
+                        background: white;
+                        color: black;
                     }
                 }
             }
@@ -341,7 +345,7 @@
             transform: translateX(-50%);
             justify-content: center;
             align-items: center;
-            color: $white;
+            color: white;
             border: 1px solid #2a3a57;
             border-radius: 50%;
             cursor: pointer;
@@ -398,7 +402,7 @@
     }
     &__info{
         & p{
-            color: $grey;
+            color: grey;
             margin-bottom: 30px;
             line-height: 28px;
             font-size: 14px;
@@ -412,25 +416,25 @@
                 & .icon{
                     & i{
                         line-height: 27px;
-                        color: $grey;
+                        color: grey;
                         margin-right: 15px;
                     }
                 }
                 & .text{
                     & span{
-                        color: $grey;
+                        color: grey;
                         font-weight: 700;
                         & a{
-                            color: $grey;
+                            color: grey;
                         }
                     }
                 }
                 &:hover{
                     & i,
                     & span{
-                        color: $white;
+                        color: white;
                         & a{
-                            color: $white;
+                            color: white;
                         }
                     }
                 }
@@ -444,14 +448,14 @@
             width: 100%;
             height: 50px;
             line-height: 50px;
-            @include border-radius(10px);
+            border-radius:10px;
             border: none;
             outline: none;
             padding: 0 15px;
             background: #292151;
-            color: $grey;
+            color: grey;
             &::placeholder{
-                color: $grey;
+                color: grey;
             }
         }
         & button{
@@ -461,14 +465,14 @@
             height: 50px;
             width: 50px;
             line-height: 50px;
-            color: $grey;
+            color: grey;
             background: transparent;
         }
     }
     &__login{
         & a{
             font-size: 14px;
-            color: $white;
+            color: white;
             font-weight: 500;
             padding-right: 15px;
             margin-right: 15px;
@@ -477,14 +481,14 @@
                 font-size: 18px;
             }
             &:hover{
-                color: $white;
+                color: white;
             }
         }
     }
     &__cart{
         & a{
             font-size: 20px;
-            color: $white;
+            color: white;
             padding-right: 15px;
             margin-right: 15px;
             position: relative;
@@ -498,14 +502,14 @@
                 line-height: 19px;
                 text-align: center;
                 font-size: 14px;
-                color: $black;
-                background: $white;
-                @include border-radius(50%);
+                color: black;
+                background: white;
+                border-radius:50%;
             }
             &:hover{
                 & span{
-                    background: $black;
-                    color: $white;
+                    background: black;
+                    color: white;
                 }
             }
         }
@@ -558,8 +562,8 @@
 	line-height: 44px;
 }
 .mean-containerr .mean-nav ul li a.mean-expand:hover {
-    background: $white;
-    color: $black;
+    background: white;
+    color: black;
 }
 
 .mean-containerr .mean-nav > ul > li:first-child > a{
@@ -569,8 +573,8 @@
 
 
 .mean-containerr .mean-nav ul li a.mean-expand.mean-clicked{
-    background: $white;
-    color: $black;
+    background: white;
+    color: black;
 }
 .mean-containerr .mean-nav ul li a.mean-expand.mean-clicked i{
 	transform: rotate(45deg);
@@ -578,11 +582,11 @@
 	-moz-transform: rotate(45deg);
 	-ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
-    color: $black;
+    color: black;
 }
 
 .h3_menu ul li.has-dropdown > a::after {
-    color: $white;
+    color: white;
 }
 
 
@@ -611,7 +615,7 @@
 .offcanvas {
     background: #1b133f none repeat scroll 0 0;
 }
-.offcanvas-header{
+.offcanvas-headerr{
     padding: 30px;
     padding-bottom: 45px;
 }
@@ -622,7 +626,7 @@
 .offcanvas-body {
     padding:0 30px 30px;
 }
-.offcanvas-header .bttn-close {
+.offcanvas-headerr .bttn-close {
     opacity: 1;
     position: absolute;
     font-size: 18px;
@@ -634,14 +638,15 @@
     border: 1px solid #2a3a57;
     border-radius: 50%;
 }
-.offcanvas-header .logoo{
+.offcanvas-headerr .logoo{
     max-width: 200px;
     margin-top: 10px; 
     margin-left: 5px;
-
+    
 }
 .logoo img {
-    max-width: 100px; 
+    max-width: 120px; 
+    height: 70px;
   }
 .side-info {
     width: auto;

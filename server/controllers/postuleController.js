@@ -39,7 +39,10 @@ export const Addpostule = async (req, res) => {
         postule.user=user
         postule.offre=offre
         const insertedpostule = await postule.save();
-        
+        user.offre_participee.push(offre._id)
+  user.save()
+  offre.user_participee.push(user._id)
+  offre.save()
         res.status(201).json(insertedpostule);
     } 
 }catch (error) {

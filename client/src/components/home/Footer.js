@@ -23,7 +23,7 @@ const Footer = () => {
                               </div>
                               <div className="footer__lang">
                                  <span><a href="#">US</a> English</span>
-                                 <span><a href="#">ES</a> Spanish</span>
+                                 <span><a href="#">ES</a> French</span>
                               </div>
                            </div>
                         </div>

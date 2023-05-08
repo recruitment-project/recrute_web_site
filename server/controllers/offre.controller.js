@@ -23,6 +23,14 @@ export const getOffreByUser=async(req,res)=>{
     res.status(200).json(user.offre_cree)
 
 }
+export const getPostulByUser=async(req,res)=>{
+    const Id=req.params.userId
+    const user = await User.findById(Id).populate('offre_participee')
+    console.log(user)
+    res.status(200).json(user.offre_participee)
+
+}
+
 export const saveOffre = async (req, res) => {
     
     try { const user=await User.findById(req.body.user_cre)
