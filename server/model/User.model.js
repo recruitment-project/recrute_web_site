@@ -35,6 +35,7 @@ export const UserSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Formation"
     }],
+
     offre_participee:[{
         type: mongoose.Schema.Types.ObjectId,
         ref:"Postule"

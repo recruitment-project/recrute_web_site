@@ -18,7 +18,7 @@ import Offres from "../model/offre.model.js";
 import Postule from "../model/postule.model.js";
 import UserModel from "../model/User.model.js";
 import * as PostuleController from '../controllers/postuleController.js';
-import * as ImageController from "../controllers/imageController.js";
+import * as CVController from '../controllers/cvController.js';'&';
 /** POST Methods */
 router.route('/register').post(controller.register); // register user
 router.route('/registerMail').post(registerMail); // send the email
@@ -368,10 +368,11 @@ router.route('/ajoutScore/:id').put(PostuleController.ajoutScore);
 router.route('/saveFormationParticipant').post(FormationController.SaveparticipationFormation);
 router.route('/getUser/:id').get(FormationController.getUser);
 
-// Set up storage for uploaded files
-// router.route('/convert').post(ImageController.conversion);
-/** conversion image* */
 
-// router.route('/convert').post(ImageController.conversion);
+
+
+/**CV methods */
+router.route('/saveCV').post(CVController.saveCV);
+router.route('/CV/:id').get(CVController.getCVById);
+router.route('/updateCV/:id').put(CVController.updateCV);
 export default router;
-
