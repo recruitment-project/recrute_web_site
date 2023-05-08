@@ -126,15 +126,16 @@ overflow-y: scroll;
     
 }
 .cardrecut{
+    box-shadow: rgba(88, 90, 89, 0.637) 0px 5px 15px;
     background-color: #fff;
     border-radius: 25px;
     margin: 16px;
     height: 40vh;
     padding-top: 2px;
     width: 97.6%;
-    overflow: hidden;
-    overflow-y: scroll; 
-    border:solid #000 1px;
+    overflow: auto;
+   
+    border:solid #adadad81 1px;
 }
 
    
@@ -324,6 +325,9 @@ overflow-y: scroll;
     padding: 6px;
    
 }
+.accepter:hover{
+    box-shadow: rgba(6, 236, 83, 0.637) 0px 5px 15px;
+}
 .name{
     color: #000;
 
@@ -341,6 +345,12 @@ overflow-y: scroll;
     width: 120px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+.font{
+    font-size: xx-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+    font-style: italic;
+}
 .flexajou{
     justify-content:space-between;
 }
@@ -350,6 +360,9 @@ overflow-y: scroll;
     border-radius: 20px;
     padding: 10px;
     margin: 6px;
+}
+.btnsupprimer:hover{
+    box-shadow: rgba(236, 6, 6, 0.637) 0px 5px 15px;
 }
 /** detail**/
 .border-left{

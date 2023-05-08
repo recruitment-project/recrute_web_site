@@ -145,7 +145,7 @@ function Recruter(props) {
     getoffredata.map((offre, key) => {
             return (
     <div className='cardrecut mt-10 col-5'>
-      <div className='mt-2 mb-2  mt-2 ' >{offre.Offrename}</div>
+      <div className='mt-2 mb-2  mt-2  font' >{offre.Offrename}</div>
       <div className='row border'>
         <div className='col-2  mt-2'>
         <img src={ offre.profile|| file } alt="avatar" className='imgprofile'/>
@@ -158,10 +158,10 @@ function Recruter(props) {
         <div className='col-4'>
           <div className='row'>
           <div className='col-5 mt-2 '>
-            <button className='btn accepter'>accepte</button>   
+            <button className=' accepter'>accepte</button>   
             </div>
             <div className='col-5 mx-2'>
-            <button className='btn btnsupprimer'>refuse</button> 
+            <button className=' btnsupprimer'>refuse</button> 
             </div>
 
     </div>
