@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import logo from '../../assets/logoBlack.png'
 
+
 const Header = () => {
    const [isLoggedIn, setIsLoggedIn] = useState(false);
    // handle sidebar show

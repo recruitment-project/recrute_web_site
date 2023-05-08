@@ -51,21 +51,27 @@ export const saveFormation = async (req, res) => {
 }
 export const SaveparticipationFormation = async (req,res) => {
     try{
+        let bool;
         const user=await User.findById(req.body.participant);
-        const formation = await Formation.findById(req.body.formation_participee);   
-        const postuleFormation=await User.findOne({formation_participee:req.body.formation_participee}) ;
-        const postuleUser=await Formation.findOne({participant:req.body.participant}) ;
-        if(postuleFormation==formation && postuleUser == user){ 
-        res.status(201).json("repeated")
-        }else{
+        const formation = await Formation.findById(req.body.formation_participee);  
+    for(let i=0; i<formation.participant.length; i++){
+        if(formation.participant[i].equals(user._id))
+          bool=true;
+          
+        else bool = false;
+        
+    }
+      if(!bool) {
             formation.participant.push(user._id);
             user.formation_participee.push(formation._id);
             formation.save();
             user.save();
-            res.status(201).json("success"); 
+            res.send(bool); 
+        }else {
+            res.send(bool)
         }
-        
-    }catch(error){
+    }
+       catch(error){
         res.status(400).json(error);
     }
 }

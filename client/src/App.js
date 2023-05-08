@@ -21,6 +21,7 @@ import DashbordR from './components/private/recruteur/dashbord';
 import ProfileR from './components/auth/profileR';
 import Contact from './components/contact/contact';
 // import Home from './components/home/home';
+import Conversion from "../src/components/conversion/Conversion";
 import Stepper from './components/private/recruteur/stepper';
 import StepperModif from './components/private/recruteur/StepperModif';
 import AjoutFormation from './components/private/recruteur/formation/formulaireFormationAjout';
@@ -45,10 +46,11 @@ const router = createBrowserRouter([
         path : '/',
         element : <Username></Username>
     },
-    // {
-    //     path : '/home',
-    //     element : <Home></Home>
-    // },
+    
+    {
+        path :'/conversion',
+        element : <Conversion></Conversion>
+    },
    
     {
         path : '/register',

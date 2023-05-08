@@ -272,3 +272,4 @@ export async function resetPassword(req,res){
         return res.status(401).send({ error })
     }
 }
+
