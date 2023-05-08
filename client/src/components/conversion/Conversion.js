@@ -3,24 +3,15 @@ import axios from 'axios';
 import styles from "../../styles/conversion.module.css";
 import images from "../../assets/images/CVV.png";
 import useFetch from '../../hooks/fetch.hook';
+import {useAuthStore} from '../../store/store';
 function Conversion() {
 const [state, setState] = useState(false);
 const [texte, setTexte] = useState("");
 const  [url, setUrl] = useState("");
-const [user, setUser] = useState({});
-const [{apiData}] = useFetch();
-console.log(apiData?.id)
-function getAllFormations() {
-  axios
-    .post(`http://localhost:8080/api/user/${apiData.id}`)
-    .then((res) => {
-      if (res.data === "ERROR") {
-        console.log("error !");
-      } else {
-        setFormations(res.data); 
-      }
-    });
-  }
+const { username } = useAuthStore(state => state.auth)
+const [{ isLoading, apiData, serverError }] = useFetch(`/user/${username}`)
+console.log(apiData?.username)
+
   
   return (
     <div>

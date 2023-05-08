@@ -3,7 +3,7 @@ import User from "../model/User.model.js";
 export const getCVById = async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
-        const cv = await CV.findById(user.cv);
+        const cv = await CV.findOne(user.cv);
         res.json(cv);
     } catch (error) {
         res.status(404).json({message: error.message});
