@@ -80,36 +80,36 @@ let manth=new Date(getuserdata.updatedAt).getDate();
   <div className='marg mt-6 '>{date}</div>
   </div>
   <div className='f mt-12' >
-  <div className='flex'>
+  <div className='flex mb-4'>
     <div className='mx-3 name'>Offre name</div>
   <div className='mx-3'> 
   {getuserdata.Offrename}
   </div>
   </div>
-  <div className='flex'>
+  <div className='flex  mb-4'>
     <div className='mx-3 name'>ITdomain</div>
   <div className='mx-3'> 
   {getuserdata.ITdomain}
   </div></div>
-  <div className='flex'>
+  <div className='flex  mb-4'>
     <div className='mx-3 name'>City</div>
    <div className='mx-3 '> 
   {getuserdata.City}
   </div>
   </div>
-  <div className='flex'>
+  <div className='flex  mb-4'>
     <div className='mx-3 name'>Time</div>
     <div className='mx-3'> 
      {getuserdata.Temp}
     </div>
   </div>
-  <div className='flex'>
+  <div className='flex  mb-4'>
     <div className='mx-3 name'>Skill</div>
  <div className=' mx-3'> 
   {getuserdata.Competance}
   </div>
   </div>
-  <div className='flex'>
+  <div className='flex  mb-4'>
     <div className='mx-3 name'>Details</div>
    <div className='mx-3'> 
   {getuserdata.DescriptionDetail}

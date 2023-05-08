@@ -398,7 +398,7 @@ export default function Stepper(){
     <div className='cardMesoffre '>
     <div className="App">
       <StepNavigation labelArray={labelArray} currentStep={currentStep} updateStep={updateStep}></StepNavigation>
-      <div className='borderformul'>
+      <div className=''>
 
       <form className="upe-mutistep-form " id="Upemultistepsform" action="" >
 

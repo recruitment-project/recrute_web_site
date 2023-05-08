@@ -80,30 +80,37 @@ let manth=new Date(getuserdata.updatedAt).getDate();
   <div className='marg mt-6 '>{date}</div>
   </div>
   <div className='f mt-12' >
- 
+  <div className='flex'>
+    <div className='mx-3 name'>Offre name</div>
   <div className='mx-3'> 
   {getuserdata.Offrename}
   </div>
-  <div className='mx-3'> 
-  {getuserdata.ITdomain}
-  </div>
-   <div className='mx-3'> 
-  {getuserdata.City}
   </div>
   <div className='flex'>
-    <div className='mx-3'>temp</div>
+    <div className='mx-3 name'>ITdomain</div>
+  <div className='mx-3'> 
+  {getuserdata.ITdomain}
+  </div></div>
+  <div className='flex'>
+    <div className='mx-3 name'>City</div>
+   <div className='mx-3 '> 
+  {getuserdata.City}
+  </div>
+  </div>
+  <div className='flex'>
+    <div className='mx-3 name'>Time</div>
     <div className='mx-3'> 
      {getuserdata.Temp}
     </div>
   </div>
   <div className='flex'>
-    <div className='mx-3'>competance</div>
+    <div className='mx-3 name'>Skill</div>
  <div className=' mx-3'> 
   {getuserdata.Competance}
   </div>
   </div>
   <div className='flex'>
-    <div className='mx-3'>a propo de l'offre</div>
+    <div className='mx-3 name'>Details</div>
    <div className='mx-3'> 
   {getuserdata.DescriptionDetail}
   </div>
@@ -142,8 +149,8 @@ let manth=new Date(getuserdata.updatedAt).getDate();
        
        <footer className='footer'> <div className='groupbtn'>
        <Button  className='btn2 px-2' type='submit' onClick={()=>navigate('/candidat/offre')}>return</Button>
-       
-         <Button  className='btn3' type='submit'>postuler</Button>
+  
+         <Button  className='btn3' type='submit' onClick={()=>navigate(`/candidat/postuler/${id}`)}>postuler</Button>
          </div></footer>
      </div>
  

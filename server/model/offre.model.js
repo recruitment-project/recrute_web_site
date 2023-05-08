@@ -13,6 +13,10 @@ export const OffreSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },
+        user_participee:[{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Postule"
+        }],
         questions: [{
             question: { type: String, required: true },
             options0: { type: String, required: true },

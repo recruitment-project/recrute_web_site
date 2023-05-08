@@ -23,7 +23,7 @@ h1.headingg {
     background-color: #fff;
     padding: 55px;
     transition: .4s ease;
-    height: 590px;
+    height: 400px;
  }
 
  .service__box:hover {
@@ -32,11 +32,10 @@ h1.headingg {
  }
 
  .service__box:hover .iconn {
-    color: #fff;
- }
+    color: #fff; }
 
- .service__box:hover p.service__text .p__color {
-          color: #fff !important;
+ .p:hover, .service__text:hover, .p__color:hover, .service__meta:hover {
+          color: #fff;
  }
 
  .iconn {

@@ -6,6 +6,7 @@ import path from "path";
 
 /** import all controllers */
 import * as controller from '../controllers/appController.js';
+import mongoose from 'mongoose';
 import { registerMail } from '../controllers/mailer.js'
 import {resetMail} from '../controllers/resetmailer.js'
 import Auth, { localVariables } from '../middleware/auth.js';
@@ -14,6 +15,8 @@ import * as OffreController from'../controllers/offre.controller.js';
 import offreModel, { OffreSchema } from "../model/offre.model.js";
 import * as FormationController from '../controllers/formationController.js';
 import Offres from "../model/offre.model.js";
+import Postule from "../model/postule.model.js";
+import UserModel from "../model/User.model.js";
 import * as PostuleController from '../controllers/postuleController.js';
 import * as ImageController from "../controllers/imageController.js";
 /** POST Methods */
@@ -123,7 +126,16 @@ router.get("/getdata",async(req,res)=>{
       res.status(422).json(error);
   }
 })
+router.get("/getalldata",async(req,res)=>{
+  try {  const userdata = await offreModel.find().populate(' user_participee');
+      const offredata = await UserModel.find().populate('offre_participee');
 
+      res.status(201).json(offredata,userdata)
+      console.log(offredata,userdata);
+  } catch (error) {
+      res.status(422).json(error);
+  }
+})
 router.get("/getdata/:userId",async(req,res)=>{
   const Id=req.params.userId
   const user=await User.findById(Id).populate('offre_cree')
@@ -134,7 +146,183 @@ router.get("/getdata/:userId",async(req,res)=>{
 
 
 
+/**postuler */
+router.get("/getalldata/:offreId",async(req,res)=>{
+  const Id=req.params.offreId
+  const offre=await Offres.findById(Id).populate('user_participee')
 
+  console.log(offre);
+  res.status(200).json(offre.user_participee)
+
+})
+router.get('/offresoffre', async (req, res) => {
+  try {
+    Offres.find().populate('user_cre').populate('user_participee.user').populate('user_participee.offre').exec((err, offres) => {
+      if (err) {
+        console.log(err);
+      } else {
+        offres.forEach(offre => {
+          console.log(`Offre : ${offre.Offrename}`);
+          offre.user_participee.forEach(postulation => {
+            console.log(`-User : ${postulation.user.username}, Score : ${postulation.score}`);
+          });
+        });
+      }
+    })}catch (err) {
+  res.status(500).json({ message: err.message })
+}})
+
+
+
+router.get('/off', async (req, res) => {
+  try {
+    const off = await 
+    Offres.aggregate([
+      {
+        // Faire un lookup pour joindre les documents "Postule" correspondants à chaque offre
+        $lookup: {
+          from: "postules",
+          localField: "user_participee",
+          foreignField: "_id",
+          as: "postules"
+        }
+      },
+      {
+        // Unwind pour dérouler les documents "postules" correspondants à chaque offre
+        $unwind: "$postules"
+      },
+      {
+        // Faire un lookup pour joindre les documents "User" correspondants à chaque postule
+        $lookup: {
+          from: "users",
+          localField: "postules.user",
+          foreignField: "_id",
+          as: "user"
+        }
+      },
+      {
+        // Unwind pour dérouler les documents "user" correspondants à chaque postule
+        $unwind: "$user"
+      },
+      {
+        // Trier les documents par score décroissant
+        $sort: { "postules.score": -1 }
+      },
+      {
+        // Projeter les champs nécessaires (Offrename, username et score)
+        $project: {
+          _id: "$postules._id",
+          Offrename: 1,
+          username: "$user.username",
+          score: "$postules.score"
+        }
+      }
+    ]);
+    res.json(off)} catch (err) {
+  res.status(500).json({ message: err.message })
+}
+})
+
+
+
+router.get('/o/:user_id', async (req, res) => {
+  try {
+    const o = await Offres.aggregate([
+      {
+        $match: {
+          user_cre: mongoose.Types.ObjectId(req.params.user_id)
+        }
+      },
+  {
+    $lookup: {
+      from: "postules",
+      localField: "_id",
+      foreignField: "offre",
+      as: "postules"
+    }
+  },
+  {
+    $unwind: "$postules"
+  },
+  {
+    $lookup: {
+      from: "users",
+      localField: "postules.user",
+      foreignField: "_id",
+      as: "user_participee"
+    }
+  },{
+    $sort: {
+      "postules.score": -1
+    } },
+  {
+    $project: {
+      _id: 0,
+      Offrename: 1,
+      username: "$user_participee.username",
+      profile: "$user_participee.profile", 
+      score: "$postules.score"
+    }
+  }
+  
+]);res.json(o)} catch (err) {
+  res.status(500).json({ message: err.message })
+}
+})
+
+
+
+router.get('/of', async (req, res) => {
+  try {
+    const o = await Postule.aggregate([
+  // Recherche de tous les postules avec leurs offres correspondantes
+  {
+    $lookup: {
+      from: "offres",
+      localField: "offre",
+      foreignField: "_id",
+      as: "offre_participee"
+    }
+  },
+  // Déplier les résultats pour avoir un postule par ligne
+  {
+    $unwind: "$offre_participee"
+  },
+  // Ajouter les informations de l'utilisateur correspondant à chaque postule
+  {
+    $lookup: {
+      from: "users",
+      localField: "user",
+      foreignField: "_id",
+      as: "user"
+    }
+  },
+  // Déplier les résultats pour avoir un postule par ligne
+  {
+    $unwind: "$user"
+  },
+  // Projet pour ne garder que les informations souhaitées
+  {
+    $project: {
+      _id: 0,
+      "offre_participee.Offrename": 1,
+      "offre_participee.user_participee": 1,
+      "utilisateur.username": 1,
+      score: 1
+    }
+  }
+]);res.json(o)} catch (err) {
+  res.status(500).json({ message: err.message })
+}
+})
+router.get('/offres', async (req, res) => {
+  try {
+    const offres = await Offres.find().populate('user_cre').populate('user_participee')
+    res.json(offres)
+  } catch (err) {
+    res.status(500).json({ message: err.message })
+  }
+})
 // get individual offre
 
 router.get("/getoffre/:id",async(req,res)=>{
@@ -158,6 +346,8 @@ router.route('/saveoffre').post(OffreController.saveOffre);
 router.route('/offre/:id').patch(OffreController.updateOffre);
 router.route('/offre/:id').delete(OffreController.deleteOffre);
 
+/**postuler */
+router.route('/postuleByUser/:userId').get(OffreController.getPostulByUser);
 
 /**Formation methods */
 router.route('/formations').post(FormationController.getFormations);
