@@ -44,7 +44,7 @@ const Headerr = () => {
                                     <Link href="#Services"  >Services</Link>     
                                  </li>
                                  <li className="hea"><Link href="/contact" >Contact</Link></li>
-                                 <li className="hea"><Link href="" >Tips</Link></li>
+                                 <li className="hea"><Link href="/page_conseil" >Conseil</Link></li>
                                  <li className="hea"><Link href="#About">About</Link></li>
                               </ul>
                            </nav>
