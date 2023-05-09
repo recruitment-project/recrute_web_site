@@ -18,7 +18,7 @@ export async function getCV(id){
         return (data)
     } catch (error) {
         
-        return { error : "Password doesn't Match...!"}
+        return { error : "cv not valide...!"}
         
         
     }

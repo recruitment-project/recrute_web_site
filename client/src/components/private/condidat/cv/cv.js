@@ -29,12 +29,13 @@ export default function CV() {
   const [ajoutCompetence, setajoutCompetence] = React.useState(0);
   const [{ isLoading, apiData, serverError }] = useFetch();
   // const id=apiData?._id;
-  //const [cv, setCV] = getCV(id);
+  const [cv, setCV] = getCV();
+  //console.log(cv.telephone)
   const formik = useFormik({
     initialValues : {
       prenom:apiData?.firstName || '',
       nom:apiData?.lastName || '',
-      telephone:"",
+      telephone:cv?.telephone||"",
       mission:"",
       gmail:apiData?.email || '',
       linkedin:"",
