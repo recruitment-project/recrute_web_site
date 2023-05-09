@@ -9,6 +9,7 @@ export const getCVById = async (req, res) => {
         res.status(404).json({message: error.message});
     }
 }
+
 export const saveCV = async (req, res) => {
     
     try { const user=await User.findById(req.body.user)

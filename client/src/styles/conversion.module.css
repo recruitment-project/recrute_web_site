@@ -1,15 +1,135 @@
-.text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: black;
-    font-size: 24px;
-    font-family: Arial, sans-serif;
-  }
-
+.img{
+  position:absolute;
+  top:93%;
+  left:60%; 
+  height:55px;
+  width:100%;
+  background-color: red;
+  border-radius:20px;
+  color:white;
+  font-weight:bold
+}
+.h1{
+   color: rgb(99, 99, 99);
+   font-weight: bold;
+   position: absolute;
+   top: 8%;
+   left: 8%;
+   font-weight: bold;
+   font-size: 20px;
+   text-transform: uppercase;
+}
+.imageprofile{
+  position: absolute;
+  top: -52%;
+  left: 30%;
+  border-radius: 50%;
+}
+.mission{
+  color: rgb(99, 99, 99);
+  font-weight: bold;
+  position: absolute;
+  top: 13%;
+  left: 22%;
+  font-weight: normal;
+  font-size: 18px;
+}
+.img1{
+  position:absolute;
+  top:93%;
+  left:20%; 
+  height:55px;
+  background:purple;
+  width:150px;
+  padding:20px;
+  border-radius:20px;
+  color:white;
+  font-weight:bold
+}
   
-  
+.profile{
+  color: rgb(99, 99, 99);
+  font-weight: bold;
+  position: absolute;
+  top: 26%;
+  left: 6%;
+  font-weight: normal;
+  font-size: 10px;
+  width: 230px;
+}
+.gmail{
+  color: rgb(99, 99, 99);
+  font-weight: bold;
+  position: absolute;
+  top: 31.8%;
+  left: 70%;
+  font-weight: normal;
+  font-size: 8px;
+}
+.phone{
+  color: rgb(99, 99, 99);
+  font-weight: bold;
+  position: absolute;
+  top: 26%;
+  left: 70%;
+  font-weight: normal;
+  font-size: 13px;
+}
+.linkedin{
+  color: rgb(99, 99, 99);
+  font-weight: bold;
+  position: absolute;
+  top: 36.5%;
+  left: 71%;
+  font-weight: normal;
+  font-size: 10px;
+}
+.adress{
+    color: rgb(99, 99, 99);
+  font-weight: bold;
+  position: absolute;
+  top: 42%;
+  left: 71%;
+  font-weight: normal;
+  font-size: 10px;
+}
+.langue{
+  color: rgb(99, 99, 99);
+font-weight: bold;
+position: absolute;
+top: 53%;
+left: 70%;
+font-weight: normal;
+font-size: 10px;
+}
+.experience{
+  color: rgb(99, 99, 99);
+  font-weight: bold;
+  position: absolute;
+  top: 47%;
+  left: 5%;
+  font-weight: normal;
+  font-size: 10px;
+  width: 300px;
+}
+.competence{
+  color: rgb(99, 99, 99);
+  font-weight: bold;
+  position: absolute;
+  top: 71%;
+  left: 70%;
+  font-weight: normal;
+  font-size: 10px;
+}
+.formation{
+  color: rgb(99, 99, 99);
+  font-weight: bold;
+  position: absolute;
+  top: 70%;
+  left: 7%;
+  font-weight: normal;
+  font-size: 10px;
+}
   
   
   
