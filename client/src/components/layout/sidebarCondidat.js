@@ -5,7 +5,6 @@ import {TbLogout,TbCertificate} from "react-icons/tb";
 import { NavLink } from 'react-router-dom';
 import logo from "../../assets/logo.png";
 import { useNavigate } from 'react-router-dom';
-
  function SidebarCandidat ( {children}){
     const [isOpen, setIsOpen]=useState(false);
     const toggle=()=>setIsOpen(!isOpen);
@@ -30,14 +29,12 @@ import { useNavigate } from 'react-router-dom';
             path:"/candidat/formation",
             name:"Formation",
             icon:<TbCertificate/>
-        }
-        ,
+        },
         {
             path:"/candidat/cv",
             name:"Mon CV",
             icon:<AiFillFileText/>
-        }
-        ,
+        },
       
         {
             path:"/candidat/profile",
@@ -66,6 +63,7 @@ import { useNavigate } from 'react-router-dom';
                         
                     ))
                 }
+               
                 <div className='Logout'>
                    
                     <NavLink to="/" className='link flex ' activeclassName="active" >

@@ -35,6 +35,7 @@ export default function CV() {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   // const id=apiData?._id;
   const [cv, setCV] = getCV();
+
   const [cvs, setCv] = React.useState([]);
   //console.log(cv.telephone)
   console.log(cvs)
@@ -55,12 +56,13 @@ export default function CV() {
       transform: 'translate(-50%, -50%)',
       width: '30%',
       overflow: "hidden",
-      height: "35rem"
+      height: "35rem",
     },
     overlay: {
       backgroundColor: 'rgba(0, 0, 0, 0.5)'
     },
   };
+
   const formik = useFormik({
     initialValues : {
       prenom:apiData?.firstName || '',
@@ -490,13 +492,13 @@ function getCvClient (){
                           onRequestClose={closeModal}
                           style={customStyles}
                         >
-                          <img src ={images} style={{width:"100%", height: "100%",position:"absolute", left:"0", top:"0", bottom:"0"}}/>
+                          <img src ={images} style={{width:"95%", height: "95%",position:"absolute", left:"3%", top:"3%", bottom:"0"}}/>
                           <h1 className={styless.h1}>{apiData?.firstName}   &nbsp;{apiData?.lastName}</h1>
                           <h2 className={styless.mission}>{cvs.mission}</h2>
                           <img src={apiData?.profile} style={{position:"absolute", left:"73%",top:"5%", width:"67px", borderRadius:"50%", height:"67px"}} />
                           <h2 className={styless.profile}>{cvs.profile}</h2>
                               <h2 className={styless.gmail}>{apiData?.email}</h2>
-                              <h2 className={styless.phone}>{apiData?.mobile}</h2>
+                              <h2 className={styless.phone}>{cvs.telephone}</h2>
                               <h2 className={styless.linkedin}>{cvs.linkedin}</h2>
                               <h2 className={styless.adress}>{cvs.adress}</h2>
                               <h2 className={styless.langue}>{cvs.langue}</h2>    

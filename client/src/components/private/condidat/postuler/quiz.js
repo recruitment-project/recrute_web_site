@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import SidebarCandidat from '../../../layout/sidebarCondidat';
 import Header from '../../../layout/header.js';
@@ -12,6 +13,7 @@ function Quiz() {
   const [questions, setQuestions] = useState([]);
   const [{ isLoading, apiData, serverError }] = useFetch();
   const { id } = useParams("");
+  const navigate = useNavigate()
   useEffect(() => {
     const fetchQuestions = async () => {
       const res = await axios.get(`/api/questionsByOffre/${id}`);
@@ -43,7 +45,7 @@ function Quiz() {
       });
       
      
-      toast.success('Votre demande à été envoyer!');
+      navigate(`/candidat/offre`)
   
     
     } catch (error) {
