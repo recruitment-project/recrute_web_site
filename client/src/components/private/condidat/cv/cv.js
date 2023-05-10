@@ -38,7 +38,6 @@ export default function CV() {
 
   const [cvs, setCv] = React.useState([]);
   //console.log(cv.telephone)
-  console.log(cvs)
   function openModal() {
     setIsOpen(true);
     document.body.style.overflow = 'hidden';
